@@ -1,0 +1,29 @@
+{
+  "id": "GPTQ",
+  "group": "3a",
+  "reading_note": "面向大模型的训练后权重量化。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+  "url": "https://arxiv.org/abs/2210.17323",
+  "arxiv_id": "2210.17323",
+  "snapshot": "3a_低精度_算子_编译优化/GPTQ.source.html",
+  "authors": [
+    "Frantar, Elias",
+    "Ashkboos, Saleh",
+    "Hoefler, Torsten",
+    "Alistarh, Dan"
+  ],
+  "date": "2022/10/31",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2210.17323",
+  "pdf_status": "downloaded",
+  "pdf_file": "3a_低精度_算子_编译优化/GPTQ.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2210.17323",
+  "bytes": 521818,
+  "sha256": "35e339171cd48bbf8dda246bd018b11aa33a5cda0c4a1587cdae574208f56396",
+  "pages": 16
+}

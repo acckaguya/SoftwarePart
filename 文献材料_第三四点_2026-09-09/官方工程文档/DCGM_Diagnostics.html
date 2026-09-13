@@ -1,0 +1,3679 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>DCGM Diagnostics &#8212; NVIDIA DCGM Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=a95f357e85573c9b56d5" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/nvidia-sphinx-theme.css?v=933278ad" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css?v=b47e5c9d" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom-table.css?v=23330fe5" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom-signame.css?v=29b22c67" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=a95f357e85573c9b56d5"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5" />
+
+
+
+    <script src="../_static/documentation_options.js?v=c6e86fd7"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=529101c1"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/dcgm-diagnostics';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/js/google-analytics/google-analytics-tracker.js"></script>
+    <script src="../_static/js/google-analytics/google-analytics-write.js"></script>
+    <script src="../_static/switchers.js?v=f4abc38f"></script>
+    <script src="//assets.adobedtm.com/b92787824f2e0e9b68dc2e993f9bd995339fe417/satelliteLib-7ba51e58dc61bcb0e9311aadd02a0108ab24cc6c.js"></script>
+
+    <link rel="canonical" href="https://docs.nvidia.com/datacenter/dcgm/user-guide/dcgm-diagnostics.html" />
+    <link rel="icon" href="../_static/nvidia.ico"/>
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DCGM Multi-Node Diagnostics" href="dcgm-multinode-diagnostics.html" />
+    <link rel="prev" title="Feature Overview" href="feature-overview.html" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="Version: 4.6 (Latest)" />
+    <meta name="docbuild:last-update" content="2026-06-17"/>
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+
+
+  </head>
+
+  <body data-default-mode="">
+
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../contents.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA DCGM Documentation - Home"/>
+    <img src="../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="NVIDIA DCGM Documentation - Home"/>
+  
+  
+    <p class="title logo__title">NVIDIA DCGM Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../contents.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nvidia-logo-horiz-rgb-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA DCGM Documentation - Home"/>
+    <img src="../_static/nvidia-logo-horiz-rgb-wht-for-screen.svg" class="logo__image only-dark pst-js-only" alt="NVIDIA DCGM Documentation - Home"/>
+  
+  
+    <p class="title logo__title">NVIDIA DCGM Documentation</p>
+  
+</a>
+
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Table of Contents">
+  <p class="bd-links__title" role="heading" aria-level="1">Table of Contents</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature-overview.html">Feature Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">DCGM Diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcgm-multinode-diagnostics.html">DCGM Multi-Node Diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcgm-modularity.html">DCGM Modularity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dcgm-error-injection.html">Error Injection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging-and-troubleshooting.html">Debugging and Troubleshooting</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dcgm-api/index.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-admin.html">Administrative</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-system.html">System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-field-apis.html">Field APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-process-stats.html">Process Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-job-stats.html">Job Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-health-mon.html">Health Monitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-policies.html">Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-topo.html">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-metadata.html">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-topology.html">Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-profiling.html">Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-enums.html">Enums and Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-structs.html">Structure Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-field-types.html">Field Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-field-scope.html">Field Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-field-entity.html">Field Entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-field-ids.html">Field Identifiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dcgm-api/dcgm-api-exec-ctrl.html">Execution Control</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../dcgm-api/dcgm-api-data-structs.html">Data Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Release Notes:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../release-notes/changelog.html">DCGM Release Notes</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../contents.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">DCGM Diagnostics</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="dcgm-diagnostics">
+<span id="id1"></span><h1>DCGM Diagnostics<a class="headerlink" href="#dcgm-diagnostics" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>The NVIDIA Validation Suite (NVVS) is now called DCGM Diagnostics. As of DCGM v1.5,
+running NVVS as a standalone utility is now deprecated and all the functionality (including command line options)
+is available via the DCGM command-line utility (‘dcgmi’). For brevity, the rest of the document may use DCGM Diagnostics and NVVS interchangeably.</p>
+<section id="dcgm-diagnostic-goals">
+<h3>DCGM Diagnostic Goals<a class="headerlink" href="#dcgm-diagnostic-goals" title="Link to this heading">#</a></h3>
+<p>DCGM Diagnostics are designed to:</p>
+<ol class="arabic">
+<li><p>Provide a system-level tool, in production environments, to assess cluster
+readiness levels before a workload is deployed.</p></li>
+<li><p>Facilitate multiple run modes:</p>
+<ul class="simple">
+<li><p>Interactive via an administrator or user in plain text.</p></li>
+<li><p>Scripted via another tool with easily parseable output.</p></li>
+</ul>
+</li>
+<li><p>Provide multiple test timeframes to facilitate different preparedness or failure conditions:</p>
+<ul class="simple">
+<li><p>Level 1 tests to use as a readiness metric</p></li>
+<li><p>Level 2 tests to use as an epilogue on failure</p></li>
+<li><p>Level 3 and Level 4 tests to be run by an administrator as post-mortem</p></li>
+</ul>
+</li>
+<li><p>Integrate the following concepts into a single tool to discover deployment, system
+software and hardware configuration issues, basic diagnostics, integration issues, and relative system performance.</p>
+<ul>
+<li><p>Deployment and Software Issues</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>NVML library access and versioning</p></li>
+<li><p>CUDA library access and versioning</p></li>
+<li><p>Software conflicts</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Hardware Issues and Diagnostics</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Pending Page Retirements</p></li>
+<li><p>PCIe interface checks</p></li>
+<li><p>NVLink interface checks</p></li>
+<li><p>Framebuffer and memory checks</p></li>
+<li><p>Compute engine checks</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Integration Issues</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PCIe replay counter checks</p></li>
+<li><p>Topological limitations</p></li>
+<li><p>Permissions, driver, and cgroups checks</p></li>
+<li><p>Basic power and thermal constraint checks</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Stress Checks</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Power and thermal stress</p></li>
+<li><p>Throughput stress</p></li>
+<li><p>Constant relative system performance</p></li>
+<li><p>Maximum relative system performance</p></li>
+<li><p>Memory Bandwidth</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>Provide troubleshooting help</p></li>
+<li><p>Easily integrate into Cluster Scheduler and Cluster Management applications</p></li>
+<li><p>Reduce downtime and failed GPU jobs</p></li>
+</ol>
+</section>
+<section id="beyond-the-scope-of-the-dcgm-diagnostics">
+<h3>Beyond the Scope of the DCGM Diagnostics<a class="headerlink" href="#beyond-the-scope-of-the-dcgm-diagnostics" title="Link to this heading">#</a></h3>
+<p>DCGM Diagnostics are not designed to:</p>
+<ol class="arabic simple">
+<li><p>Provide comprehensive hardware diagnostics</p></li>
+<li><p>Actively fix problems</p></li>
+<li><p>Replace the field diagnosis tools. Please refer to <a class="reference external" href="http://docs.nvidia.com/deploy/hw-field-diag/index.html">http://docs.nvidia.com/deploy/hw-field-diag/index.html</a> for that process.</p></li>
+<li><p>Facilitate any RMA process. Please refer to <a class="reference external" href="http://docs.nvidia.com/deploy/rma-process/index.html">http://docs.nvidia.com/deploy/rma-process/index.html</a> for those procedures.</p></li>
+</ol>
+</section>
+<section id="run-levels-and-tests">
+<h3>Run Levels and Tests<a class="headerlink" href="#run-levels-and-tests" title="Link to this heading">#</a></h3>
+<p>The following table describes which tests are run at each Level in DCGM Diagnostics.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 28.6%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Plugin</p></th>
+<th class="head"><p>Test name (measured on Hopper GPU systems)</p></th>
+<th class="head"><div class="line-block">
+<div class="line">r1 (Short)</div>
+<div class="line">&lt; 2.5 Seconds.</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">r2 (Medium)</div>
+<div class="line">&lt; 2.5 mins on 4 GPU systems, &lt; 10.5 mins on 8 GPU systems.</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">r3 (Long)</div>
+<div class="line">&lt; 10 mins on 4 GPU systems, &lt; 35 mins on 8 GPU systems.</div>
+</div>
+</th>
+<th class="head"><div class="line-block">
+<div class="line">r4 (Extra Long)</div>
+<div class="line">&lt; 45 mins on 4 GPU systems, &lt; 2.25 hours on 8 GPU systems.</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Software</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">software</span></code></p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIe + NVLink</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pcie</span></code></p></td>
+<td></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>GPU Memory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">memory</span></code></p></td>
+<td></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory Bandwidth</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">memory_bandwidth</span></code></p></td>
+<td></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Diagnostics</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">diagnostic</span></code></p></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Targeted Stress</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">targeted_stress</span></code></p></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Targeted Power</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">targeted_power</span></code></p></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>NVBandwidth</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nvbandwidth</span></code></p></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>NCCL Tests</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nccl_tests</span></code></p></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory Stress</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">memtest</span></code></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Input EDPp</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pulse</span></code></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="getting-started-with-dcgm-diagnostics">
+<h2>Getting Started with DCGM Diagnostics<a class="headerlink" href="#getting-started-with-dcgm-diagnostics" title="Link to this heading">#</a></h2>
+<section id="command-line-options">
+<h3>Command Line options<a class="headerlink" href="#command-line-options" title="Link to this heading">#</a></h3>
+<p>The various command line options are designed to control general execution parameters,
+whereas detailed changes to execution behavior are contained within the configuration files
+detailed in the next section.</p>
+<p>The following table lists the various options supported by DCGM Diagnostics:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 17.9%" />
+<col style="width: 17.9%" />
+<col style="width: 17.9%" />
+<col style="width: 46.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Short option</p></th>
+<th class="head"><p>Long option</p></th>
+<th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-g</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--group</span></code></p></td>
+<td><p><cite>groupId</cite></p></td>
+<td><p>The device group ID to query.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--host</span></code></p></td>
+<td><p><cite>IP/FQDN</cite></p></td>
+<td><p>Connects to specified IP or fully-qualified domain
+name. To connect to a host engine that was
+started with -d (unix socket), prefix the unix
+socket filename with <code class="docutils literal notranslate"><span class="pre">unix://</span></code>. [default =
+<code class="docutils literal notranslate"><span class="pre">localhost</span></code>]</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-h</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--help</span></code></p></td>
+<td></td>
+<td><p>Displays usage information and exits.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-r</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--run</span></code></p></td>
+<td><p><cite>diag</cite></p></td>
+<td><p>Run a diagnostic. (Note: higher numbered tests
+include all beneath.):</p>
+<ul class="simple">
+<li><p>1 - Quick (System Validation</p></li>
+<li><p>2 - Medium (Extended System Validation)</p></li>
+<li><p>3 - Long (System HW Diagnostics)</p></li>
+<li><p>4 - Extended (Longer-running System HW Diagnostics)</p></li>
+</ul>
+<p>Specific tests to run may be specified by name,
+and multiple tests may be specified as a comma
+separated list. For example, the command:</p>
+<p>dcgmi diag -r “pcie,diagnostic”</p>
+<p>would run the PCIe and Diagnostic tests
+together.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-p</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--parameters</span></code></p></td>
+<td><p><cite>test_name.variable_name=variable_name</cite></p></td>
+<td><p>Test parameters to set for this run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--configfile</span></code></p></td>
+<td><p><cite>full/path/to/config/file</cite></p></td>
+<td><p>Path to the configuration file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-f</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--fakeGpuListfakeGpuList</span></code></p></td>
+<td></td>
+<td><p>A comma-separated list of the fake gpus on which
+the diagnostic should run. For internal/testing
+use only. Cannot be used with <code class="docutils literal notranslate"><span class="pre">-g/-i</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-i</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--entity-id</span></code></p></td>
+<td><p><cite>entityId</cite></p></td>
+<td><p>A comma-separated list of GPU and CPU entities on which the
+diagnostic should run. Cannot be used with <code class="docutils literal notranslate"><span class="pre">-g</span></code>.
+Bare numbers are interpreted as GPU IDs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-v</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-verbose</span></code></p></td>
+<td></td>
+<td><p>Show information and warnings for each test.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">statsonfail</span></code></p></td>
+<td></td>
+<td><p>Only output the statistics files if there was a
+failure</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--debugLogFiledebug</span></code></p></td>
+<td><p><cite>file</cite></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--statspath</span></code></p></td>
+<td><p><cite>plugin statistics path</cite></p></td>
+<td><p>Write the plugin statistics to the given path rather than the current
+directory</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-d</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--debugLevel</span></code></p></td>
+<td><p><cite>debug level</cite></p></td>
+<td><p>Debug level (One of NONE, FATAL, ERROR, WARN,
+INFO, DEBUG, VERB). Default: DEBUG. The logfile
+can be specified by the –debugLogFile
+parameter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-j</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--json</span></code></p></td>
+<td></td>
+<td><p>Print the output in a json format.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--clocksevent-mask</span></code></p></td>
+<td></td>
+<td><p>Specify which clocks event reasons should be
+ignored. You can provide a comma separated list
+of reasons. For example, specifying ‘HW_SLOWDOWN
+,SW_THERMAL’ would ignore the HW_SLOWDOWN and
+SW_THERMAL reasons. Alternatively, you
+can specify the integer value of the ignore
+bitmask. For the bitmask, multiple reasons may be
+specified by the sum of their bit masks. For
+example, specifying ‘40’ would ignore the
+HW_SLOWDOWN and SW_THERMAL reasons.</p>
+<p>Valid clocks event reasons and their corresponding
+bitmasks (given in parentheses) are:</p>
+<ul class="simple">
+<li><p>HW_SLOWDOWN (8)</p></li>
+<li><p>SW_THERMAL (32)</p></li>
+<li><p>HW_THERMAL (64)</p></li>
+<li><p>HW_POWER_BRAKE (128)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--throttle-mask</span></code></p></td>
+<td></td>
+<td><p>Deprecated: please use <code class="docutils literal notranslate"><span class="pre">--clocksevent-mask</span></code> instead.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--fail-early</span></code></p></td>
+<td></td>
+<td><p>Enable early failure checks for the Targeted Power
+, Targeted Stress, and Diagnostic
+tests. When enabled, these tests check for a
+failure once every 5 seconds (can be modified by
+the –check-interval parameter) while the test is
+running instead of a single check performed after
+the test is complete. Disabled by default.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--check-intervalfailure</span></code></p></td>
+<td><p><cite>check interval</cite></p></td>
+<td><p>Specify the interval (in seconds)
+at which the early failure checks should occur
+for the Targeted Power, Targeted Stress, SM
+Stress, and Diagnostic tests when early failure
+checks are enabled. Default is once every 5
+seconds. Interval must be between 1 and 300</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--iterations</span></code></p></td>
+<td><p><cite>iterations</cite></p></td>
+<td><p>Specify a number of iterations of the diagnostic
+to run consecutively. (Must be greater than 0.)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-t</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--timeout</span></code></p></td>
+<td><p><cite>timeout</cite></p></td>
+<td><p>Specify a timeout in seconds for the execution of the diagnostic.
+The default is unlimited.</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ignoreErrorCodes</span></code></p></td>
+<td><p><cite>error codes</cite></p></td>
+<td><p>Specify diagnostic error codes to ignore on supported entities. For
+example, <code class="docutils literal notranslate"><span class="pre">--ignoreErrorCodes</span> <span class="pre">&quot;28,140&quot;</span></code> ignores error codes 28 and
+140 on all entities, while <code class="docutils literal notranslate"><span class="pre">--ignoreErrorCodes</span> <span class="pre">&quot;gpu0:28;gpu1:140&quot;</span></code>
+ignores error 28 on GPU 0 and error 140 on GPU 1.</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--ignore_rest</span></code></p></td>
+<td></td>
+<td><p>Ignores the rest of the labeled arguments
+following this flag.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="configuration-file">
+<h3>Configuration File<a class="headerlink" href="#configuration-file" title="Link to this heading">#</a></h3>
+<p>The DCGM Diagnostics (<code class="docutils literal notranslate"><span class="pre">dcgmi</span> <span class="pre">diag</span></code>) configuration file is a <a class="reference external" href="https://yaml.org/">YAML</a> -formatted text file
+controlling the various tests and the execution parameters.</p>
+<p>The general format of the configuration file is shown below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">version:</span>
+<span class="go">spec: dcgm-diag-v1</span>
+<span class="go">skus:</span>
+<span class="go">  - name: GPU-name</span>
+<span class="go">    id: GPU part number</span>
+<span class="go">    test_name1:</span>
+<span class="go">      test_parameter1: value</span>
+<span class="go">      test_parameter2: value</span>
+<span class="go">    test_name2:</span>
+<span class="go">      test_parameter1: value</span>
+<span class="go">      test_parameter2: value</span>
+</pre></div>
+</div>
+<p>A standard configuration file for H100 would look like below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">version: &quot;@CMAKE_PROJECT_VERSION@&quot;</span>
+<span class="go">spec: dcgm-diag-v1</span>
+<span class="go">skus:</span>
+<span class="go">  - name: H100 80GB PCIe</span>
+<span class="go">    id: 2331</span>
+<span class="go">    targeted_power:</span>
+<span class="go">      is_allowed: true</span>
+<span class="go">      starting_matrix_dim: 1024.0</span>
+<span class="go">      target_power: 350.0</span>
+<span class="go">      use_dgemm: false</span>
+<span class="go">    targeted_stress:</span>
+<span class="go">      is_allowed: true</span>
+<span class="go">      use_dgemm: false</span>
+<span class="go">      target_stress: 15375</span>
+<span class="go">    sm_stress:</span>
+<span class="go">      is_allowed: true</span>
+<span class="go">      target_stress: 15375.0</span>
+<span class="go">      use_dgemm: false</span>
+<span class="go">    pcie:</span>
+<span class="go">      is_allowed: true</span>
+<span class="go">      h2d_d2h_single_pinned:</span>
+<span class="go">        min_pci_generation: 3.0</span>
+<span class="go">        min_pci_width: 16.0</span>
+<span class="go">      h2d_d2h_single_unpinned:</span>
+<span class="go">        min_pci_generation: 3.0</span>
+<span class="go">        min_pci_width: 16.0</span>
+<span class="go">    memory:</span>
+<span class="go">      is_allowed: true</span>
+<span class="go">      l1cache_size_kb_per_sm: 192.0</span>
+<span class="go">    diagnostic:</span>
+<span class="go">      is_allowed: true</span>
+<span class="go">      matrix_dim: 8192.0</span>
+<span class="go">    memory_bandwidth:</span>
+<span class="go">      is_allowed: true</span>
+<span class="go">      minimum_bandwidth: 1230000</span>
+<span class="go">    pulse_test:</span>
+<span class="go">      is_allowed: true</span>
+</pre></div>
+</div>
+</section>
+<section id="environment">
+<span id="dcgm-diagnostics-environment"></span><h3>Environment<a class="headerlink" href="#environment" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">nv-hostengine</span></code> program accepts environment variables that control diagnostic execution. See <a class="reference external" href="https://www.man7.org/linux/man-pages/man7/environ.7.html">environ(7)</a> to learn about environment variables.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NVVS_BIN_PATH</p></td>
+<td><p>Indicates the directory that diagnostic should search for the <code class="docutils literal notranslate"><span class="pre">nvvs</span></code> binary used to execute tests.</p></td>
+</tr>
+<tr class="row-even"><td><p>NVVS_HANGDETECT_DISABLE</p></td>
+<td><p>When set, disables the diagnostic hang detection system. Hang detection is enabled by default and monitors diagnostic processes and threads for unresponsive behavior.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NVVS_HANGDETECT_EXPIRY_SEC</p></td>
+<td><p>Sets the timeout period (in seconds) after which inactive diagnostic threads/processes are considered hung. Values must be at least 120 seconds and also be divisible by 60 (e.g., 120, 180, 300, 360).</p></td>
+</tr>
+<tr class="row-even"><td><p>NVVS_PLUGIN_DIR</p></td>
+<td><p>Indicates the directory that diagnostic should search for plugins. The directory must be readable and traversable by <code class="docutils literal notranslate"><span class="pre">nvvs</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="exit-codes">
+<h3>Exit Codes<a class="headerlink" href="#exit-codes" title="Link to this heading">#</a></h3>
+<p>The dcgmi command-line program returns exit codes that match internal errors
+from the <a class="reference internal" href="../dcgm-api/dcgm-api-enums.html#_CPPv412dcgmReturn_t" title="dcgmReturn_t"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">dcgmReturn_t</span></code></a> enumeration. However, while
+these are non-positive numbers (with zero indicating success), exit codes are
+non-negative so they are returned as the unsigned eight bit representation of
+the two’s complement error code. For example, <code class="docutils literal notranslate"><span class="pre">-1</span></code> would be returned as
+<code class="docutils literal notranslate"><span class="pre">255</span></code>.</p>
+<p>Furthermore, caught signals are indicated in the return code as 128 plus the
+value of the signal.</p>
+<p>While any value from <a class="reference internal" href="../dcgm-api/dcgm-api-enums.html#_CPPv412dcgmReturn_t" title="dcgmReturn_t"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">dcgmReturn_t</span></code></a> could
+theoretically be returned, the following are the ones currently used in
+<code class="docutils literal notranslate"><span class="pre">dcgmi</span></code> and its modules:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 21.7%" />
+<col style="width: 21.7%" />
+<col style="width: 56.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>DCGM_ST_OK</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">255</span></code></p></td>
+<td><p>DCGM_ST_BADPARAM</p></td>
+<td><p>A bad parameter was passed to a function</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">253</span></code></p></td>
+<td><p>DCGM_ST_GENERIC_ERROR</p></td>
+<td><p>A generic, unspecified error</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">252</span></code></p></td>
+<td><p>DCGM_ST_MEMORY</p></td>
+<td><p>An out of memory error occurred</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">251</span></code></p></td>
+<td><p>DCGM_ST_NOT_CONFIGURED</p></td>
+<td><p>Setting not configured</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">250</span></code></p></td>
+<td><p>DCGM_ST_NOT_SUPPORTED</p></td>
+<td><p>Feature not supported</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">249</span></code></p></td>
+<td><p>DCGM_ST_INIT_ERROR</p></td>
+<td><p>DCGM Init error</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">248</span></code></p></td>
+<td><p>DCGM_ST_NVML_ERROR</p></td>
+<td><p>When NVML returns error</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">246</span></code></p></td>
+<td><p>DCGM_ST_UNINITIALIZED</p></td>
+<td><p>Object is in undefined state</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">244</span></code></p></td>
+<td><p>DCGM_ST_VER_MISMATCH</p></td>
+<td><p>Version mismatch between received and understood API</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">243</span></code></p></td>
+<td><p>DCGM_ST_UNKNOWN_FIELD</p></td>
+<td><p>Unknown field id</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">242</span></code></p></td>
+<td><p>DCGM_ST_NO_DATA</p></td>
+<td><p>No data is available</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">240</span></code></p></td>
+<td><p>DCGM_ST_NOT_WATCHED</p></td>
+<td><p>The given field id is not being updated by the cache manager</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">237</span></code></p></td>
+<td><p>DCGM_ST_RESET_REQUIRED</p></td>
+<td><p>GPU requires a reset</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">236</span></code></p></td>
+<td><p>DCGM_ST_FUNCTION_NOT_FOUND</p></td>
+<td><p>The function that was requested was not found (bindings only error)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">235</span></code></p></td>
+<td><p>DCGM_ST_CONNECTION_NOT_VALID</p></td>
+<td><p>The connection to the host engine is not valid any longer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">233</span></code></p></td>
+<td><p>DCGM_ST_GROUP_INCOMPATIBLE</p></td>
+<td><p>The GPUs of the provided group are not compatible with each other for
+the requested operation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">232</span></code></p></td>
+<td><p>DCGM_ST_MAX_LIMIT</p></td>
+<td><p>Max limit reached for the object</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">231</span></code></p></td>
+<td><p>DCGM_ST_LIBRARY_NOT_FOUND</p></td>
+<td><p>DCGM library could not be found</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">227</span></code></p></td>
+<td><p>DCGM_ST_REQUIRES_ROOT</p></td>
+<td><p>This operation cannot be performed when the host engine is running as
+non-root</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">226</span></code></p></td>
+<td><p>DCGM_ST_NVVS_ERROR</p></td>
+<td><p>DCGM GPU Diagnostic was successfully executed, but reported an error.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">225</span></code></p></td>
+<td><p>DCGM_ST_INSUFFICIENT_SIZE</p></td>
+<td><p>An input argument is not large enough</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">223</span></code></p></td>
+<td><p>DCGM_ST_MODULE_NOT_LOADED</p></td>
+<td><p>This request is serviced by a module of DCGM that is not currently loaded</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">221</span></code></p></td>
+<td><p>DCGM_ST_GROUP_IS_EMPTY</p></td>
+<td><p>This group is empty and the requested operation is not valid on an
+empty group</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">217</span></code></p></td>
+<td><p>DCGM_ST_DIAG_ALREADY_RUNNING</p></td>
+<td><p>A diag instance is already running, cannot run a new diag until the
+current one finishes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">215</span></code></p></td>
+<td><p>DCGM_ST_DIAG_BAD_LAUNCH</p></td>
+<td><p>Error while launching the DCGM GPU Diagnostic</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">209</span></code></p></td>
+<td><p>DCGM_ST_CHILD_NOT_KILLED</p></td>
+<td><p>Couldn’t kill a child process within the retries</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">207</span></code></p></td>
+<td><p>DCGM_ST_INSUFFICIENT_RESOURCES</p></td>
+<td><p>Not enough resources available</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">205</span></code></p></td>
+<td><p>DCGM_ST_NVVS_ISOLATE_ERROR</p></td>
+<td><p>The diagnostic returned an error that indicates the need for isolation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">204</span></code></p></td>
+<td><p>DCGM_ST_NVVS_BINARY_NOT_FOUND</p></td>
+<td><p>The NVVS binary was not found in the specified location</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">203</span></code></p></td>
+<td><p>DCGM_ST_NVVS_KILLED</p></td>
+<td><p>The NVVS process was killed by a signal</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">202</span></code></p></td>
+<td><p>DCGM_ST_PAUSED</p></td>
+<td><p>The hostengine and all modules are paused</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">201</span></code></p></td>
+<td><p>DCGM_ST_ALREADY_INITIALIZED</p></td>
+<td><p>The object is already initialized</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">198</span></code></p></td>
+<td><p>DCGM_ST_NVVS_NO_AVAILABLE_TEST</p></td>
+<td><p>The NVVS returns no available tests (NVVS_ST_TEST_NOT_FOUND)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">143</span></code></p></td>
+<td><p>Signal SIGTERM</p></td>
+<td><p>The program was terminated</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">131</span></code></p></td>
+<td><p>Signal SIGQUIT</p></td>
+<td><p>The progam was asked to quit</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">130</span></code></p></td>
+<td><p>Sigal SIGINT</p></td>
+<td><p>The program was interrupted</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">129</span></code></p></td>
+<td><p>Signal SIGHUP</p></td>
+<td><p>The communication link was terminate</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>As more plugins get created, this list may grow.</p>
+</section>
+<section id="usage-examples">
+<h3>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading">#</a></h3>
+<section id="custom-configuration-file">
+<h4>Custom Configuration File<a class="headerlink" href="#custom-configuration-file" title="Link to this heading">#</a></h4>
+<p>The default configuration file can be overridden using the <code class="docutils literal notranslate"><span class="pre">-c</span></code> option.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">2</span><span class="w"> </span>-c<span class="w"> </span>custom-diag-tests.yaml
+</pre></div>
+</div>
+<p>where desired tests and parameters are included in the <cite>custom-diag-tests.yaml</cite> file.</p>
+</section>
+<section id="tests-and-parameters">
+<h4>Tests and Parameters<a class="headerlink" href="#tests-and-parameters" title="Link to this heading">#</a></h4>
+<p>Specific tests and parameters can be directly specified when running diagnostics:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_power<span class="w"> </span>-p<span class="w"> </span>targeted_power.target_power<span class="o">=</span><span class="m">300</span>.0
+</pre></div>
+</div>
+</section>
+<section id="iterations">
+<h4>Iterations<a class="headerlink" href="#iterations" title="Link to this heading">#</a></h4>
+<p>DCGM also supports running tests suites in loops using the <code class="docutils literal notranslate"><span class="pre">--iterations</span></code> option. Using this
+option allows for increasing the runtime duration of the tests.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>pcie<span class="w"> </span>--iterations<span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Link to this heading">#</a></h2>
+<p>By default, DCGM emits debugging information into logs that are stored under <code class="docutils literal notranslate"><span class="pre">/var/log/nvidia-dcgm/nvvs.log</span></code>.</p>
+<p>DCGM also provides a JSON output of the results of the tests, which allows for processing by various tools.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>pcie<span class="w"> </span>-j
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">...</span>
+<span class="go">{</span>
+<span class="go">  &quot;category&quot;: &quot;Integration&quot;,</span>
+<span class="go">  &quot;tests&quot;: [</span>
+<span class="go">    {</span>
+<span class="go">      &quot;name&quot;: &quot;pcie&quot;,</span>
+<span class="go">      &quot;results&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;entity_group&quot;: &quot;GPU&quot;,</span>
+<span class="go">          &quot;entity_group_id&quot;: 1,</span>
+<span class="go">          &quot;entity_id&quot;: 0,</span>
+<span class="go">          &quot;info&quot;: [</span>
+<span class="go">            &quot;GPU to Host bandwidth:\t\t13.53 GB/s&quot;,</span>
+<span class="go">            &quot;Host to GPU bandwidth:\t\t12.05 GB/s&quot;,</span>
+<span class="go">            &quot;bidirectional bandwidth:\t23.69 GB/s&quot;,</span>
+<span class="go">            &quot;GPU to Host latency:\t\t0.791 us&quot;,</span>
+<span class="go">            &quot;Host to GPU latency:\t\t1.201 us&quot;,</span>
+<span class="go">            &quot;bidirectional latency:\t\t1.468 us&quot;</span>
+<span class="go">          ],</span>
+<span class="go">          &quot;status&quot;: &quot;Pass&quot;</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;test_summary&quot;: {</span>
+<span class="go">        &quot;status&quot;: &quot;Pass&quot;</span>
+<span class="go">      }</span>
+<span class="go">    }</span>
+<span class="go">  ]</span>
+<span class="go">}</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+</section>
+<section id="overview-of-plugins">
+<h2>Overview of Plugins<a class="headerlink" href="#overview-of-plugins" title="Link to this heading">#</a></h2>
+<p>The NVIDIA Validation Suite consists of a series of plugins that are each designed to accomplish a different goal.</p>
+<section id="deployment-plugin">
+<h3>Deployment Plugin<a class="headerlink" href="#deployment-plugin" title="Link to this heading">#</a></h3>
+<p>The deployment plugin’s purpose is to verify the compute environment is ready to run CUDA applications
+and is able to load the NVML library.</p>
+<section id="preconditions">
+<h4>Preconditions<a class="headerlink" href="#preconditions" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>LD_LIBRARY_PATH must include the path to the CUDA libraries, which for version X.Y of CUDA is normally
+<code class="docutils literal notranslate"><span class="pre">/usr/local/cuda-X.Y/lib64</span></code>, which can be set by running <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LD_LIBRARY_PATH=/usr/local/cuda-X.Y/lib64</span></code></p></li>
+<li><p>The Linux nouveau driver must not be running, and should be blacklisted since it will conflict with the NVIDIA driver</p></li>
+</ul>
+</section>
+<section id="configuration-parameters">
+<h4>Configuration Parameters<a class="headerlink" href="#configuration-parameters" title="Link to this heading">#</a></h4>
+<p>None at this time.</p>
+</section>
+<section id="stat-outputs">
+<h4>Stat Outputs<a class="headerlink" href="#stat-outputs" title="Link to this heading">#</a></h4>
+<p>None at this time.</p>
+</section>
+<section id="failure">
+<h4>Failure<a class="headerlink" href="#failure" title="Link to this heading">#</a></h4>
+<p>The plugin will fail if:</p>
+<ul class="simple">
+<li><p>The corresponding device nodes for the target GPU(s) are being blocked by the operating system (e.g. cgroups)
+or exist without r/w permissions for the current user.</p></li>
+<li><p>The NVML library libnvidia-ml.so cannot be loaded</p></li>
+<li><p>The CUDA runtime libraries cannot be Loaded</p></li>
+<li><p>The nouveau driver is found to be loaded</p></li>
+<li><p>Any pages are pending retirement on the target GPU(s)</p></li>
+<li><p>Any pending row remaps or failed row remappings on the target GPU(s).</p></li>
+<li><p>Any other graphics processes are running on the target GPU(s) while the plugin runs</p></li>
+</ul>
+</section>
+</section>
+<section id="diagnostic-plugin">
+<span id="dcgm-diagnostic-plugin"></span><h3>Diagnostic Plugin<a class="headerlink" href="#diagnostic-plugin" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h4>Overview<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>The Diagnostic plugin is part of the level 3 tests. It performs large matrix multiplies while
+copying data to various addresses in the frame buffer and checking that the data can be written
+and read correctly.</p>
+<p>This test performs large matrix multiplications; by default it will alternate running these
+multiplications at all available among 64, 32, and 16-bit precisions. It will also walk the frame
+buffer, writing values to different addresses and making sure that the values are written and read
+correctly.</p>
+</section>
+<section id="test-description">
+<h4>Test Description<a class="headerlink" href="#test-description" title="Link to this heading">#</a></h4>
+<p>This process will stress the GPU by having it draw a large amount of power and provide a high-level
+of throughput for five minutes (by default). During this process, the GPU will be monitored for all
+standard errors (XIDs, temperature violations, uncorrectable memory errors, etc.) as well as the
+correctness of data being written and read.</p>
+</section>
+<section id="supported-parameters">
+<h4>Supported Parameters<a class="headerlink" href="#supported-parameters" title="Link to this heading">#</a></h4>
+<p>The following table lists the global parameters for the diagnostic plugin:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 54.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>max_sbe_errors</p></td>
+<td><p>Double</p></td>
+<td><p>Blank</p></td>
+<td><p>This is the threshold beyond which SBE’s are treated as errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p>test_duration</p></td>
+<td><p>Double</p></td>
+<td><p>180.0</p></td>
+<td><p>This is the time in seconds that the test should run.</p></td>
+</tr>
+<tr class="row-even"><td><p>use_doubles</p></td>
+<td><p>String</p></td>
+<td><p>False</p></td>
+<td><p>This indicates doubles should be used instead of floats.</p></td>
+</tr>
+<tr class="row-odd"><td><p>temperature_max</p></td>
+<td><p>Double</p></td>
+<td><p>30.0</p></td>
+<td><p>This is the maximum temperature in degrees allowed during the test.</p></td>
+</tr>
+<tr class="row-even"><td><p>is_allowed</p></td>
+<td><p>Bool</p></td>
+<td><p>False</p></td>
+<td><p>This is whether the specified test is allowed to run.</p></td>
+</tr>
+<tr class="row-odd"><td><p>matrix_dim</p></td>
+<td><p>Double</p></td>
+<td><p>2048.0 (8192.0 for Blackwell and newer)</p></td>
+<td><p>This is the starting dimension of the matrix used for S/Dgemm.</p></td>
+</tr>
+<tr class="row-even"><td><p>precision</p></td>
+<td><p>String</p></td>
+<td><div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Half
+Single
+Double</p>
+</td>
+<td><p>This is the precision to use: half, single, or double</p></td>
+</tr>
+<tr class="row-odd"><td><p>gflops_tolerance_pcnt</p></td>
+<td><p>Double</p></td>
+<td><p>0.0</p></td>
+<td><p>This is the percent of mean below which gflops are treated as errors. The mean is the mean for all GPUs on the system.</p></td>
+</tr>
+<tr class="row-even"><td><p>always_use_tensor</p></td>
+<td><p>Bool</p></td>
+<td><p>False (True for Blackwell and newer)</p></td>
+<td><p>Instructs CUDA to use Tensor cores for calculations where possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>tolerance_pcnt</p></td>
+<td><p>Double</p></td>
+<td><p>0.0</p></td>
+<td><p>This is the percent of mean below which both clock speed and power usage would be treated as errors. If specified with clocks_tolerance_pcnt or power_tolerance_pcnt, those settings take precedence.</p></td>
+</tr>
+<tr class="row-even"><td><p>clocks_tolerance_pcnt</p></td>
+<td><p>Double</p></td>
+<td><p>0.0</p></td>
+<td><p>This is the percent of mean below which clock speed would be treated as errors. The mean is the mean clock speed throughout the test for each GPU on the system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>power_tolerance_pcnt</p></td>
+<td><p>Double</p></td>
+<td><p>0.0</p></td>
+<td><p>This is the percent of mean below which power usage would be treated as errors. The mean is the mean power usage throughout the test for each GPU on the system.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sample-commands">
+<h4>Sample Commands<a class="headerlink" href="#sample-commands" title="Link to this heading">#</a></h4>
+<p>Run a quick diagnostic:</p>
+<p>Run the diagnostic for 5 minutes:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">3</span><span class="w"> </span>-p<span class="w"> </span>diagnostic.test_duration<span class="o">=</span><span class="m">300</span>.0
+</pre></div>
+</div>
+<p>Run the diagnostic, stopping if max temperature exceeds 28 degrees:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">3</span><span class="w"> </span>-p<span class="w"> </span>diagnostic.temperature_max<span class="o">=</span><span class="m">28</span>.0
+</pre></div>
+</div>
+<p>Run the diagnostic, with a smaller starting dimension for matrix operations:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">3</span><span class="w"> </span>-p<span class="w"> </span>diagnostic.matrix_dim<span class="o">=</span><span class="m">1024</span>.0
+</pre></div>
+</div>
+<p>Run the diagnostic, reporting an error if a GPU reports gflops not within 60% of the mean gflops across all GPUs:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">3</span><span class="w"> </span>-p<span class="w"> </span>diagnostic.gflops_tolerance_pcnt<span class="o">=</span><span class="m">0</span>.60
+</pre></div>
+</div>
+<p>Run the diagnostic, using double precision:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">3</span><span class="w"> </span>-p<span class="w"> </span>diagnostic.precision<span class="o">=</span>double
+</pre></div>
+</div>
+</section>
+<section id="failure-conditions">
+<h4>Failure Conditions<a class="headerlink" href="#failure-conditions" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The test will fail if unrecoverable memory errors, temperature violations, or XIDs occur during the test.</p></li>
+</ul>
+</section>
+</section>
+<section id="pcie-gpu-bandwidth-plugin">
+<span id="dcgm-pcie-plugin"></span><h3>PCIe - GPU Bandwidth Plugin<a class="headerlink" href="#pcie-gpu-bandwidth-plugin" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h4>Overview<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>The PCIe plugin’s purpose is to stress the communication from the host to the GPUs as well as among the GPUs
+on the system. It checks for p2p (peer-to-peer) correctness, any errors or replays while writing the data,
+and can be used to measure the bandwidth and latency to and from the GPUs and the host.</p>
+</section>
+<section id="id4">
+<h4>Preconditions<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>None</p>
+</section>
+<section id="sub-tests">
+<h4>Sub tests<a class="headerlink" href="#sub-tests" title="Link to this heading">#</a></h4>
+<p>The plugin consists of several self-tests that each measure a different aspect of bandwidth or latency.
+Each subtest has either a pinned/unpinned pair or a p2p enabled/p2p disabled pair of identical tests.
+Pinned/unpinned tests use either pinned or unpinned memory when copying data between the host and the GPUs.</p>
+<p>This plugin will use NvLink to communicate between GPUs when possible. Otherwise, communication between
+GPUs will occur over PCIe</p>
+<p>Each sub test is represented with a tag that is used both for specifying configuration parameters for
+the sub test and for outputting stats for the sub test. P2p enabled/p2p disabled tests enable or disable
+GPUs writing and reading to and from each other directly rather than through the PCIe bus.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 21.7%" />
+<col style="width: 21.7%" />
+<col style="width: 56.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sub Test Tag</p></th>
+<th class="head"><p>Pinned/Unpinned
+P2P Enabled/P2P Disabled</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>h2d_d2h_single_pinned</p></td>
+<td><p>Pinned</p></td>
+<td><p>Device &lt;-&gt; Host Bandwidth, one GPU at a time</p></td>
+</tr>
+<tr class="row-odd"><td><p>h2d_d2h_single_unpinned</p></td>
+<td><p>Unpinned</p></td>
+<td><p>Device &lt;-&gt; Host Bandwidth, one GPU at a time</p></td>
+</tr>
+<tr class="row-even"><td><p>h2d_d2h_latency_pinned</p></td>
+<td><p>Pinned</p></td>
+<td><p>Device &lt;-&gt; Host Latency, one GPU at a time</p></td>
+</tr>
+<tr class="row-odd"><td><p>h2d_d2h_latency_unpinned</p></td>
+<td><p>Unpinned</p></td>
+<td><p>Device &lt;-&gt; Host Latency, one GPU at a time</p></td>
+</tr>
+<tr class="row-even"><td><p>p2p_bw_p2p_enabled</p></td>
+<td><p>P2P Enabled</p></td>
+<td><p>Device &lt;-&gt; Device bandwidth one GPU pair at a time</p></td>
+</tr>
+<tr class="row-odd"><td><p>p2p_bw_p2p_disabled</p></td>
+<td><p>P2P Disabled</p></td>
+<td><p>Device &lt;-&gt; Device bandwidth one GPU pair at a time</p></td>
+</tr>
+<tr class="row-even"><td><p>p2p_bw_concurrent_p2p_enabled</p></td>
+<td><p>P2P Enabled</p></td>
+<td><p>Device &lt;-&gt; Device bandwidth, concurrently,
+focusing on bandwidth between GPUs between GPUs likely to be
+directly connected to each other -&gt; for each (index / 2) and (index / 2)+1</p></td>
+</tr>
+<tr class="row-odd"><td><p>p2p_bw_concurrent_p2p_disabled</p></td>
+<td><p>P2P Disabled</p></td>
+<td><p>Device &lt;-&gt; Device bandwidth, concurrently,
+focusing on bandwidth between GPUs between GPUs likely to be
+directly connected to each other -&gt; for each (index / 2) and (index / 2)+1</p></td>
+</tr>
+<tr class="row-even"><td><p>1d_exch_bw_p2p_enabled</p></td>
+<td><p>P2P Enabled</p></td>
+<td><p>Device &lt;-&gt; Device bandwidth, concurrently, focusing on bandwidth
+between gpus, every GPU either sending to the gpu with the index higher
+than itself (l2r) or to the gpu with the index lower than itself (r2l)</p></td>
+</tr>
+<tr class="row-odd"><td><p>1d_exch_bw_p2p_disabled</p></td>
+<td><p>P2P Disabled</p></td>
+<td><p>Device &lt;-&gt; Device bandwidth, concurrently, focusing on bandwidth between gpus,
+every GPU either sending to the gpu with the index higher than itself (l2r) or
+to the gpu with the index lower than itself (r2l)</p></td>
+</tr>
+<tr class="row-even"><td><p>p2p_latency_p2p_enabled</p></td>
+<td><p>P2P Enabled</p></td>
+<td><p>Device &lt;-&gt; Device Latency, one GPU pair at a time</p></td>
+</tr>
+<tr class="row-odd"><td><p>p2p_latency_p2p_disabled</p></td>
+<td><p>P2P Disabled</p></td>
+<td><p>Device &lt;-&gt; Device Latency, one GPU pair at a time</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following table lists the global parameters for the PCIe plugin.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 54.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>test_pinned</p></td>
+<td><p>Bool</p></td>
+<td><p>True</p></td>
+<td><p>Include subtests that test using pinned memory.</p></td>
+</tr>
+<tr class="row-odd"><td><p>test_unpinned</p></td>
+<td><p>Bool</p></td>
+<td><p>True</p></td>
+<td><p>Include subtests that test using unpinned memory.</p></td>
+</tr>
+<tr class="row-even"><td><p>test_p2p_on</p></td>
+<td><p>Bool</p></td>
+<td><p>True</p></td>
+<td><p>Run relevant subtests with peer to peer (P2P) memory transfers between GPUs enabled.</p></td>
+</tr>
+<tr class="row-odd"><td><p>test_p2p_off</p></td>
+<td><p>Bool</p></td>
+<td><p>True</p></td>
+<td><p>Run relevant subtests with peer to peer (P2P) memory transfers between GPUs disabled.</p></td>
+</tr>
+<tr class="row-even"><td><p>max_pcie_replays</p></td>
+<td><p>Float</p></td>
+<td><p>80.0</p></td>
+<td><p>Maximum number of PCIe replays to allow per GPU for the duration of this plugin. This is based on an expected replay rate less than per minute for PCIe Gen 3.0, assuming this plugin will run for less than a minute and allowing 10x as many replays before failure.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following table lists the parameters to specific subtests for the PCIe plugin.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 54.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Sub Tests</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>min_bandwidth</p></td>
+<td><p>0</p></td>
+<td><p>h2d_d2h_single_pinned, h2d_d2h_single_unpinned, h2d_d2h_concurrent_pinned, h2d_d2h_concurrent_unpinned</p></td>
+<td><p>Minimum bandwidth in GB/s that must be reached for this sub-test to pass.</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_latency</p></td>
+<td><p>100,000</p></td>
+<td><p>h2d_d2h_latency_pinned, h2d_d2h_latency_unpinned</p></td>
+<td><p>Latency in microseconds that cannot be exceeded for this sub-test to pass.</p></td>
+</tr>
+<tr class="row-even"><td><p>min_pci_generation</p></td>
+<td><p>1.0</p></td>
+<td><p>h2d_d2h_single_pinned, h2d_d2h_single_unpinned</p></td>
+<td><p>Minimum allowed PCI generation that the GPU must be at or exceed for this sub-test to pass.</p></td>
+</tr>
+<tr class="row-odd"><td><p>min_pci_width</p></td>
+<td><p>1.0</p></td>
+<td><p>h2d_d2h_single_pinned, h2d_d2h_single_unpinned</p></td>
+<td><p>Minimum allowed PCI width that the GPU must be at or exceed for this sub-test to pass. For example, 16x = 16.0.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="gpu-memory-plugin">
+<span id="dcgm-memory-plugin"></span><h3>GPU Memory Plugin<a class="headerlink" href="#gpu-memory-plugin" title="Link to this heading">#</a></h3>
+<section id="id5">
+<h4>Overview<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>The GPU Memory Plugin is a hardware diagnostic test that validates GPU memory integrity and functionality. It performs comprehensive memory testing to detect hardware faults, ECC errors, and memory corruption issues on NVIDIA GPUs.</p>
+</section>
+<section id="id6">
+<h4>Test Description<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>The memory plugin consists of two main test components:</p>
+<ol class="arabic">
+<li><p>Main Memory Test</p>
+<ul>
+<li><p>Purpose: Tests GPU memory allocation, writing, and reading operations</p></li>
+<li><p>Process:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Allocates a significant portion of GPU memory (default 75% of total memory)</p></li>
+<li><p>Writes specific test patterns to memory using CUDA kernels</p></li>
+<li><p>Reads back the data and verifies integrity</p></li>
+<li><p>Uses 5 different test patterns: 0x00, 0xAA, 0x55, 0xFF, 0x00</p></li>
+<li><p>Detects memory mismatches and ECC errors</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>L1 Cache Test</p>
+<ul>
+<li><p>Purpose: Tests L1 cache functionality and detects cache-related issues</p></li>
+<li><p>Requirements:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Compute capability 7.0 or higher</p></li>
+<li><p>L1 cache size ≤ 256KB per SM</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Controlled by parameter <code class="docutils literal notranslate"><span class="pre">l1_is_allowed</span></code></p></li>
+<li><p>Process: Performs cache operations and validates data integrity</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id7">
+<h4>Supported Parameters<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<p>The following table lists the global parameters for the memory plugin.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 13.7%" />
+<col style="width: 13.7%" />
+<col style="width: 49.0%" />
+<col style="width: 23.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>is_allowed</p></td>
+<td><p>Bool</p></td>
+<td><p>When unspecified, DCGM will search configuration files for an appropriate default for the specified GPU; if no entry is found, the parameter defaults to false.</p></td>
+<td><p>Specifies whether or not this test is allowed to run.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following table lists the parameters for the main memory test.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 54.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>minimum_allocation_percentage</p></td>
+<td><p>Double</p></td>
+<td><p>75.0</p></td>
+<td><p>Minimum percentage of GPU memory to allocate (0.0-100.0).</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_free_memory_mb</p></td>
+<td><p>Double</p></td>
+<td><p>0.0</p></td>
+<td><p>Maximum amount of GPU memory which will be allocated for memory testing, specified in megabytes (MB). Supersedes minimum_allocation_percentage. If not specified,
+the test will allocate value of minimum_allocation_percentage for the GPU memory.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following table lists the parameters for the l1 cache test.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 13.7%" />
+<col style="width: 13.7%" />
+<col style="width: 49.0%" />
+<col style="width: 23.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>l1_is_allowed</p></td>
+<td><p>Bool</p></td>
+<td><p>When unspecified, DCGM will search configuration files for an appropriate default for the specified GPU; if no entry is found, the parameter defaults to false.</p></td>
+<td><p>Enables/disables the L1 cache subtest.</p></td>
+</tr>
+<tr class="row-odd"><td><p>test_loops</p></td>
+<td><p>Double</p></td>
+<td><p>0</p></td>
+<td><p>Number of test loops.</p></td>
+</tr>
+<tr class="row-even"><td><p>test_duration</p></td>
+<td><p>Double</p></td>
+<td><p>1.0</p></td>
+<td><p>Duration of L1 cache test in seconds (0 = run for test_loops).</p></td>
+</tr>
+<tr class="row-odd"><td><p>inner_iterations</p></td>
+<td><p>Double</p></td>
+<td><p>1024</p></td>
+<td><p>Number of inner iterations per test.</p></td>
+</tr>
+<tr class="row-even"><td><p>log_len</p></td>
+<td><p>Double</p></td>
+<td><p>8192</p></td>
+<td><p>Length of error log for L1 cache test.</p></td>
+</tr>
+<tr class="row-odd"><td><p>dump_miscompares</p></td>
+<td><p>Bool</p></td>
+<td><p>True</p></td>
+<td><p>Whether to dump miscompare details.</p></td>
+</tr>
+<tr class="row-even"><td><p>l1cache_size_kb_per_sm</p></td>
+<td><p>Double</p></td>
+<td><p>0</p></td>
+<td><p>L1 cache size per SM in KB.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id8">
+<h4>Sample Commands<a class="headerlink" href="#id8" title="Link to this heading">#</a></h4>
+<p>Basic Memory Test</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>memory<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;memory.is_allowed=True&quot;</span>
+</pre></div>
+</div>
+<p>With L1 Cache Test Enabled</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>memory<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;memory.is_allowed=True;memory.l1_is_allowed=True&quot;</span>
+</pre></div>
+</div>
+<p>Controlling Memory Allocation with max_free_memory_mb</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>memory<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;memory.is_allowed=True;memory.max_free_memory_mb=0.1&quot;</span>
+
+<span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>memory<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;memory.is_allowed=True;memory.max_free_memory_mb=512&quot;</span>
+
+<span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>memory<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;memory.is_allowed=True;memory.max_free_memory_mb=100&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h4>Failure Conditions<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Memory Allocation Failure (<code class="docutils literal notranslate"><span class="pre">DCGM_FR_MEMORY_ALLOC</span></code>)</p>
+<ul class="simple">
+<li><p>Cannot allocate the minimum required percentage of GPU memory.</p></li>
+</ul>
+</li>
+<li><p>Memory Mismatch (<code class="docutils literal notranslate"><span class="pre">DCGM_FR_MEMORY_MISMATCH</span></code>)</p>
+<ul class="simple">
+<li><p>Data written to memory doesn’t match data read back</p></li>
+</ul>
+</li>
+<li><p>CUDA Double-Bit Error (<code class="docutils literal notranslate"><span class="pre">DCGM_FR_CUDA_DBE</span></code>)</p>
+<ul class="simple">
+<li><p>CUDA detects uncorrectable double-bit ECC error</p></li>
+</ul>
+</li>
+<li><p>L1 Cache Miscompare (<code class="docutils literal notranslate"><span class="pre">DCGM_FR_L1TAG_MISCOMPARE</span></code>)</p>
+<ul class="simple">
+<li><p>L1 cache test detects data corruption</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="targeted-power-plugin">
+<span id="dcgm-targeted-power-plugin"></span><h3>Targeted Power Plugin<a class="headerlink" href="#targeted-power-plugin" title="Link to this heading">#</a></h3>
+<section id="id10">
+<h4>Overview<a class="headerlink" href="#id10" title="Link to this heading">#</a></h4>
+<p>The Targeted Power plugin is part of the level 3 and higher tests. Its goal is to drive a GPU towards TDP power usage and sustain that throughout the test in order to ensure that the GPU can perform under a power load. This is achieved by using matrix sizes and gemms that are emprically determined to sustain the required power load on the GPU.</p>
+</section>
+<section id="id11">
+<h4>Test Description<a class="headerlink" href="#id11" title="Link to this heading">#</a></h4>
+<p>This test’s core purpose is to sustain a high level of power usage. It relies on CUDA and performs large matrix multiplications simultaneously on each GPU in order to keep the GPUs busy and drawing power. Each GPU has a large workload that is sustained throughout the test; the workload does not pulse.</p>
+</section>
+<section id="id12">
+<h4>Supported Parameters<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<p>The following table lists the global parameters for the targeted power plugin:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 54.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>test_duration</p></td>
+<td><p>Double</p></td>
+<td><p>120.0</p></td>
+<td><p>This is the time in seconds that the test should run.</p></td>
+</tr>
+<tr class="row-odd"><td><p>target_power</p></td>
+<td><p>Double</p></td>
+<td><p>Defaults to the GPU’s Thermal Design Power (TDP) - 1. For example, a GPU with a max power draw of 400.0 W would have a target of 399.0 watts.</p></td>
+<td><p>This is the target power that the test is attempting to achieve for this device.</p></td>
+</tr>
+<tr class="row-even"><td><p>target_power_min_ratio</p></td>
+<td><p>Double</p></td>
+<td><p>75.0</p></td>
+<td><p>The minimum percentage of the target power that must be reached for the test to be considered passing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>use_dgemm</p></td>
+<td><p>Bool</p></td>
+<td><p>True</p></td>
+<td><p>If set to true, the test will use 64 bit precision in its matrix multiplications instead of 32 bit.</p></td>
+</tr>
+<tr class="row-even"><td><p>is_allowed</p></td>
+<td><p>Bool</p></td>
+<td><p>False</p></td>
+<td><p>Specifies whether or not this test is allowed to run.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id13">
+<h4>Sample Commands<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<p>Run the power test for 10 minutes:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_power<span class="w"> </span>-p<span class="w"> </span>targeted_power.test_duration<span class="o">=</span><span class="m">600</span>.0
+</pre></div>
+</div>
+<p>Run the level 3 diagnostic with a 5 minute targeted power test:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">3</span><span class="w"> </span>-p<span class="w"> </span>targeted_power.test_duration<span class="o">=</span><span class="m">300</span>.0
+</pre></div>
+</div>
+<p>Run the target power test targeting 200 W of power usage:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_power<span class="w"> </span>-p<span class="w"> </span>targeted_power.target_power<span class="o">=</span><span class="m">200</span>.0
+</pre></div>
+</div>
+<p>Run the level 4 test, skipping targeted power:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">4</span><span class="w"> </span>-p<span class="w"> </span>targeted_power.is_allowed<span class="o">=</span><span class="nb">false</span>
+</pre></div>
+</div>
+<p>Run the targeted power test, using single precision (32 bit):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_power<span class="w"> </span>-p<span class="w"> </span>targeted_power.use_dgemm<span class="o">=</span><span class="nb">false</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h4>Failure Conditions<a class="headerlink" href="#id14" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The test will fail if we cannot reach at least target_power_min_ratio (75% by default) of the target_power (TDP - 1 by default) during the test.</p></li>
+<li><p>The test will fail if unrecoverable memory errors, temperature violations, or XIDs occur during the test.</p></li>
+</ul>
+</section>
+</section>
+<section id="targeted-stress-plugin">
+<span id="dcgm-targeted-stress-plugin"></span><h3>Targeted Stress Plugin<a class="headerlink" href="#targeted-stress-plugin" title="Link to this heading">#</a></h3>
+<section id="id15">
+<h4>Overview<a class="headerlink" href="#id15" title="Link to this heading">#</a></h4>
+<p>The Targeted Stress plugin is part of the level 3 tests. The plugin maintains a
+constant stress level on the GPU by continuously queuing matrix operations and
+adjusting the workload to achieve the target performance.</p>
+<p>This test is designed to stress the GPU at a specific performance target rather than maximum stress,
+allowing for controlled performance testing and validation of GPU stability under sustained load.</p>
+</section>
+<section id="id16">
+<h4>Test Description<a class="headerlink" href="#id16" title="Link to this heading">#</a></h4>
+<p>The Targeted Stress plugin performs the following operations:</p>
+<ol class="arabic simple">
+<li><p><strong>Matrix Multiplication Operations</strong>: Continuously runs GEMM (General Matrix Multiply) operations
+using cuBLAS, alternating between single precision (SGEMM) and double precision (DGEMM) based on configuration.</p></li>
+<li><p><strong>Performance Targeting</strong>: Monitors actual GPU performance and adjusts the workload to maintain
+the specified target performance level in GFLOPS.</p></li>
+<li><p><strong>Multi-Stream Processing</strong>: Utilizes multiple CUDA streams per GPU to pipeline operations and
+maximize GPU utilization while maintaining the target stress level.</p></li>
+<li><p><strong>Performance Validation</strong>: Ensures that the achieved performance meets the minimum ratio threshold
+of the target performance, accounting for memory transfer overhead.</p></li>
+<li><p><strong>Health Monitoring</strong>: Continuously monitors GPU health metrics including temperature, memory errors,
+PCIe replays, and other standard error conditions.</p></li>
+</ol>
+</section>
+<section id="id17">
+<h4>Supported Parameters<a class="headerlink" href="#id17" title="Link to this heading">#</a></h4>
+<p>The following table lists the global parameters for the targeted stress plugin:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 54.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>test_duration</p></td>
+<td><p>Double</p></td>
+<td><p>30.0</p></td>
+<td><p>Duration of the test in seconds.</p></td>
+</tr>
+<tr class="row-odd"><td><p>target_stress</p></td>
+<td><p>Double</p></td>
+<td><p>100.0</p></td>
+<td><p>Target performance level in GFLOPS that the test should maintain.</p></td>
+</tr>
+<tr class="row-even"><td><p>target_perf_min_ratio</p></td>
+<td><p>Double</p></td>
+<td><p>0.95</p></td>
+<td><p>Minimum ratio of achieved performance to target performance (0.0 to 1.0).</p></td>
+</tr>
+<tr class="row-odd"><td><p>temperature_max</p></td>
+<td><p>Double</p></td>
+<td><p>Blank</p></td>
+<td><p>Maximum allowed temperature in degrees Celsius during the test.</p></td>
+</tr>
+<tr class="row-even"><td><p>is_allowed</p></td>
+<td><p>Bool</p></td>
+<td><p>See description</p></td>
+<td><p>Whether the targeted stress test is allowed to run. Must be “True” for the test to execute.
+Note: When unspecified, DCGM searches for configuration files for the specified GPU; if no configuration is found,
+the parameter defaults to “False”.</p></td>
+</tr>
+<tr class="row-odd"><td><p>use_dgemm</p></td>
+<td><p>Bool</p></td>
+<td><p>True</p></td>
+<td><p>Use double precision GEMM (DGEMM) instead of single precision (SGEMM).</p></td>
+</tr>
+<tr class="row-even"><td><p>cuda_streams_per_gpu</p></td>
+<td><p>Double</p></td>
+<td><p>8.0</p></td>
+<td><p>Number of CUDA streams to use per GPU for pipelining operations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ops_per_stream_queue</p></td>
+<td><p>Double</p></td>
+<td><p>100.0</p></td>
+<td><p>Number of operations to queue per stream before waiting for completion.</p></td>
+</tr>
+<tr class="row-even"><td><p>max_pcie_replays</p></td>
+<td><p>Double</p></td>
+<td><p>160.0</p></td>
+<td><p>Maximum allowed PCIe replay count during the test.</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_memory_clock</p></td>
+<td><p>Double</p></td>
+<td><p>0.0</p></td>
+<td><p>Maximum allowed memory clock frequency (0.0 = no limit).</p></td>
+</tr>
+<tr class="row-even"><td><p>max_graphics_clock</p></td>
+<td><p>Double</p></td>
+<td><p>0.0</p></td>
+<td><p>Maximum allowed graphics clock frequency (0.0 = no limit).</p></td>
+</tr>
+<tr class="row-odd"><td><p>max_sbe_errors</p></td>
+<td><p>Double</p></td>
+<td><p>Blank</p></td>
+<td><p>Threshold beyond which SBE (Single Bit Error) count constitutes a failure.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id18">
+<h4>Sample Commands<a class="headerlink" href="#id18" title="Link to this heading">#</a></h4>
+<p>Run a quick targeted stress test for 2 minutes:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_stress<span class="w"> </span>-p<span class="w"> </span>targeted_stress.test_duration<span class="o">=</span><span class="m">120</span>.0
+</pre></div>
+</div>
+<p>Run the targeted stress test targeting 200 GFLOPS performance:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_stress<span class="w"> </span>-p<span class="w"> </span>targeted_stress.target_stress<span class="o">=</span><span class="m">200</span>.0
+</pre></div>
+</div>
+<p>Run the targeted stress test with single precision operations:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_stress<span class="w"> </span>-p<span class="w"> </span>targeted_stress.use_dgemm<span class="o">=</span>False
+</pre></div>
+</div>
+<p>Run the targeted stress test with stricter performance requirements (90% of target):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_stress<span class="w"> </span>-p<span class="w"> </span>targeted_stress.target_perf_min_ratio<span class="o">=</span><span class="m">0</span>.90
+</pre></div>
+</div>
+<p>Run the targeted stress test with temperature limit of 85°C:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_stress<span class="w"> </span>-p<span class="w"> </span>targeted_stress.temperature_max<span class="o">=</span><span class="m">85</span>.0
+</pre></div>
+</div>
+<p>Run the targeted stress test with custom stream configuration:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_stress<span class="w"> </span>-p<span class="w"> </span>targeted_stress.cuda_streams_per_gpu<span class="o">=</span><span class="m">4</span>.0<span class="w"> </span>-p<span class="w"> </span>targeted_stress.ops_per_stream_queue<span class="o">=</span><span class="m">50</span>.0
+</pre></div>
+</div>
+<p>Run the targeted stress test as part of level 3 diagnostics:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>targeted_stress<span class="w"> </span>-p<span class="w"> </span>targeted_stress.test_duration<span class="o">=</span><span class="m">120</span>.0
+</pre></div>
+</div>
+</section>
+<section id="id19">
+<h4>Failure Conditions<a class="headerlink" href="#id19" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The test will fail if achieved performance is below the minimum ratio threshold (<code class="docutils literal notranslate"><span class="pre">target_perf_min_ratio</span></code>, 95% by default) of the target performance (<code class="docutils literal notranslate"><span class="pre">target_stress</span></code>, 100 GFLOPS by default) during the test.</p></li>
+<li><p>The test will fail if unrecoverable memory errors, SBE count exceeds the specified threshold (<code class="docutils literal notranslate"><span class="pre">max_sbe_errors</span></code>), temperature violations, or XIDs occur during the test.</p></li>
+<li><p>The test will fail if PCIe replay count exceeds the specified maximum (<code class="docutils literal notranslate"><span class="pre">max_pcie_replays</span></code>, 160 by default) during the test.</p></li>
+<li><p>The test will fail if memory or graphics clock frequencies exceed specified limits (<code class="docutils literal notranslate"><span class="pre">max_memory_clock</span></code> and <code class="docutils literal notranslate"><span class="pre">max_graphics_clock</span></code>) during the test.</p></li>
+</ul>
+</section>
+</section>
+<section id="memtest-diagnostic">
+<span id="dcgm-nvvs-cuda-mats"></span><h3>Memtest Diagnostic<a class="headerlink" href="#memtest-diagnostic" title="Link to this heading">#</a></h3>
+<section id="id20">
+<h4>Overview<a class="headerlink" href="#id20" title="Link to this heading">#</a></h4>
+<p>Beginning with 2.4.0 DCGM diagnostics support an additional level 4
+diagnostics (<code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">4</span></code>). The first of these additional diagnostics is memtest.
+Similar to
+<a class="reference external" href="https://www.memtest86.com/tech_memtest-algoritm.html">memtest86</a>,
+the DCGM memtest will exercise GPU memory with various test patterns.
+These patterns each given a separate test and can be enabled and
+disabled by administrators.</p>
+</section>
+<section id="test-descriptions">
+<h4>Test Descriptions<a class="headerlink" href="#test-descriptions" title="Link to this heading">#</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Test runtimes refer to average seconds per single iteration on a
+single A100 40gb GPU.</p>
+</div>
+<p><strong>Test0 [Walking 1 bit]</strong> - This test changes one bit at a time in
+memory to see if it goes to a different memory location. It is designed
+to test the address wires. Runtime: ~3 seconds.</p>
+<p><strong>Test1 [Address check]</strong> - Each Memory location is filled with its own
+address followed by a check to see if the value in each memory location
+still agrees with the address. Runtime: &lt; 1 second.</p>
+<p><strong>Test 2 [Moving inversions, ones&amp;zeros]</strong> - This test uses the moving
+inversions algorithm from memtest86 with patterns of all ones and zeros.
+Runtime: ~4 seconds.</p>
+<p><strong>Test 3 [Moving inversions, 8 bit pat]</strong> - Same as test 1 but uses a 8
+bit wide pattern of “walking” ones and zeros. Runtime: ~4 seconds.</p>
+<p><strong>Test 4 [Moving inversions, random pattern]</strong> - Same algorithm as test
+1 but the data pattern is a random number and it’s complement. A total
+of 60 patterns are used. The random number sequence is different with
+each pass so multiple passes can increase effectiveness. Runtime: ~2
+seconds.</p>
+<p><strong>Test 5 [Block move, 64 moves]</strong> - This test moves blocks of memory.
+Memory is initialized with shifting patterns that are inverted every 8
+bytes. Then these blocks of memory are moved around. After the moves are
+completed the data patterns are checked. Runtime: ~1 second.</p>
+<p><strong>Test 6 [Moving inversions, 32 bit pat]</strong> - This is a variation of the
+moving inversions algorithm that shifts the data pattern left one bit
+for each successive address. To use all possible data patterns 32 passes
+are made during the test. Runtime: ~155 seconds.</p>
+<p><strong>Test 7 [Random number sequence]</strong> - A 1MB block of memory is
+initialized with random patterns. These patterns and their complements
+are used in moving inversion tests with rest of memory. Runtime: ~2 seconds.</p>
+<p><strong>Test 8 [Modulo 20, random pattern]</strong> - A random pattern is generated.
+This pattern is used to set every 20th memory location in memory. The
+rest of the memory location is set to the compliment of the pattern.
+Repeat this for 20 times and each time the memory location to set the
+pattern is shifted right. Runtime: ~10 seconds.</p>
+<p><strong>Test 9 [Bit fade test, 2 patterns]</strong> - The bit fade test initializes
+all memory with a pattern and then sleeps for 1 minute. Then memory is
+examined to see if any memory bits have changed. All ones and all zero
+patterns are used. Runtime: ~244 seconds.</p>
+<p><strong>Test10 [Memory stress]</strong> - A random pattern is generated and a large
+kernel is launched to set all memory to the pattern. A new read and
+write kernel is launched immediately after the previous write kernel to
+check if there is any errors in memory and set the memory to the
+compliment. This process is repeated for 1000 times for one pattern. The
+kernel is written as to achieve the maximum bandwidth between the global
+memory and GPU. Runtime: ~6 seconds.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default Test7 and Test10 alternate for a period of 10 minutes. If any
+errors are detected the diagnostic will fail.</p>
+</div>
+</section>
+<section id="id21">
+<h4>Supported Parameters<a class="headerlink" href="#id21" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>test0</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>false</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>test1</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>false</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>test2</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>false</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>test3</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>false</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>test4</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>false</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>test5</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>false</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>test6</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>false</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>test7</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>true</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>test8</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>false</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>test9</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>false</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>test10</p></td>
+<td><p>boolean</p></td>
+<td><p><strong>true</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>test_duration</p></td>
+<td><p>seconds</p></td>
+<td><p><strong>600</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id22">
+<h4>Sample Commands<a class="headerlink" href="#id22" title="Link to this heading">#</a></h4>
+<p>Run test7 and test10 for 10 minutes (this is the default):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">4</span>
+</pre></div>
+</div>
+<p>Run each test serially for 1 hour then display results:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-p<span class="w"> </span>memtest.test0<span class="o">=</span>true<span class="se">\;</span>memtest.test1<span class="o">=</span>true<span class="se">\;</span>memtest.test2<span class="o">=</span>true<span class="se">\;</span>memtest.test3<span class="o">=</span>true<span class="se">\;</span>memtest.test4<span class="o">=</span>true<span class="se">\;</span>memtest.test5<span class="o">=</span>true<span class="se">\;</span>memtest.test6<span class="o">=</span>true<span class="se">\;</span>memtest.test7<span class="o">=</span>true<span class="se">\;</span>memtest.test8<span class="o">=</span>true<span class="se">\;</span>memtest.test9<span class="o">=</span>true<span class="se">\;</span>memtest.test10<span class="o">=</span>true<span class="se">\;</span>memtest.test_duration<span class="o">=</span><span class="m">3600</span>
+</pre></div>
+</div>
+<p>Run test0 for one minute 10 times, displaying the results each minute:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>--iterations<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-r<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-p<span class="w"> </span>memtest.test0<span class="o">=</span>true<span class="se">\;</span>memtest.test7<span class="o">=</span>false<span class="se">\;</span>memtest.test10<span class="o">=</span>false<span class="se">\;</span>memtest.test_duration<span class="o">=</span><span class="m">60</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="pulse-test-diagnostic">
+<span id="dcgm-nvvs-pulse-test"></span><h3>Pulse Test Diagnostic<a class="headerlink" href="#pulse-test-diagnostic" title="Link to this heading">#</a></h3>
+<section id="id23">
+<h4>Overview<a class="headerlink" href="#id23" title="Link to this heading">#</a></h4>
+<p>The Pulse Test is part of the new level 4 tests. The pulse test is meant to fluctuate
+the power usage to create spikes in current flow on the board to ensure that the power
+supply is fully functional and can handle wide fluctuations in current.</p>
+</section>
+<section id="id24">
+<h4>Test Description<a class="headerlink" href="#id24" title="Link to this heading">#</a></h4>
+<p>By default, the test runs kernels with high transiency in order to create spikes in the current
+running to the GPU. Default parameters have been verified to create worst-case scenario failures
+by measuring with oscilloscopes.</p>
+<p>The test iteratively runs different kernels while tweaking internal parameters to ensure that
+spikes are produced; work across GPU is synchronized to create extra stress on the power supply.</p>
+<hr class="docutils" />
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>test_duration</p></td>
+<td><p>Seconds to spend on an iteration. This is
+not the exact amount of time the test will
+take.</p></td>
+<td><p><strong>60</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>patterns</p></td>
+<td><p>Specify a comman-separated list of pattern
+indices the pulse test should use.
+Valid indices depend on the type of SKU.
+Hopper: 0-22
+Ampere / Volta/ Ada: 0-20</p></td>
+<td><p>All</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some cases with DCGM 2.4 and DCGM 3.0, users may encounter the following
+issue with running the Pulse test:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">| Pulse Test | Fail - All |</span>
+<span class="go">| Warning | GPU 0There was an internal error during the t |</span>
+<span class="go">| | est: &#39;The pulse test exited with non-zero sta |</span>
+<span class="go">| | tus 1&#39;, GPU 0There was an internal error duri |</span>
+<span class="go">| | ng the test: &#39;The pulse test reported the err |</span>
+<span class="go">| | or: Exception raised during execution: Faile |</span>
+<span class="go">| | d opening file ubergemm.log for writing: Perm |</span>
+<span class="go">| | ission denied terminate called after throwing |</span>
+<span class="go">| | an instance of &#39;boost::wrapexcept&lt;boost::pro |</span>
+<span class="go">| | perty_tree::xml_parser::xml_parser_error&gt;&#39; |</span>
+<span class="go">| | what(): result.xml: cannot open file &#39; |</span>
+</pre></div>
+</div>
+<p>When running GPU diagnostics, by default, DCGM drops privileges and uses a (unprivileged) service
+account to run the diagnostics. If the service account does not have write access to the directory
+where diagnostics are run, then users may encounter this issue. To summarize, the issue happens when
+both these conditions are true:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">nvidia-dcgm</span></code> service is active and the <code class="docutils literal notranslate"><span class="pre">nv-hostengine</span></code> process is running (and no changes
+have been made to DCGM’s default install configurations)</p></li>
+<li><p>The users attempts to run <code class="docutils literal notranslate"><span class="pre">dcgmi</span> <span class="pre">diag</span> <span class="pre">-r</span> <span class="pre">4</span></code>. In this case, <code class="docutils literal notranslate"><span class="pre">dcgmi</span> <span class="pre">diag</span></code> connects to the running
+<code class="docutils literal notranslate"><span class="pre">nv-hostengine</span></code> (which was started by default under <code class="docutils literal notranslate"><span class="pre">/root</span></code>) and thus the Pulse test is unable to
+create any logs.</p></li>
+</ol>
+<p>This issue will be fixed in a future release of DCGM. In the meantime, users can do either of the
+following to work-around the issue:</p>
+<ol class="arabic">
+<li><p>Stop the <cite>nvidia-dcgm</cite> service before running the pulse_test</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>nvidia-dcgm
+</pre></div>
+</div>
+<p>Now run the <code class="docutils literal notranslate"><span class="pre">pulse_test</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>pulse_test
+</pre></div>
+</div>
+<p>Restart the <code class="docutils literal notranslate"><span class="pre">nvidia-dcgm</span></code> service once the diagnostics are completed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nvidia-dcgm
+</pre></div>
+</div>
+</li>
+<li><p>Edit the <code class="docutils literal notranslate"><span class="pre">systemd</span></code> unit service file to include a <code class="docutils literal notranslate"><span class="pre">WorkingDirectory</span></code> option, so that
+the service is started in a location writeable by the <code class="docutils literal notranslate"><span class="pre">nvidia-dcgm</span></code> user (be sure that the
+directory shown in the example below <code class="docutils literal notranslate"><span class="pre">/tmp/dcgm-temp</span></code> is created):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[Service]</span>
+
+<span class="go"> ...</span>
+
+<span class="go"> WorkingDirectory=/tmp/dcgm-temp</span>
+<span class="go"> ExecStart=/usr/bin/nv-hostengine -n --service-account nvidia-dcgm</span>
+
+<span class="go"> ...</span>
+</pre></div>
+</div>
+<p>Reload the systemd configuration and start the <code class="docutils literal notranslate"><span class="pre">nvidia-dcgm</span></code> service:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nvidia-dcgm
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</section>
+<section id="id25">
+<h4>Sample Commands<a class="headerlink" href="#id25" title="Link to this heading">#</a></h4>
+<p>Run the entire diagnostic suite, including the pulse test:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">4</span>
+</pre></div>
+</div>
+<p>Run just the pulse test:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>pulse_test
+</pre></div>
+</div>
+<p>Run just the pulse test, but at a lower frequency:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>pulse_test<span class="w"> </span>-p<span class="w"> </span>pulse_test.freq0<span class="o">=</span><span class="m">3000</span>
+</pre></div>
+</div>
+<p>Run just the pulse test at a lower frequency and for a shorter time:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>pulse_test<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;pulse_test.freq0=5000;pulse_test.test_duration=180&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id26">
+<h4>Failure Conditions<a class="headerlink" href="#id26" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The pulse test will fail if the power supply unit cannot handle the spikes in the current.</p></li>
+<li><p>It will also fail if unrecoverable memory errors, temperature violations, or XIDs occur during the test.</p></li>
+</ul>
+</section>
+</section>
+<section id="nvbandwidth-plugin">
+<span id="dcgm-nvbandwidth-plugin"></span><h3>NVBandwidth Plugin<a class="headerlink" href="#nvbandwidth-plugin" title="Link to this heading">#</a></h3>
+<section id="id27">
+<h4>Overview<a class="headerlink" href="#id27" title="Link to this heading">#</a></h4>
+<p>The NVBandwidth plugin is part of the level 3 and higher tests. NVBandwidth
+performs bandwidth measurements on NVIDIA GPUs on a single host.</p>
+</section>
+<section id="id28">
+<h4>Test Description<a class="headerlink" href="#id28" title="Link to this heading">#</a></h4>
+<p>NVBandwidth measures bandwidth for various memcpy patterns across different
+links using copy engine or kernel copy methods. nvbandwidth reports current
+measured bandwidth on your system. Additional system-specific tuning may be
+required to achieve maximal peak bandwidth. Tests are performed on GPUs on a
+single host only.  For more information, please see
+<a class="github reference external" href="https://github.com/NVIDIA/nvbandwidth">NVIDIA/nvbandwidth</a>.</p>
+</section>
+<section id="supported-products">
+<h4>Supported Products<a class="headerlink" href="#supported-products" title="Link to this heading">#</a></h4>
+<p>DCGM will run the NVbandwidth test on the following GPU products:</p>
+<ul class="simple">
+<li><p>NVIDIA A800 (20bd)</p></li>
+<li><p>NVIDIA B100 (197f)</p></li>
+<li><p>NVIDIA B200 (1999, 199b, 20da)</p></li>
+<li><p>NVIDIA B300 (20e6)</p></li>
+<li><p>NVIDIA GH100-88K-A1</p></li>
+<li><p>NVIDIA GH100-888K (2342, 237f)</p></li>
+<li><p>NVIDIA H100 144GB HBM3</p></li>
+<li><p>NVIDIA H100 80GB HBM3</p></li>
+<li><p>NVIDIA H100NVL (2321, 233a)</p></li>
+<li><p>NVIDIA H200 (2335, 233b)</p></li>
+<li><p>NVIDIA H20A</p></li>
+<li><p>NVIDIA H20B</p></li>
+<li><p>NVIDIA H20 HBM3e</p></li>
+<li><p>NVIDIA H20 NVL16</p></li>
+<li><p>NVIDIA L2</p></li>
+<li><p>NVIDIA L20</p></li>
+<li><p>NVIDIA L20A</p></li>
+<li><p>NVIDIA L30</p></li>
+<li><p>NVIDIA L40S</p></li>
+<li><p>NVIDIA P2021</p></li>
+<li><p>NVIDIA PG153 SKU 210</p></li>
+<li><p>NVIDIA RTX 2000 Ada Generation</p></li>
+<li><p>NVIDIA RTX6000D</p></li>
+</ul>
+</section>
+<section id="id29">
+<h4>Supported Parameters<a class="headerlink" href="#id29" title="Link to this heading">#</a></h4>
+<p>The following table lists the global parameters for this plugin:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 54.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>testcases</p></td>
+<td><p>string</p></td>
+<td></td>
+<td><p>The list of specific testcases to run, separated by <code class="docutils literal notranslate"><span class="pre">,</span></code>, e.g.: <code class="docutils literal notranslate"><span class="pre">0,1,2</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>is_allowed</p></td>
+<td><p>Bool</p></td>
+<td><p>False</p></td>
+<td><p>Specifies whether or not this test is allowed to run.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id30">
+<h4>Sample Commands<a class="headerlink" href="#id30" title="Link to this heading">#</a></h4>
+<p>Run the test with default parameters:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>nvbandwidth
+</pre></div>
+</div>
+<p>Run the test, specifying only testcase 1</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>nvbandwidth<span class="w"> </span>-p<span class="w"> </span>nvbandwidth.testcases<span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>Run the test, specifying multiple testcases</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>nvbandwidth<span class="w"> </span>-p<span class="w"> </span>nvbandwidth.testcases<span class="o">=</span><span class="m">1</span>,2,3
+</pre></div>
+</div>
+<p>Run the level 3 test, indicating the nvbandwidth test should be allowed to run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">3</span><span class="w"> </span>-p<span class="w"> </span>nvbandwidth.is_allowed<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</section>
+<section id="id31">
+<h4>Failure Conditions<a class="headerlink" href="#id31" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The test will fail if the <code class="docutils literal notranslate"><span class="pre">nvbandwidth</span></code> executable cannot be found.</p></li>
+<li><p>The test will fail if current memory copy utilization (<cite>MCUTIL</cite>) is over 10% or cannot be retrieved.</p></li>
+<li><p>The test will fail if an error is encountered during nvbandwidth execution.</p></li>
+</ul>
+</section>
+</section>
+<section id="automating-responses-to-dcgm-diagnostic-failures">
+<span id="diag-errors"></span><h3>Automating Responses to DCGM Diagnostic Failures<a class="headerlink" href="#automating-responses-to-dcgm-diagnostic-failures" title="Link to this heading">#</a></h3>
+<section id="id32">
+<h4>Overview<a class="headerlink" href="#id32" title="Link to this heading">#</a></h4>
+<p>Automating workflows based on DCGM diagnostics can enable sites to handle
+GPU errors more efficiently. Additional data for determining the severity
+of errors and potential next steps is available using either the API or
+by parsing the JSON returned on the CLI. Besides simply reporting human
+readable strings of which errors occurred during the diagnostic, each
+error also includes a specific ID, Severity, and Category that can be
+useful when deciding how to handle the failure.</p>
+<p>The latest versions of these enums can be found in <a class="reference external" href="https://github.com/NVIDIA/DCGM/blob/master/dcgmlib/dcgm_errors.h">dcgm_errors.h</a>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error Category Enum</p></th>
+<th class="head"><p>VALUE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DCGM_FR_EC_NONE</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EC_PERF_THRESHOLD</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EC_PERF_VIOLATION</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EC_SOFTWARE_CONFIG</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EC_SOFTWARE_LIBRARY</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EC_SOFTWARE_XID</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EC_SOFTWARE_CUDA</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EC_SOFTWARE_EUD</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EC_HARDWARE_THERMAL</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EC_HARDWARE_NVSWITCH</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+<td><p>13</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EC_HARDWARE_POWER</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+<td><p>15</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+<td><p>16</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error Severity Enum</p></th>
+<th class="head"><p>VALUE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DCGM_ERROR_NONE</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_ERROR_UNKNOWN</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_ERROR_RESET</p></td>
+<td><p>6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error Enum</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Severity</p></th>
+<th class="head"><p>Category</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DCGM_FR_OK</p></td>
+<td><p>0</p></td>
+<td><p>DCGM_ERROR_UNKNOWN</p></td>
+<td><p>DCGM_FR_EC_NONE</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_UNKNOWN</p></td>
+<td><p>1</p></td>
+<td><p>DCGM_ERROR_UNKNOWN</p></td>
+<td><p>DCGM_FR_EC_NONE</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_UNRECOGNIZED</p></td>
+<td><p>2</p></td>
+<td><p>DCGM_ERROR_UNKNOWN</p></td>
+<td><p>DCGM_FR_EC_NONE</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_PCI_REPLAY_RATE</p></td>
+<td><p>3</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_VOLATILE_DBE_DETECTED</p></td>
+<td><p>4</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_VOLATILE_SBE_DETECTED</p></td>
+<td><p>5</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_PENDING_PAGE_RETIREMENTS</p></td>
+<td><p>6</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_RETIRED_PAGES_LIMIT</p></td>
+<td><p>7</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_RETIRED_PAGES_DBE_LIMIT</p></td>
+<td><p>8</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_CORRUPT_INFOROM</p></td>
+<td><p>9</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_CLOCKS_EVENT_THERMAL</p></td>
+<td><p>10</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_THERMAL</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_POWER_UNREADABLE</p></td>
+<td><p>11</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_POWER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_CLOCKS_EVENT_POWER</p></td>
+<td><p>12</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_POWER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NVLINK_ERROR_THRESHOLD</p></td>
+<td><p>13</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_NVLINK_DOWN</p></td>
+<td><p>14</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NVSWITCH_FATAL_ERROR</p></td>
+<td><p>15</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVSWITCH</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_NVSWITCH_NON_FATAL_ERROR</p></td>
+<td><p>16</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVSWITCH</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NVSWITCH_DOWN</p></td>
+<td><p>17</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVSWITCH</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_NO_ACCESS_TO_FILE</p></td>
+<td><p>18</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NVML_API</p></td>
+<td><p>19</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_LIBRARY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_DEVICE_COUNT_MISMATCH</p></td>
+<td><p>20</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_BAD_PARAMETER</p></td>
+<td><p>21</p></td>
+<td><p>DCGM_ERROR_UNKNOWN</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_CANNOT_OPEN_LIB</p></td>
+<td><p>22</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_LIBRARY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_DENYLISTED_DRIVER</p></td>
+<td><p>23</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CONFIG</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_NVML_LIB_BAD</p></td>
+<td><p>24</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_LIBRARY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_GRAPHICS_PROCESSES</p></td>
+<td><p>25</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_HOSTENGINE_CONN</p></td>
+<td><p>26</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_FIELD_QUERY</p></td>
+<td><p>27</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_BAD_CUDA_ENV</p></td>
+<td><p>28</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CUDA</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_PERSISTENCE_MODE</p></td>
+<td><p>29</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_LOW_BANDWIDTH</p></td>
+<td><p>30</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_HIGH_LATENCY</p></td>
+<td><p>31</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_CANNOT_GET_FIELD_TAG</p></td>
+<td><p>32</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_FIELD_VIOLATION</p></td>
+<td><p>33</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_FIELD_THRESHOLD</p></td>
+<td><p>34</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_PERF_VIOLATION</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_FIELD_VIOLATION_DBL</p></td>
+<td><p>35</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_PERF_VIOLATION</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_FIELD_THRESHOLD_DBL</p></td>
+<td><p>36</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_PERF_VIOLATION</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_UNSUPPORTED_FIELD_TYPE</p></td>
+<td><p>37</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_FIELD_THRESHOLD_TS</p></td>
+<td><p>38</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_PERF_THRESHOLD</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_FIELD_THRESHOLD_TS_DBL</p></td>
+<td><p>39</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_PERF_THRESHOLD</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_THERMAL_VIOLATIONS</p></td>
+<td><p>40</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_THERMAL</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_THERMAL_VIOLATIONS_TS</p></td>
+<td><p>41</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_THERMAL</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_TEMP_VIOLATION</p></td>
+<td><p>42</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_THERMAL</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_CLOCKS_EVENT_VIOLATION</p></td>
+<td><p>43</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_INTERNAL</p></td>
+<td><p>44</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_PCIE_GENERATION</p></td>
+<td><p>45</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_PCIE_WIDTH</p></td>
+<td><p>46</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_ABORTED</p></td>
+<td><p>47</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_TEST_DISABLED</p></td>
+<td><p>48</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CONFIG</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_CANNOT_GET_STAT</p></td>
+<td><p>49</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_STRESS_LEVEL</p></td>
+<td><p>50</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_PERF_THRESHOLD</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_CUDA_API</p></td>
+<td><p>51</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CUDA</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_FAULTY_MEMORY</p></td>
+<td><p>52</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_CANNOT_SET_WATCHES</p></td>
+<td><p>53</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_CUDA_UNBOUND</p></td>
+<td><p>54</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CUDA</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_ECC_DISABLED</p></td>
+<td><p>55</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_MEMORY_ALLOC</p></td>
+<td><p>56</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_CUDA_DBE</p></td>
+<td><p>57</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_MEMORY_MISMATCH</p></td>
+<td><p>58</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_CUDA_DEVICE</p></td>
+<td><p>59</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CUDA</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_ECC_UNSUPPORTED</p></td>
+<td><p>60</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_ECC_PENDING</p></td>
+<td><p>61</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_MEMORY_BANDWIDTH</p></td>
+<td><p>62</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_PERF_THRESHOLD</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_TARGET_POWER</p></td>
+<td><p>63</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_POWER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_API_FAIL</p></td>
+<td><p>64</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_API_FAIL_GPU</p></td>
+<td><p>65</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_CUDA_CONTEXT</p></td>
+<td><p>66</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CUDA</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_DCGM_API</p></td>
+<td><p>67</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_CONCURRENT_GPUS</p></td>
+<td><p>68</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CONFIG</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_TOO_MANY_ERRORS</p></td>
+<td><p>69</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_NVLINK_CRC_ERROR_THRESHOLD</p></td>
+<td><p>70</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NVLINK_ERROR_CRITICAL</p></td>
+<td><p>71</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_ENFORCED_POWER_LIMIT</p></td>
+<td><p>72</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_POWER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_MEMORY_ALLOC_HOST</p></td>
+<td><p>73</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_GPU_OP_MODE</p></td>
+<td><p>74</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CONFIG</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NO_MEMORY_CLOCKS</p></td>
+<td><p>75</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_NO_GRAPHICS_CLOCKS</p></td>
+<td><p>76</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_HAD_TO_RESTORE_STATE</p></td>
+<td><p>77</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_L1TAG_UNSUPPORTED</p></td>
+<td><p>78</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_L1TAG_MISCOMPARE</p></td>
+<td><p>79</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_ROW_REMAP_FAILURE</p></td>
+<td><p>80</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_UNCONTAINED_ERROR</p></td>
+<td><p>81</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_XID</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EMPTY_GPU_LIST</p></td>
+<td><p>82</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CONFIG</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_DBE_PENDING_PAGE_RETIREMENTS</p></td>
+<td><p>83</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_UNCORRECTABLE_ROW_REMAP</p></td>
+<td><p>84</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_PENDING_ROW_REMAP</p></td>
+<td><p>85</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_BROKEN_P2P_MEMORY_DEVICE</p></td>
+<td><p>86</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_BROKEN_P2P_WRITER_DEVICE</p></td>
+<td><p>87</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_NVSWITCH_NVLINK_DOWN</p></td>
+<td><p>88</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EUD_BINARY_PERMISSIONS</p></td>
+<td><p>89</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_EUD</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EUD_NON_ROOT_USER</p></td>
+<td><p>90</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_EUD</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EUD_SPAWN_FAILURE</p></td>
+<td><p>91</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_EUD</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EUD_TIMEOUT</p></td>
+<td><p>92</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_EUD</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EUD_ZOMBIE</p></td>
+<td><p>93</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_EUD</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_EUD_NON_ZERO_EXIT_CODE</p></td>
+<td><p>94</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_EUD</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_EUD_TEST_FAILED</p></td>
+<td><p>95</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_EUD</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_FILE_CREATE_PERMISSIONS</p></td>
+<td><p>96</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CONFIG</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_PAUSE_RESUME_FAILED</p></td>
+<td><p>97</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_INTERNAL_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_PCIE_H_REPLAY_VIOLATION</p></td>
+<td><p>98</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_GPU_EXPECTED_NVLINKS_UP</p></td>
+<td><p>99</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_NVSWITCH_EXPECTED_NVLINKS_UP</p></td>
+<td><p>100</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_XID_ERROR</p></td>
+<td><p>101</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_XID</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_SBE_VIOLATION</p></td>
+<td><p>102</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_DBE_VIOLATION</p></td>
+<td><p>103</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_PCIE_REPLAY_VIOLATION</p></td>
+<td><p>104</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_SBE_THRESHOLD_VIOLATION</p></td>
+<td><p>105</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_DBE_THRESHOLD_VIOLATION</p></td>
+<td><p>106</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_PCIE_REPLAY_THRESHOLD_VIOLATION</p></td>
+<td><p>107</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_CUDA_FM_NOT_INITIALIZED</p></td>
+<td><p>108</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CUDA</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_SXID_ERROR</p></td>
+<td><p>109</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_XID</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_GFLOPS_THRESHOLD_VIOLATION</p></td>
+<td><p>110</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_PERF_VIOLATION</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NAN_VALUE</p></td>
+<td><p>111</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_FABRIC_MANAGER_TRAINING_ERROR</p></td>
+<td><p>112</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CUDA</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_BROKEN_P2P_PCIE_MEMORY_DEVICE</p></td>
+<td><p>113</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_BROKEN_P2P_PCIE_WRITER_DEVICE</p></td>
+<td><p>114</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_PCIE</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_BROKEN_P2P_NVLINK_MEMORY_DEVICE</p></td>
+<td><p>115</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_BROKEN_P2P_NVLINK_WRITER_DEVICE</p></td>
+<td><p>116</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_TEST_SKIPPED</p></td>
+<td><p>117</p></td>
+<td><p>DCGM_ERROR_CONFIG</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_CONFIG</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_SRAM_THRESHOLD</p></td>
+<td><p>118</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NVLINK_EFFECTIVE_BER_THRESHOLD</p></td>
+<td><p>119</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_FALLEN_OFF_BUS</p></td>
+<td><p>120</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NVLINK_SYMBOL_BER_THRESHOLD</p></td>
+<td><p>121</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_IMEX_UNHEALTHY</p></td>
+<td><p>122</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_FABRIC_PROBE_STATE</p></td>
+<td><p>123</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_NVLINK</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_BINARY_PERMISSIONS</p></td>
+<td><p>124</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_GPU_RECOVERY_RESET</p></td>
+<td><p>125</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_GPU_RECOVERY_REBOOT</p></td>
+<td><p>126</p></td>
+<td><p>DCGM_ERROR_ISOLATE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_GPU_RECOVERY_DRAIN_P2P</p></td>
+<td><p>127</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_GPU_RECOVERY_DRAIN_RESET</p></td>
+<td><p>128</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_NCCL_ERROR</p></td>
+<td><p>129</p></td>
+<td><p>DCGM_ERROR_RESET</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_OTHER</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_RETEST_REQUESTED</p></td>
+<td><p>130</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_OTHER</p></td>
+</tr>
+<tr class="row-odd"><td><p>DCGM_FR_CONTAINED_ERROR</p></td>
+<td><p>131</p></td>
+<td><p>DCGM_ERROR_MONITOR</p></td>
+<td><p>DCGM_FR_EC_SOFTWARE_XID</p></td>
+</tr>
+<tr class="row-even"><td><p>DCGM_FR_UNCORRECTABLE_ROW_REMAP_LIMIT</p></td>
+<td><p>132</p></td>
+<td><p>DCGM_ERROR_TRIAGE</p></td>
+<td><p>DCGM_FR_EC_HARDWARE_MEMORY</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These relationships are codified in <a class="reference external" href="https://github.com/NVIDIA/DCGM/blob/master/dcgmlib/src/dcgm_errors.c">dcgm_errors.c</a>.</p>
+<p>In general, DCGM has high confidence that errors with the ISOLATE and
+RESET severities should be handled immediately. Other severities may
+require more site-specific analysis, a re-run of the diagnostic, or a
+scanning of DCGM and system logs to determine the best course of action.
+Gathering and recording the failure types and rates over time can give
+datacenters insight into the best way to automate handling of GPU
+diagnostic errors.</p>
+</section>
+</section>
+<section id="memory-bandwidth-plugin">
+<span id="dcgm-memory-bandwidth-plugin"></span><h3>Memory Bandwidth Plugin<a class="headerlink" href="#memory-bandwidth-plugin" title="Link to this heading">#</a></h3>
+<section id="id33">
+<h4>Overview<a class="headerlink" href="#id33" title="Link to this heading">#</a></h4>
+<p>The Memory Bandwidth plugin tests and validates the memory bandwidth performance of individual NVIDIA GPUs.
+It measures how fast each GPU can read from and write to its own memory, which is critical for applications
+that require high memory throughput.</p>
+<p>The plugin targets the following aspects of GPU memory performance:</p>
+<ul class="simple">
+<li><p>Memory Bandwidth: Measures the rate at which data can be read from and written to GPU memory within a single GPU</p></li>
+<li><p>Memory Subsystem Stability: Validates that the memory subsystem can handle sustained high-bandwidth operations without errors</p></li>
+<li><p>Memory Performance Validation: Ensures the GPU meets expected memory performance thresholds</p></li>
+</ul>
+</section>
+<section id="id34">
+<h4>Test Description<a class="headerlink" href="#id34" title="Link to this heading">#</a></h4>
+<p>This test performs memory bandwidth measurements using the STREAM benchmark’s TRIAD operation. It allocates
+large memory arrays on each GPU and runs intensive memory operations to stress the memory subsystem. During
+this process, the GPU will be monitored for memory errors, CUDA errors, and performance thresholds.</p>
+<p>The test runs multiple iterations with different memory access patterns to find the optimal configuration for
+each GPU and measure the sustainable memory bandwidth. It validates that each GPU can achieve the specified
+minimum bandwidth threshold, ensuring the memory subsystem is performing as expected for high-bandwidth workloads.</p>
+<p>The Memory Bandwidth plugin implements the STREAM benchmark, which consists of four main memory operations:</p>
+<ol class="arabic simple">
+<li><p>COPY: a(i) = b(i) - Simple memory copy operation</p></li>
+<li><p>SCALE: a(i) = q*b(i) - Memory copy with scaling</p></li>
+<li><p>SUM: a(i) = b(i) + c(i) - Memory copy with addition</p></li>
+<li><p>TRIAD: a(i) = b(i) + q*c(i) - Memory copy with scaling and addition</p></li>
+</ol>
+<p>The plugin focuses on the TRIAD operation, which is the most memory-intensive and provides the best measure
+of sustainable memory bandwidth. This operation is chosen because it requires reading from two memory locations
+and writing to a third, represents a common pattern in scientific computing and data processing, provides the
+most comprehensive measure of memory bandwidth, and tests both read and write operations simultaneously.</p>
+<p>The test allocates memory based on the configured memory size parameter (default: 67,108,864 elements × 4 bytes x 3 arrays = 756MB per GPU allocated), runs
+TRIAD operations with different memory access patterns, measures bandwidth for each configuration, finds optimal
+performance and compares against the minimum threshold, and reports results including achieved bandwidth and any
+errors encountered.</p>
+<p>The test validates that each GPU can achieve the specified minimum bandwidth threshold, ensuring the memory subsystem
+is performing as expected for high-bandwidth workloads.</p>
+</section>
+<section id="id35">
+<h4>Preconditions<a class="headerlink" href="#id35" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>NVIDIA GPU with CUDA support</p></li>
+<li><p>CUDA driver and runtime installed</p></li>
+<li><p>DCGM host engine running</p></li>
+<li><p>GPU memory must be available for allocation</p></li>
+</ul>
+</section>
+<section id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h4>
+<p>The following table lists the parameters for the Memory Bandwidth plugin.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 54.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>minimum_bandwidth</p></td>
+<td><p>Double</p></td>
+<td><p>100.0</p></td>
+<td><p>Minimum bandwidth in MB/s that must be achieved for the test to pass.</p></td>
+</tr>
+<tr class="row-odd"><td><p>is_allowed</p></td>
+<td><p>String</p></td>
+<td><p>See description</p></td>
+<td><p>Whether this test is allowed to run. Must be “True” for the test to execute.
+Note: When unspecified, DCGM searches for configuration files for the specified GPU; if no configuration is found,
+the parameter defaults to “False”.</p></td>
+</tr>
+<tr class="row-even"><td><p>max_sbe_errors</p></td>
+<td><p>Double</p></td>
+<td><p>DCGM_FP64_BLANK</p></td>
+<td><p>Threshold for single-bit error (SBE) detection. If set, the test will fail if SBE count exceeds this threshold.</p></td>
+</tr>
+<tr class="row-odd"><td><p>run_if_gom_enabled</p></td>
+<td><p>String</p></td>
+<td><p>“True”</p></td>
+<td><p>Whether to run the test if GPU Operating Mode (GOM) is enabled.</p></td>
+</tr>
+<tr class="row-even"><td><p>logfile</p></td>
+<td><p>String</p></td>
+<td><p>“stats_membw.json”</p></td>
+<td><p>Output file for test statistics and results.</p></td>
+</tr>
+<tr class="row-odd"><td><p>logfile_type</p></td>
+<td><p>Double</p></td>
+<td><p>0.0</p></td>
+<td><p>Type of log file output format.</p></td>
+</tr>
+<tr class="row-even"><td><p>memory_size_mb</p></td>
+<td><p>Double</p></td>
+<td><p>756.0</p></td>
+<td><p>Total memory size in MB to allocate for the bandwidth test. Must be between 6 MB (minimum) and 756 MB (maximum).
+When not specified, defaults to 756 MB. This is the total memory size for all arrays a, b, and c.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ignore_error_codes</p></td>
+<td><p>String</p></td>
+<td><p>“”</p></td>
+<td><p>Comma-separated list of DCGM field result (<code class="docutils literal notranslate"><span class="pre">DCGM_FR_*</span></code>) error codes to ignore during test execution. These are specific
+error codes defined by the DCGM framework that can be suppressed if they are expected.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="test-categories">
+<h4>Test Categories<a class="headerlink" href="#test-categories" title="Link to this heading">#</a></h4>
+<p>The Memory Bandwidth plugin belongs to the following test categories:</p>
+<ul class="simple">
+<li><p>Stress: Performs intensive operations to validate system stability under load</p></li>
+</ul>
+</section>
+<section id="id36">
+<h4>Sample Commands<a class="headerlink" href="#id36" title="Link to this heading">#</a></h4>
+<p>Run a basic memory bandwidth test:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>memory_bandwidth<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;memory_bandwidth.is_allowed=True&quot;</span>
+</pre></div>
+</div>
+<p>Run the test with a custom minimum bandwidth threshold:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>memory_bandwidth<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;memory_bandwidth.is_allowed=True;memory_bandwidth.minimum_bandwidth=500&quot;</span>
+</pre></div>
+</div>
+<p>Run the test with a custom log file:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>memory_bandwidth<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;memory_bandwidth.is_allowed=True;memory_bandwidth.logfile=my_membw_test.json&quot;</span>
+</pre></div>
+</div>
+<p>Run the test with multiple parameters:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>memory_bandwidth<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;memory_bandwidth.is_allowed=True;memory_bandwidth.minimum_bandwidth=300;memory_bandwidth.logfile=detailed_membw.json&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id37">
+<h4>Failure Conditions<a class="headerlink" href="#id37" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>The test will fail if the achieved bandwidth is below the minimum bandwidth threshold</p></li>
+<li><p>The test will fail if unrecoverable memory errors or CUDA errors occur during the test</p></li>
+<li><p>The test will fail if the SBE error count exceeds the <code class="docutils literal notranslate"><span class="pre">max_sbe_errors</span></code> threshold (when set)</p></li>
+</ul>
+</section>
+</section>
+<section id="nccl-tests-plugin">
+<span id="dcgm-nccl-tests-plugin"></span><h3>NCCL Tests Plugin<a class="headerlink" href="#nccl-tests-plugin" title="Link to this heading">#</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p>This plugin will not be available unless the required environment variable is set. See the Configuration section in the Prerequisites section for details.</p></li>
+</ul>
+</div>
+<section id="id38">
+<h4>Overview<a class="headerlink" href="#id38" title="Link to this heading">#</a></h4>
+<p>NCCL (pronounced “Nickel”) is a library providing inter-GPU communication primitives that are topology-aware and can be easily integrated into applications. NCCL Tests check both the performance and the correctness of NCCL operations. For more information about NCCL and its test suite, see the <a class="reference external" href="https://docs.nvidia.com/deeplearning/nccl/">NCCL documentation</a> and the <a class="reference external" href="https://github.com/NVIDIA/nccl-tests">NCCL Tests repository</a>.</p>
+<p>The NCCL Tests plugin, part of the diag Level 3 tests, validates system readiness for NCCL-based workloads by testing communication correctness on single-node systems.</p>
+<p><strong>Note</strong>: This plugin only runs single-node NCCL tests and does not require MPI support. Multi-node NCCL tests are not currently supported.</p>
+</section>
+<section id="prerequisites">
+<h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h4>
+<p>Before running the NCCL Tests plugin, ensure the following prerequisites are met:</p>
+<p><strong>Software Requirements</strong>:</p>
+<ul class="simple">
+<li><p>NCCL library (<code class="docutils literal notranslate"><span class="pre">libnccl.so</span></code>) - not bundled with DCGM, must be installed separately.</p></li>
+<li><p>NCCL Tests project - not bundled with DCGM, must be built/installed separately from the NCCL Tests repository.</p></li>
+<li><p>CUDA toolkit (required by NCCL).</p></li>
+</ul>
+<p><strong>Permissions</strong>:</p>
+<ul class="simple">
+<li><p><strong>NCCL Library</strong>: Read permission (dynamically loaded, not directly executed by the plugin)</p></li>
+<li><p><strong>NCCL Test Binary</strong>: The following permissions are required based on how DCGM is running:</p>
+<ul>
+<li><p><strong>When running as non-root</strong>:</p>
+<ul>
+<li><p>Must be a regular file (not a directory, device, or pipe etc…).</p></li>
+<li><p>Must have read and execute permissions.</p></li>
+</ul>
+</li>
+<li><p><strong>When running as root</strong> (additional security checks enforced):</p>
+<ul>
+<li><p>Must be owned by root user and root group (<code class="docutils literal notranslate"><span class="pre">uid</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">gid</span> <span class="pre">0</span></code>).</p></li>
+<li><p>Must not be writable by group or other users.</p></li>
+<li><p>Must be executable by the owner.</p></li>
+<li><p>Must be a regular file (not a directory, device, or pipe etc…).</p></li>
+<li><p>Symlinks are automatically resolved to their canonical path before validation.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Configuration</strong>:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">DCGM_NCCL_TESTS_BIN_PATH</span></code> environment variable must be set to a valid directory containing the NCCL test binaries before starting nv-hostengine or nvidia-dcgm service.</p></li>
+<li><p>The plugin will be gracefully disabled and skipped if this environment variable is not set or points to an invalid directory.</p></li>
+</ul>
+</section>
+<section id="id39">
+<h4>Test Description<a class="headerlink" href="#id39" title="Link to this heading">#</a></h4>
+<p>The NCCL Tests plugin validates NCCL functionality on the system by executing test binaries from the NCCL Tests project. These tests verify that NCCL collective communication operations work correctly across the GPUs in the system.</p>
+<p><strong>Plugin Validation</strong>:</p>
+<p>The plugin performs the following validation checks:</p>
+<ol class="arabic simple">
+<li><p><strong>Binary Execution</strong>: Verifies the test binary can be launched successfully.</p></li>
+<li><p><strong>Exit Code Check</strong>: Ensures the binary exits with code 0 (non-zero exit codes result in test failure)</p></li>
+<li><p><strong>Output Parsing and Validation</strong>: If the binary executes successfully, the plugin parses the test output and validates that NCCL operations completed correctly without errors.</p></li>
+</ol>
+</section>
+<section id="id40">
+<h4>Supported Parameters<a class="headerlink" href="#id40" title="Link to this heading">#</a></h4>
+<p>The following table lists the parameters for the NCCL Tests plugin:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 15.2%" />
+<col style="width: 54.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>is_allowed</p></td>
+<td><p>Bool</p></td>
+<td><p>True</p></td>
+<td><p>Specifies whether this test is allowed to run. When set to False, the test will be skipped.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Environment Variables</strong>:</p>
+<p>The plugin requires the following environment variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DCGM_NCCL_TESTS_BIN_PATH</span></code>: Path to the directory containing NCCL test binaries (e.g., <code class="docutils literal notranslate"><span class="pre">/opt/nccl-tests/bin</span></code> or <code class="docutils literal notranslate"><span class="pre">/usr/local/nccl-tests/build</span></code>)</p></li>
+</ul>
+<p>If this environment variable is not set, the plugin will be gracefully disabled and will not appear in the diagnostic output.</p>
+</section>
+<section id="id41">
+<h4>Sample Commands<a class="headerlink" href="#id41" title="Link to this heading">#</a></h4>
+<p>Configure environment variables for DCGM running as a systemd service:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Add<span class="w"> </span>environment<span class="w"> </span>variables<span class="w"> </span>via<span class="w"> </span>systemd<span class="w"> </span>override
+<span class="gp">$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>edit<span class="w"> </span>nvidia-dcgm
+
+<span class="gp"># </span>Add<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>lines<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>editor<span class="w"> </span>that<span class="w"> </span>opens:
+<span class="go">[Service]</span>
+<span class="go">Environment=&quot;DCGM_NCCL_TESTS_BIN_PATH=/path/to/nccl-tests/&quot;</span>
+
+<span class="gp"># </span>Save<span class="w"> </span>and<span class="w"> </span>exit,<span class="w"> </span><span class="k">then</span><span class="w"> </span>restart<span class="w"> </span>the<span class="w"> </span>service
+<span class="gp">$ </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>nvidia-dcgm
+
+<span class="gp"># </span>Run<span class="w"> </span>the<span class="w"> </span>NCCL<span class="w"> </span>tests
+<span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>nccl_tests
+</pre></div>
+</div>
+<p>Run the NCCL tests as a standalone diagnostic with custom binary location:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Set<span class="w"> </span>environment<span class="w"> </span>variables<span class="w"> </span>and<span class="w"> </span>run<span class="w"> </span>nv-hostengine
+<span class="gp">$ </span><span class="nb">export</span><span class="w"> </span><span class="nv">DCGM_NCCL_TESTS_BIN_PATH</span><span class="o">=</span>/path/to/nccl-tests/
+<span class="gp">$ </span>nv-hostengine
+
+<span class="gp"># </span>Run<span class="w"> </span>the<span class="w"> </span>NCCL<span class="w"> </span>tests
+<span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span>nccl_tests
+</pre></div>
+</div>
+<p>Run the level 3 diagnostic including the NCCL tests (assuming nv-hostengine is running with the environment variables set):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dcgmi<span class="w"> </span>diag<span class="w"> </span>-r<span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+</section>
+<section id="id42">
+<h4>Failure Conditions<a class="headerlink" href="#id42" title="Link to this heading">#</a></h4>
+<p>The plugin will report a failure if:</p>
+<ul class="simple">
+<li><p>The test binary cannot be executed or exits with a non-zero status code.</p></li>
+<li><p>When running DCGM as root, the binary fails security checks (incorrect ownership or permissions).</p></li>
+<li><p>The test output cannot be parsed correctly.</p></li>
+<li><p>Any of the validation criteria described in the <strong>Plugin Validation</strong> section are not met.</p></li>
+</ul>
+</section>
+<section id="runtime">
+<h4>Runtime<a class="headerlink" href="#runtime" title="Link to this heading">#</a></h4>
+<p>The NCCL Tests plugin typically completes in a few minutes, depending on:</p>
+<ul class="simple">
+<li><p>The number of GPUs in the system</p></li>
+<li><p>The interconnect topology and bandwidth</p></li>
+</ul>
+<p>Systems with more GPUs or slower interconnects may take longer to complete the test.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="feature-overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Feature Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dcgm-multinode-diagnostics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DCGM Multi-Node Diagnostics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+
+
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dcgm-diagnostic-goals">DCGM Diagnostic Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-the-scope-of-the-dcgm-diagnostics">Beyond the Scope of the DCGM Diagnostics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-levels-and-tests">Run Levels and Tests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-dcgm-diagnostics">Getting Started with DCGM Diagnostics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-line-options">Command Line options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-file">Configuration File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment">Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exit-codes">Exit Codes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-examples">Usage Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-configuration-file">Custom Configuration File</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-and-parameters">Tests and Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#iterations">Iterations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logging">Logging</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-plugins">Overview of Plugins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment-plugin">Deployment Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preconditions">Preconditions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-parameters">Configuration Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stat-outputs">Stat Outputs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#failure">Failure</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostic-plugin">Diagnostic Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test-description">Test Description</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-parameters">Supported Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-commands">Sample Commands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#failure-conditions">Failure Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pcie-gpu-bandwidth-plugin">PCIe - GPU Bandwidth Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Preconditions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-tests">Sub tests</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gpu-memory-plugin">GPU Memory Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Test Description</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Supported Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Sample Commands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Failure Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targeted-power-plugin">Targeted Power Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Test Description</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Supported Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Sample Commands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Failure Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targeted-stress-plugin">Targeted Stress Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">Test Description</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">Supported Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">Sample Commands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">Failure Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memtest-diagnostic">Memtest Diagnostic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test-descriptions">Test Descriptions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">Supported Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">Sample Commands</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulse-test-diagnostic">Pulse Test Diagnostic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">Test Description</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">Sample Commands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id26">Failure Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nvbandwidth-plugin">NVBandwidth Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id27">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id28">Test Description</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-products">Supported Products</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id29">Supported Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id30">Sample Commands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id31">Failure Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automating-responses-to-dcgm-diagnostic-failures">Automating Responses to DCGM Diagnostic Failures</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id32">Overview</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-bandwidth-plugin">Memory Bandwidth Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id33">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id34">Test Description</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id35">Preconditions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#test-categories">Test Categories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id36">Sample Commands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id37">Failure Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nccl-tests-plugin">NCCL Tests Plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id38">Overview</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id39">Test Description</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id40">Supported Parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id41">Sample Commands</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id42">Failure Conditions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime">Runtime</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=a95f357e85573c9b56d5"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=a95f357e85573c9b56d5"></script>
+
+ 
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+<a class="footer-brand logo" href="https://www.nvidia.com">
+  <img src="../_static/nvidia-logo-horiz-rgb-1c-blk-for-screen.svg" class="logo__image only-light" alt="NVIDIA"/>
+  <img src="../_static/nvidia-logo-horiz-rgb-1c-wht-for-screen.svg" class="logo__image only-dark" alt="NVIDIA"/>
+</a></div>
+      
+        <div class="footer-item">
+
+<div class="footer-links">
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/">Privacy Policy</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/">Your Privacy Choices</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/terms-of-service/">Terms of Service</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/accessibility/">Accessibility</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/about-nvidia/company-policies/">Corporate Policies</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/product-security/">Product Security</a>
+   | 
+  
+  
+  
+  <a class="external" href="https://www.nvidia.com/en-us/contact/">Contact</a>
+  
+  
+  
+</div>
+</div>
+      
+        <div class="footer-item">
+
+
+
+
+  <p class="copyright">
+    
+      Copyright © 2018-2026, NVIDIA Corporation.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on 2026-06-17.
+  <br/>
+</p></div>
+      
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <style>
+  a:link, a:visited {
+    color: #76b900;
+  }
+
+  a:hover {
+    color: #8c0;
+  }
+
+  .rst-content dl:not(.docutils) dt {
+    background: rgba(118, 185, 0, 0.1);
+    color: rgba(59,93,0,1);
+    border-top: solid 3px rgba(59,93,0,1);
+  }
+  </style>
+  
+  </body>
+</html>

@@ -1,0 +1,594 @@
+[
+  {
+    "id": "MixedPrecision",
+    "source": "https://arxiv.org/abs/1710.03740",
+    "passages": [
+      {
+        "pdf_page": 4,
+        "keyword": "loss scaling",
+        "excerpt": " (such as gradient clipping threshold, weight decay, etc.) have to be adjusted. There are several options to choose the loss scaling factor. The simplest one is to pick a con- stant scaling factor. We trained a variety of networks with scaling factors ranging from 8 to 32K (many networks did not require a scaling factor). A constant scaling factor can be chosen empir- 4"
+      },
+      {
+        "pdf_page": 7,
+        "keyword": "loss scaling",
+        "excerpt": " is 1024. To match FP32 perplexity training this network with FP16 requires loss-scaling, as shown in Figure 5. Without loss scaling the training perplexity curve for FP16 training diverges, compared with the FP32 training, after 300K iterations. Scaling factor of 128 recovers all the relevant gradient values and the accuracy of FP16 training matches the baseline run. 4.6 DCGAN RESULTS Generative Adversarial Networks (GANs) combine regression and discrimination tasks during train- ing. For image tasks, the generator network regresses pixel colors. In our case, the generator predicts three channels of 8-bit color values each. The network was trained to generate 128x128 pixel im- ages of faces, using DCGAN methodology (Radford et al., 2015) and CelebFaces dataset (Liu et al"
+      }
+    ]
+  },
+  {
+    "id": "FP8Formats",
+    "source": "https://arxiv.org/abs/2209.05433",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "E4M3",
+        "excerpt": "ocessors. In this paper we propose an 8-bit ﬂoating point (FP8) binary interchange format consisting of two encodings - E4M3 (4-bit exponent and 3-bit mantissa) and E5M2 (5-bit exponent and 2-bit mantissa). While E5M2 follows IEEE 754 conventions for representatio of special values, E4M3’s dynamic range is extended by not representing inﬁnities and having only one mantissa bit-pattern for NaNs. We demonstrate the efﬁcacy of the FP8 format on a variety of image and language tasks, effectively matching the result quality achieved by 16-bit training sessions. Our study covers the main modern neural network architectures - CNNs, RNNs, and Transformer-based models, leaving all the hyperparameters unchanged from the 16-bit baseline training sessions. Our training experi"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "E4M3",
+        "excerpt": "ing a special value from a wider precision to FP8 results in the corresponding special value in FP8. For conversions to E4M3 this means that both inﬁnities and NaNs in the wider type (for example, single precision) turn into NaNs in FP8. This handling of special values is needed when using mixed precision training that involves both FP8 and FP16 types, since automatic mixed precision [ 13] run-time adjustment of loss-scaling relies on causing and detecting overﬂows. In addition, non-saturating mode of conversion can be provided for usecases that may require a strict handling of overﬂows. Rounding mode (round to nearest even, stochastic, etc.) choice is orthogonal to the interchange format is left up to the implementation, software and possibly hardware, for maximu"
+      }
+    ]
+  },
+  {
+    "id": "GPTQ",
+    "source": "https://arxiv.org/abs/2210.17323",
+    "passages": [
+      {
+        "pdf_page": 4,
+        "keyword": "Hessian",
+        "excerpt": "Published as a conference paper at ICLR 2023 whose Hessian is HF= 2XFX> F, whereFdenotes the set of remaining full-precision weights, the greedy-optimal weight to quantize next, which we denote by wq, and the corresponding optimal update of all weights in F, denoted by \u000eF, are given by the following formulas, where quant (w) roundswto the nearest value on the quantization grid: wq=argminwq(quant (wq)\u0000wq)2 [H\u00001 F]qq;\u000eF=\u0000wq\u0000quant (wq) [H\u00001 F]qq\u0001(H\u00001 F):;q: (2) OBQ quantizes weights iteratively using these two equations, until all the weights of ware quan- tized. This is done efﬁciently, avoiding expensive full recomputations of H\u00001, by removing the qth row and column of H, which is necessary after qua"
+      },
+      {
+        "pdf_page": 5,
+        "keyword": "Hessian",
+        "excerpt": "ll pseudocode for GPTQ in Algorithm 1, including the optimizations discussed above. Algorithm 1 Quantize Wgiven inverse Hessian H\u00001= (2XX>+\u0015I)\u00001and blocksize B. Q 0drow\u0002dcol // quantized output E 0drow\u0002B // block quantization errors H\u00001 Cholesky (H\u00001)>// Hessian inverse information fori= 0; B;2B; : : : do forj=i; : : : ; i +B\u00001do Q:;j quant(W:;j) // quantize column E:;j\u0000i (W:;j\u0000Q:;j)=[H\u00001]jj // quantization error W:;j:(i+B) W:;j:(i+B)\u0000E:;j\u0000i\u0001H\u00001 j;j:(i+B)// update weights in block end for W:;(i+B): W:;(i+B):\u0000E\u0001H\u00001 i:(i+B);(i+B):// update all remaining weights end for 5"
+      }
+    ]
+  },
+  {
+    "id": "SmoothQuant",
+    "source": "https://arxiv.org/abs/2211.10438",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "outlier",
+        "excerpt": "LLMs. Based on the fact that weights are easy to quantize while activations are not, SmoothQuant smooths the activation outliers by offline migrating the quantization difficulty from activations to weights with a mathemati- cally equivalent transformation. SmoothQuant enables an INT8 quantization of both weights and activations for all the matrix multiplications in LLMs, including OPT, BLOOM, GLM, MT-NLG, Llama-1/2, Falcon, Mistral, and Mixtral models. We demonstrate up to 1.56 ×speedup and 2 × memory reduction for LLMs with negligible loss in accuracy. SmoothQuant enables serving 530B LLM within a single node. Our work offers a turn-key solution that reduces hardware costs and democratizes LLMs. 1 Introduction Large-scale language models (LLMs) show excellent per- f"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "outlier",
+        "excerpt": "SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models outlierper-channel maxlow effective bitsmaxCi(X)maxCi(W)per-channel maxmaxCi(/uni0302X)maxCi(/uni0302W) smoothed(a) Original(b) Smoothedhard to quantizevery easy to quantizeeasy to quantizeeasy to quantizedetermines quant. range/uni007CX/uni007C/uni007CW/uni007Cquant. levels/uni0302/uni007CX/uni007C/uni0302/uni007CW/uni007Csmoothed(a) Original(b) SmoothQuanthard to quantizevery easy to quantizeeasy to quantizeeasy to quantize outlierlow effective bits quant. levels 100.1 110 00 0migrate difficulty Figure 2: SmoothQuant’s intuition: the activation Xis hard to quantize because outliers stretch the quantization range, leaving few effective bits for mos"
+      }
+    ]
+  },
+  {
+    "id": "AWQ",
+    "source": "https://arxiv.org/abs/2306.00978",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "activation",
+        "excerpt": "wever, the astronomical model size and the limited hardware resource pose significant deployment challenges. We propose Activation-aware Weight Quantization (AWQ), a hardware-friendly approach for LLM low-bit weight-only quantization. AWQ finds that not all weights in an LLM are equally important. Protecting only 1%salient weights can greatly reduce quantization error. To identify salient weight channels, we should refer to the activation distribution, not weights. To avoid the hardware-inefficient mix-precision quantization, we mathematically derive that scaling up the salient channels can reduce the quantization error. AWQ employs an equivalent transformation to scale the salient weight channels to protect them. The scale is determined by collecting the activation sta"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "activation",
+        "excerpt": "A WQ: Activation-aware Weight Quantization for On-Device LLM Compression and Acceleration Low-bit weight quantization for LLMs can significantly re- duce the memory footprint of on-device LLM inference but is hard. Quantization-aware training (QAT) is not efficient due to the high training cost, while post-training quantiza- tion (PTQ) suffers from large accuracy degradation under a low-bit setting. The closest work is GPTQ (Frantar et al., 2022), which uses second-order information to perform er- ror compensation. However, it may overfit the calibration set during reconstruction, distorting the learned features on out-of-distribution domains (Figure 8), whi"
+      }
+    ]
+  },
+  {
+    "id": "FlashAttention",
+    "source": "https://arxiv.org/abs/2205.14135",
+    "passages": [
+      {
+        "pdf_page": 2,
+        "keyword": "softmax",
+        "excerpt": "FlashAttentionMemory Hierarchy with Bandwidth & Memory SizeAttention on GPT-2 FlashAttention PyTorchTime (ms) MatmulMaskSoftmaxDropoutMatmul Fused KernelQ: N x d V: N X dKT: d x N QKT: N x N sm(Q KT)V: N x dOuter Loop Copy Block to SRAM CopyOuter Loop CopyInner LoopCompute Block on SRAM Output to HBM Inner LoopInner LoopOuter Loop GPU SRAM GPU HBM Main Memory (CPU DRAM)SRAM : 19 TB/s (20 MB) HBM: 1.5 TB/s (40 GB) DRAM : 12.8 GB/s (>1 TB) 051015Figure 1: Left: FlashAttention uses tiling to prevent materialization of the large 𝑁\u0002𝑁attention matrix (dotted box) on (relatively) slow GPU HBM. In the outer loop (red arrows), FlashAttention loops through blocks of the KandVmatrices and loads them to fast on-chip SRAM. In each block, FlashAttention loops over blocks of Qmatri"
+      },
+      {
+        "pdf_page": 3,
+        "keyword": "softmax",
+        "excerpt": "uch smaller. Examples include most other operations: elementwise (e.g., activation, dropout), and reduction (e.g., sum, softmax, batch norm, layer norm). Kernel fusion. The most common approach to accelerate memory-bound operations is kernel fusion: if there are multiple operations applied to the same input, the input can be loaded once from HBM, instead of multiple times for each operation. Compilers can automatically fuse many elementwise operations [ 53,65,75]. 1FlashAttention code is available at https://github.com/HazyResearch/flash-attention 3"
+      }
+    ]
+  },
+  {
+    "id": "TASO",
+    "source": "https://catalyst.cs.cmu.edu/projects/taso.html",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "substitution",
+        "excerpt": "TASO: Optimizing Deep Learning Computation with Automatic Generation of Graph Substitutions Zhihao Jia Stanford University zhihao@cs.stanford.eduOded Padon Stanford University padon@cs.stanford.eduJames Thomas Stanford University jjthomas@stanford.edu Todd Warszawski Stanford University twarszaw@stanford.eduMatei Zaharia Stanford University matei@cs.stanford.eduAlex Aiken Stanford University aiken@cs.stanford.edu Abstract Existingdeep neuralnetwork(DNN) frameworksoptimize thecomputationgraphofaDNNbyapplyinggraphtransfor- mationsmanuallydesignedbyhumanexperts.Thisapproach misses possible graph optimizations and is difficult to scale, as new DNN operators are introduced on a regular basis. WeproposeTASO,thefirstDNNcomputationgraphop"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "substitution",
+        "excerpt": "uire a similar implementation effort, as each has slightly different semanticsandcannotbedirectlyoptimizedusingexisting substitutions. Data layout. Tensor data can be stored in memory in vari- ous layouts, and this choice has a high impact on runtime performance. The best layout depends on both the operator and thehardware.For example,on a P100GPU,convolution performs best with row-major layout (i.e., the inner-most di-mensioniscontiguouslystored),whilematrixmultiplicationperformsbestwithcolumn-majorlayout(i.e.,theouter-most dimension is contiguously stored). On a Tesla V100 GPU withtensorcores[ 5]supporting4 ×4matrixoperations,opti- malperformancemayrequiretilingtensorsinto4 ×4chunks. However, considering layout transformations together with graph substitutions adds anot"
+      }
+    ]
+  },
+  {
+    "id": "Ansor",
+    "source": "https://arxiv.org/abs/2006.06762",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "search",
+        "excerpt": "orms is notoriously challenging. Cur- rently, deep learning systems rely on vendor-provided kernel libraries or various search strategies to get performant tensor programs. These approaches either require significant engi- neering effort to develop platform-specific optimization code or fall short of finding high-performance programs due to restricted search space and ineffective exploration strategy. We present Ansor, a tensor program generation framework for deep learning applications. Compared with existing search strategies, Ansor explores many more optimization combina- tions by sampling programs from a hierarchical representation of the search space. Ansor then fine-tunes the sampled pro- grams with evolutionary search and a learned cost model to identify the "
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "search",
+        "excerpt": "or , a framework for automated tensor program generation. Ansor utilizes a hierarchical representation to cover a large search space. This representation decouples high-level structures and low-level details, enabling flexible enumeration of high-level structures and efficient sampling of low-level details. The space is con- structed automatically for a given computation definition. Ansor then samples complete programs from the search space and fine-tunes these programs with evolutionary search and a learned cost model. To optimize the performance of DNNs with multiple subgraphs, Ansor dynamically prioritizes sub- graphs of the DNNs that are more likely to improve the end- to-end performance. We evaluate Ansor on both standard deep learning bench- marks and emerging"
+      }
+    ]
+  },
+  {
+    "id": "Orca",
+    "source": "https://www.usenix.org/conference/osdi22/presentation/yu",
+    "passages": [
+      {
+        "pdf_page": 2,
+        "keyword": "iteration",
+        "excerpt": "token in an au- toregressive manner, one has to run the model multiple times to process an inference request where each iteration of the model generates a single output token for the request. How- ever, existing systems for inference serving do not perform well on this type of workload that has a multi-iteration char- acteristic, due to their inﬂexible scheduling mechanism that cannot change the current batch of requests being processed; requests that have ﬁnished earlier than other requests in a batch cannot return to the client, while newly arrived requests have to wait until the current batch completely ﬁnishes. In this paper, we propose iteration-level scheduling, a new scheduling mechanism that schedules execution at the gran- ularity of iteration (instead of requ"
+      },
+      {
+        "pdf_page": 3,
+        "keyword": "iteration",
+        "excerpt": "ssed by running the model once. That is, in order to process a request to the generative model, we have to run multiple iterations of the model; each iteration generates a single output token, which is used as an input in the following iteration. Such multi-iteration char- acteristic calls into question the current design of inference systems, where the serving system schedules the execution of the engine at the granularity of request. Under this design, when the serving system dispatches a batch of requests to the engine, the engine returns inference results for the entire batch at once after processing all requests within the batch. As different client requests may require different numbers of iterations for processing, requests that have ﬁnished earlier than others "
+      }
+    ]
+  },
+  {
+    "id": "PagedAttention",
+    "source": "https://arxiv.org/abs/2309.06180",
+    "passages": [
+      {
+        "pdf_page": 2,
+        "keyword": "block",
+        "excerpt": "n to memory fragmentation and shar- ing:virtual memory with paging . PagedAttention divides the request’s KV cache into blocks, each of which can contain the attention keys and values of a fixed number of tokens. In PagedAttention, the blocks for the KV cache are not neces- sarily stored in contiguous space. Therefore, we can manage the KV cache in a more flexible way as in OS’s virtual mem- ory: one can think of blocks as pages, tokens as bytes, and requests as processes. This design alleviates internal frag- mentation by using relatively small blocks and allocating them on demand. Moreover, it eliminates external fragmen- tation as all blocks have the same size. Finally, it enables memory sharing at the granularity of a block, across the different sequences assoc"
+      },
+      {
+        "pdf_page": 5,
+        "keyword": "block",
+        "excerpt": "KV Cache ManagerScheduler CPU Block AllocatorGPU Block AllocatorBlock tablesWorker 0 ModelShard 0CacheEngineWorker 1 ModelShard 1CacheEngineWorker N - 1 ModelShard N - 1CacheEngine…Figure 4. vLLM system overview. Although compaction [ 54] has been proposed as a poten- tial solution to fragmentation, performing compaction in a performance-sensitive LLM serving system is impractical due to the massive KV cache. Even with compaction, the pre-allocated chunk space for each request prevents memory sharing specific to decoding algorithms in existing memory management systems. 4 Method In this work, we develop a new attention algorithm, Page- dAttention , and build an LLM serving eng"
+      }
+    ]
+  },
+  {
+    "id": "SGLang",
+    "source": "https://arxiv.org/abs/2312.07104",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "RadixAttention",
+        "excerpt": "with primitives for generation and parallelism control. The runtime accelerates execution with novel optimizations like RadixAttention for KV cache reuse and compressed finite state machines for faster structured output decoding. Experiments show that SGLang achieves up to 6.4×higher throughput compared to state-of-the-art inference systems on various large language and multi-modal models on tasks including agent control, logical reasoning, few-shot learning benchmarks, JSON decoding, retrieval-augmented generation pipelines, and multi-turn chat. The code is publicly available at https://github.com/sgl-project/sglang . 1 Introduction Recent increases in the capabilities of LLMs have broadened their utility, enabling them to tackle a wider range of general tasks and act as a"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "RadixAttention",
+        "excerpt": "InterpreterSGLang Client(Frontend)Language primitives (Sec. 2)SGLang Runtime (Backend)Optimizations: RadixAttention (Sec. 3), Compressed finite state machines (Sec. 4), API speculative execution (Sec. 5)Figure 1: System architecture: An interpreter executes language primitives with optimized runtime. Despite the widespread use of LM programs, current systems for expressing and executing them remain inefficient. We identify two primary challenges associated with the efficient use of LM pro- grams: First, programming LM programs is tedious and difficult due to the non-deterministic nature of LLMs. Developing an LM program often requires extensive string manipulation, experimental tuning of prompts, brittle output parsing, handling multiple input modalities,"
+      }
+    ]
+  },
+  {
+    "id": "SarathiServe",
+    "source": "https://arxiv.org/abs/2403.02310",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "chunk",
+        "excerpt": "ficient LLM inference scheduler, Sarathi- Serve, to address this throughput-latency tradeoff. Sarathi- Serve introduces chunked-prefills which splits a prefill request into near equal sized chunks and creates stall-free schedules that adds new requests in a batch without pausing ongoing decodes. Stall-free scheduling unlocks the opportunity to im- prove throughput with large batch sizes while minimizing the effect of batching on latency. Furthermore, uniform batches in Sarathi-Serve ameliorate the imbalance between iterations, resulting in minimal pipeline bubbles. Our techniques yield significant improvements in inference performance across models and hardware under tail latency constraints. For Mistral-7B on single A100 GPUs, we achieve 2.6×higher serving capacit"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "chunk",
+        "excerpt": "e the throughput-latency tradeoff for scal- able online LLM inference serving. Sarathi-Serve is based on two key ideas: chunked-prefills andstall-free scheduling. Chunked-prefills splits a prefill request into equal compute- sized chunks and computes a prompt’s prefill phase over mul- tiple iterations (each with a subset of the prompt tokens). Stall-free scheduling allows new requests to join a running batch without pausing ongoing decodes . This involves con- structing a batch by coalescing all the on-going decodes with one (or more) prefill chunks from new requests such that each batch reaches the pre-configured chunk size. Sarathi-Serve builds upon iteration-level batching but with an important distinction: it throttles the number of prefill tokens in each it-"
+      }
+    ]
+  },
+  {
+    "id": "DistServe",
+    "source": "https://arxiv.org/abs/2401.09670",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "bandwidth",
+        "excerpt": "d parallelism strategy tailored for each phase. DistServe also places the two phases according to the serving cluster’s bandwidth to minimize the communication caused by disaggregation. As a result, DistServe significantly improves LLM serving per- formance in terms of the maximum rate that can be served within both TTFT and TPOT constraints on each GPU. Our evaluations show that on various popular LLMs, applications, and latency requirements, DistServe can serve 7.4 ×more requests or 12.6 ×tighter SLO, compared to state-of-the-art systems, while staying within latency constraints for >90% of requests. 1 Introduction Large language models (LLMs), such as GPT-4 [37], Bard [2], and LLaMA [51], represent a groundbreaking shift in gen- erative AI. They start to reshape exi"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "bandwidth",
+        "excerpt": "es an algorithm to place the prefill and decoding compu- tation according to their allocation schemes and the cluster’s bandwidth to minimize the overhead of communicating inter- mediate states between phases. We implement DistServe as an orchestration layer on top of the LLM inference engine. We evaluate DistServe on vari- ous LLMs, varying the workloads based on three important real-world LLM applications: chatbots, programming assis- tant, and document summary. Compared to state-of-the-art solutions, DistServe can serve up to 7.4×more requests or 12.6×tighter SLO under various latency constraints. Our contributions are: •Identify the problems of prefill-decoding interference and resource coupling in existing LLM serving systems and propose to disaggregate the two ph"
+      }
+    ]
+  },
+  {
+    "id": "SpeculativeDecoding",
+    "source": "https://arxiv.org/abs/2211.17192",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "distribution",
+        "excerpt": "e outputs of the approximation mod- els, potentially generating several tokens concur- rently, and without changing the distribution. Our method can accelerate existing off-the-shelf mod- els without retraining or architecture changes. We demonstrate it on T5-XXL and show a 2X-3X acceleration compared to the standard T5X imple- mentation, with identical outputs. 1. Introduction Large autoregressive models, notably large Transformers (Vaswani et al., 2017), are much more capable than smaller models, as is evidenced countless times in recent years e.g., in the text or image domains, like GPT-3 (Brown et al., 2020), LaMDA (Thoppilan et al., 2022), Parti (Yu et al., 2022), and PaLM (Chowdhery et al., 2022). Unfortunately, a single decode step from these larger models is signi"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "distribution",
+        "excerpt": " only once, and 5 tokens were generated. be accepted, while guaranteeing that the outputs from our system have the same distribution as those from the target model alone. For example, the sentence in Figure 1, con- sisting of 38 tokens, was generated by our method with only 9 serial runs of a larger target model (97M parameters) thanks to a smaller and more efﬁcient approximation model (6M parameters), while the probability of generating it is unchanged. We analyze our method in a variety of tasks and model sizes: unconditional generation from a 97M parameter GPT- like model trained on lm1b, English to German translation and news article summarization with an 11B parameters T5-XXL model, and a dialog task with a 137B parameter LaMDA model. We implement our method and comp"
+      }
+    ]
+  },
+  {
+    "id": "DPMSolver",
+    "source": "https://arxiv.org/abs/2206.00927",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "ODE",
+        "excerpt": "DPM-Solver: A Fast ODE Solver for Diffusion Probabilistic Model Sampling in Around 10 Steps Cheng Luy, Yuhao Zhouy, Fan Baoy, Jianfei Cheny\u0003, Chongxuan Liz, Jun Zhuy\u0003 yDept. of Comp. Sci. & Tech., Institute for AI, BNRist Center, THBI Lab yTsinghua-Bosch Joint ML Center, Tsinghua University, Beijing, 100084 China zGaoling School of Artiﬁcial Intelligence, Renmin University of China, zBeijing Key Laboratory of Big Data Management and Analysis Methods, Beijing, China {lucheng.lc15, yuhaoz.cs}@gmail.com ;bf19@mails.tsinghua.edu.cn chongxuanli@ruc.edu.cn ;{jianfeic, dcszj}@tsinghua.edu.cn Abstract Diffusion probabilistic models (DPMs) are emerging powerful generative "
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "ODE",
+        "excerpt": "eir applicability and ﬂexibility might be limited. It might require nontrivial effort to adapt the method to different models, datasets, and number of sampling steps. The second category consists of training-free [ 19–21] samplers, which are suitable for all pre-trained DPMs in a simple plug-and- play manner. Training-free samplers include adopting implicit [ 19] or analytical [ 21] generation process, advanced differential equation (DE) solvers [ 3,20,22–24] and dynamic programming [ 18]. However, these methods still require \u001850 function evaluations [ 21] to generate high-quality samples (comparable to those generated by plain samplers in about 1000 function evaluations), thereby are still time-consuming. In this work, we bring the efﬁciency of training-free sam"
+      }
+    ]
+  },
+  {
+    "id": "ProgressiveDistillation",
+    "source": "https://arxiv.org/abs/2202.00512",
+    "passages": [
+      {
+        "pdf_page": 3,
+        "keyword": "teacher",
+        "excerpt": "gressive distillation : an algorithm that iteratively halves the number of required sampling steps by distilling a slow teacher diffusion model into a faster student model. Our implementation of progressive distillation stays very close to the implementation for training the original diffusion model, as described by e.g. Ho et al. (2020). Algorithm 1 and Algorithm 2 present diffusion model training and progressive distillation side-by-side, with the relative changes in progressive distillation highlighted in green. We start the progressive distillation procedure with a teacher diffusion model that is obtained by training in the standard way. At every iteration of progressive distillation, we then initialize the student model with a copy of the teacher, using both the"
+      },
+      {
+        "pdf_page": 4,
+        "keyword": "teacher",
+        "excerpt": "udent model taking Nsampling steps, we can repeat the pro- cedure with N=2steps: The student model then becomes the new teacher, and a new student model is initialized by making a copy of this model. Unlike our procedure for training the original model, we always run progressive distillation in dis- crete time: we sample this discrete time such that the highest time index corresponds to a signal-to- noise ratio of zero, i.e. 1= 0, which exactly matches the distribution of input noise z1\u0018N(0;I) that is used at test time. We found this to work slightly better than starting from a non-zero signal- to-noise ratio as used by e.g. Ho et al. (2020), both for training the original model as well as when performing progressive distillation. Algorithm 1 Standard diffusion train"
+      }
+    ]
+  },
+  {
+    "id": "DeepCache",
+    "source": "https://arxiv.org/abs/2312.00858",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "feature",
+        "excerpt": "herent temporal redundancy observed in the sequen- tial denoising steps of diffusion models, which caches and retrieves features across adjacent denoising stages, thereby curtailing redundant computations. Utilizing the property of the U-Net, we reuse the high-level features while up-dating the low-level features in a very cheap way. This innovative strategy, in turn, enables a speedup factor of 2.3×for Stable Diffusion v1.5 with only a 0.05 decline in CLIP Score, and 4.1 ×for LDM-4-G with a slight de- crease of 0.22 in FID on ImageNet. Our experiments also demonstrate DeepCache’s superiority over existing prun- ing and distillation methods that necessitate retraining and its compatibility with current sampling techniques. Fur- thermore, we find that under the same t"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "feature",
+        "excerpt": " of the reverse denoising process of diffusion models, ob- serving a significant temporal consistency in the high-level features between consecutive steps. We found that those high-level features are even cacheable, which can be calcu- lated once and retrieved again for the subsequent steps. By leveraging the structural property of U-Net, the high-level features can be cached while maintaining the low-level fea- tures updated at each denoising step. Through this, a con- siderable enhancement in the efficiency and speed of Diffu-sion Models can be achieved without any training. To summarize, we introduce a novel paradigm for the acceleration of Diffusion Models, which gives a new per- spective for training-free accelerating the diffusion models. It is not merely compa"
+      }
+    ]
+  },
+  {
+    "id": "TeaCache",
+    "source": "https://arxiv.org/abs/2411.19108",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "embedding",
+        "excerpt": "Timestep Embedding Tells: It’s Time to Cache for Video Diffusion Model Feng Liu1*Shiwei Zhang2†Xiaofeng Wang1,3Yujie Wei4Haonan Qiu5 Yuzhong Zhao1Yingya Zhang2Qixiang Ye1Fang Wan1‡ 1University of Chinese Academy of Sciences2Alibaba Group 3Institute of Automation, Chinese Academy of Sciences 4Fudan University5Nanyang Technological University Project Page: https://liewfeng.github.io/TeaCache Figure 1. Quality-latency comparison of video diffusion models. Visual quality versus latency curves of the proposed TeaCache approach and PAB [61] using Latte [31]. TeaCache significantly outperforms PAB in both visual quality and efficiency. Latency is evaluated on a singl"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "embedding",
+        "excerpt": "the DiT models while maintaining its performance. Fandtrespectively denote the model inputs of noisy input and timestep embedding. L1rel andfare difference estimation functions of model inputs. δis an indicator threshold of whether to cache a model output or not. tion [32, 39, 53] and post-training [10, 30] are employed. However, these methods typically require extra training, which implies substantial computational cost and data re- sources. An alternative technological pathway is to leverage the caching mechanism [3, 14, 43], which does not require additional training to maintain the performance of diffusion models. These methods [11, 40, 57, 61] find that the model outputs are similar between the consecutive timesteps when denoising and propose to reduce redundancy "
+      }
+    ]
+  },
+  {
+    "id": "FNO",
+    "source": "https://arxiv.org/abs/2010.08895",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "operator",
+        "excerpt": "Published as a conference paper at ICLR 2021 FOURIER NEURAL OPERATOR FOR PARAMETRIC PARTIAL DIFFERENTIAL EQUATIONS Zongyi Li zongyili@caltech.eduNikola Kovachki nkovachki@caltech.eduKamyar Azizzadenesheli kamyar@purdue.edu Burigede Liu bgl@caltech.eduKaushik Bhattacharya bhatta@caltech.eduAndrew Stuart astuart@caltech.eduAnima Anandkumar anima@caltech.edu ABSTRACT The classical development of neural networks has primarily focused on learning mappings between ﬁnite-dimensional Euclidean spaces. Recently, this has been generalized to neural operators that learn mappings between function spaces. For partial differential equations (PDEs), neural operators directly learn the mapping from any functional parametric "
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "operator",
+        "excerpt": " for every new instance. Furthermore, the approach is limited to a setting in which the underlying PDE is known. Neural Operators. Recently, a new line of work proposed learning mesh-free, inﬁnite- dimensional operators with neural networks (Lu et al., 2019; Bhattacharya et al., 2020; Nelsen & Stuart, 2020; Li et al., 2020b;a; Patel et al., 2021). The neural operator remedies the mesh-dependent nature of the ﬁnite-dimensional operator methods discussed above by producing a single set of net- work parameters that may be used with different discretizations. It has the ability to transfer solu- tions between meshes. Furthermore, the neural operator needs to be trained only once. Obtaining a solution for a new instance of the parameter requires only a forward pass of the "
+      }
+    ]
+  },
+  {
+    "id": "SmartSim",
+    "source": "https://arxiv.org/abs/2104.09355",
+    "passages": [
+      {
+        "pdf_page": 4,
+        "keyword": "database",
+        "excerpt": "sis environment for online analysis, visualization and/or training of a machine learning model. distributed amongst all database nodes. Notably, a user is not required to know where (which database node) data or Datasets (see Dataset API below) are stored as the SmartRedis clients will infer their location for the user. The importance of the IL is two fold. First, the deployment capabilities greatly reduce the complexity and overhead of creating computational setups for the development of ML- augmented simulations. By enabling the programmatic param- eterization and execution of applications, users can quickly generate workloads that explore large parameter spaces, per- form uncertainty quantiﬁcation, generate training datasets, conduct scaling tests, and more. Second"
+      },
+      {
+        "pdf_page": 5,
+        "keyword": "database",
+        "excerpt": "output for a model execution is not on the same node of the database, the SmartRedis client will move temporary copies of the input or output data to the node. The movement of data between nodes for model inference is completely opaque to the user and is handled internally by the SmartRedis client. ML models stored in the Orchestrator can be executed on CPU or GPU. The output of models is stored within the Or- chestrator until requested by the user. In this way, scripts and models can be executed sequentially to form computational pipelines for distributed processing and inference. III. S CALING SMART SIMAPPLICATIONS A synthetic scaling simulation was run on a Cray XC50 to quantify Orchestrator inference perf"
+      }
+    ]
+  },
+  {
+    "id": "ColmenaExascale",
+    "source": "https://arxiv.org/abs/2408.14434",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "workflow",
+        "excerpt": "Employing Artificial Intelligence to Steer Exascale Workflows with ColmenaJournal Title XX(X):1–12 ©The Author(s) 2016 Reprints and permission: sagepub.co.uk/journalsPermissions.nav DOI: 10.1177/ToBeAssigned www.sagepub.com/ SAGE Logan Ward,1J. Gregory Pauloski,2Valerie Hayot-Sasson,2Yadu Babuji,2Alexander Brace,2 Ryan Chard,1Kyle Chard,2Rajeev Thakur1and Ian Foster1 Abstract Computational workflows are a common class of application on supercomputers, yet the loosely coupled and heterogeneous nature of workflows often fails to take full advantage of their capabilities. We created Colmena to leverage the massive parallelism of a supercomputer by using Artificial Intelligence (AI) to learn from and adap"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "workflow",
+        "excerpt": "2 Journal Title XX(X) Related Work Our work sits at the intersection of AI and scientific workflows, providing a unique approach to combining them. AI Approaches for Science Workflows There are numerous modalities for how AI can be used in simulation, and they can be understood by the relationship between AI and the simulation software it enhances (Fox et al. 2019). The purpose of the AI could be to post-process the result of simulations and synthesize the outputs, as in the learning of collective variables in DeepDriveMD (Lee et al. 2019; Brace et al. 2022). AI could also be used to create a fast surrogate that can be used to prejudge potential simulations from within a pre-defined search space (St. John et al. 2019) or to generate poten"
+      }
+    ]
+  },
+  {
+    "id": "MegaScale",
+    "source": "https://www.usenix.org/conference/nsdi24/presentation/jiang-ziheng",
+    "passages": [
+      {
+        "pdf_page": 2,
+        "keyword": "straggler",
+        "excerpt": "events deep in the stack, identify root causes, and derive effective techniques to achieve fault tolerance and mitigate stragglers. MegaScale achieves 55.2% Model FLOPs Utilization (MFU) when training a 175B LLM model on 12,288 GPUs, improv- ing the MFU by 1.34 ×compared to Megatron-LM. We share our operational experience in identifying and fixing failures and stragglers. We hope by articulating the problems and sharing our experience from a systems perspective, this work can inspire future LLM systems research. 1 Introduction Large language models (LLMs) [1] have emerged as a trans- formative technology in artificial intelligence (AI). Recent advancements in LLMs have significantly improved their ca- pability. LLMs have demonstrated tremendous potential in a wide rang"
+      },
+      {
+        "pdf_page": 3,
+        "keyword": "straggler",
+        "excerpt": "can take weeks. The scale and time are orders of magnitude larger than those of regular DNN training jobs. Failures and stragglers are the norm rather than the exception for LLM training. At such a scale, the consequences of failures and stragglers are devas- tating. Failures are very expensive, and it is critical to reduce the recovery time, given the large scale. A straggler not only affects its own work, but slows down the entire job involving tens of thousands of GPUs. In this paper, we present the design, implementation and engineering experience of MegaScale, a production system for training LLMs at scale. MegaScale enables us to scale LLM training to more than 10,000 GPUs. We are able to harness the power of the massive number of GPUs to train LLMs with high tra"
+      }
+    ]
+  },
+  {
+    "id": "SuperBench",
+    "source": "https://arxiv.org/abs/2402.06194",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "gray",
+        "excerpt": "read use of hardware redundancies. However, these redundancies can inadvertently lead to hidden degradation, so called “gray failure”, for AI workloads, significantly affecting end-to-end performance and concealing performance issues, which complicates root cause analysis for failures and regressions. We introduce SuperBench, a proactive validation system for AI infrastructure that mitigates hidden degradation caused by hardware redundancies and enhances overall reliability. Su- perBench features a comprehensive benchmark suite, capable of evaluating individual hardware components and represent- ing most real AI workloads. It comprises a Validator which learns benchmark criteria to clearly pinpoint defective com- ponents. Additionally, SuperBench incorporates a Se"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "gray",
+        "excerpt": "ation time cost by 92 .07%, respectively. Our contributions can be summarized as follows: •We identify the existence of gray failure in the new era of AI, which arises from AI hardware redundancies, and propose a proactive validation approach to mitigate its significant impact in cloud AI infrastructure. •We observe and analyze a vast number of workload inci- dents, including failures and regressions, within a produc- tion cloud AI infrastructure, summarizing their sources and root causes. •We establish the design goals for a proactive validation system and implement SuperBench to address these aims. •We conduct extensive evaluations of SuperBench and de- 1https://github.com/microsoft/superbenchmark 2"
+      }
+    ]
+  },
+  {
+    "id": "Minder",
+    "source": "https://www.usenix.org/conference/nsdi25/presentation/deng",
+    "passages": [
+      {
+        "pdf_page": 2,
+        "keyword": "metric",
+        "excerpt": "ributed training tasks. The key idea of Minder is to automatically and efficiently detect faulty distinctive monitoring metric patterns, which could last for a period before the entire training task comes to a halt. Minder has been deployed in our production environment for over one year, monitoring daily distributed training tasks where each involves up to thousands of machines. In our real-world fault detection scenarios, Minder can accurately and efficiently re- act to faults within 3.6 seconds on average, with a precision of 0.904 and F1-score of 0.893. 1 Introduction Recent years have witnessed a rapid increase in dataset sizes and the number of parameters in models, especially in Large Language Models (LLMs). The GPT-4 model [18], an in- stance of the Mixture-"
+      },
+      {
+        "pdf_page": 3,
+        "keyword": "metric",
+        "excerpt": "ed Minder by leveraging the ideas of similarity (3.1), continuity (3.2), training individual models for each monitoring metric (3.3), and metric prioritization (3.4). Minder resolves the challenges by recognizing that a machine with a fault displays an abnormal pattern in certain metric data that differs from other machines and lasts for a duration. We also train individual models for data denoising. We then track the dissimilarity between the denoised data for each machine and monitor its duration. By repeating this to individual metrics, the faulty machine is detected. To further expedite detection, we prioritize metrics to identify the most sensitive ones when a fault occurs. We designed, implemented, and deployed Minder for all the distributed training tasks. Mi"
+      }
+    ]
+  },
+  {
+    "id": "Holmes",
+    "source": "https://www.usenix.org/conference/nsdi25/presentation/yao",
+    "passages": [
+      {
+        "pdf_page": 6,
+        "keyword": "profil",
+        "excerpt": "ved. For example, coarsely logging the iteration time [41,47] is insuffi- cient. Fine-grained logging such as the torch profiler [3] may assist in localization. However, they record all the operators, which considerably slows down the training process [25]. Irregularities’s impact propagates among GPUs. The irreg- ularity tends to propagate its impact. For instance, if one GPU computes slowly before a DP All-Reduce , the other GPUs participating in the same All-Reduce must wait for it. As a result, similar irregular phenomena, i.e. extended iteration time, are observed across multiple GPUs, which can be con- fusing to diagnose. The irregularity can propagate more than one hop , further complicating its localization. Independently analyzing all the GPUs will introduc"
+      },
+      {
+        "pdf_page": 14,
+        "keyword": "profil",
+        "excerpt": "ttps://github.com/nvidia/nccl . [2]Nvidia Nsight Systems, 2024. https://developer.nvidia.com/ nsight-systems . [3]Torch Profiler, 2024. https://pytorch.org/docs/stable/ profiler.html . [4]H. Abe and S. Tsumoto. Analyzing behavior of objective rule evalua- tion indices based on a correlation coefficient. In Knowledge-Based Intelligent Information and Engineering Systems, 12th International Conference, KES 2008, Zagreb, Croatia, September 3-5, 2008, Proceed- ings, Part II , volume 5178 of Lecture Notes in Computer Science , pages 758–765. Springer, 2008. [5]L. A. Barroso, U. Hölzle, and P. Ranganathan. The Datacenter as a Computer: Designing Warehouse-Scale Machines, Third Edition . Synthesis Lectures on Computer Architecture. Morgan & Claypool Publishers, 2018. [6]Á."
+      }
+    ]
+  },
+  {
+    "id": "CheckFreq",
+    "source": "https://www.usenix.org/conference/fast21/presentation/mohan",
+    "passages": [
+      {
+        "pdf_page": 2,
+        "keyword": "frequency",
+        "excerpt": "nt CheckFreq, an automatic, ﬁne-grained check- pointing framework that (1) algorithmically determines the checkpointing frequency at the granularity of iterations using systematic online proﬁling , (2) dynamically tunes checkpoint- ing frequency at runtime to bound the checkpointing overhead using adaptive rate tuning , (3) maintains the training data in- variant of using each item in the dataset exactly once per epoch by checkpointing data loader state using a light-weight resumable iterator , and (4) carefully pipelines checkpointing with computation to reduce the checkpoint cost by introduc- ingtwo-phase checkpointing . Our experiments on a variety of models, storage backends, and GPU generations show that CheckFreq can reduce the recovery time from hours to sec- on"
+      },
+      {
+        "pdf_page": 3,
+        "keyword": "frequency",
+        "excerpt": "izing spare GPU capabilities for fast snapshot, and a DNN-aware systematic proﬁling for dynamic tuning of checkpointing frequency. Using CheckFreq, we show that the recovery time reduces from hours to seconds during job interruptions. Fine-grained checkpointing for DNNs at iteration gran- ularity poses several unique challenges which CheckFreq addresses as described below. 1.Checkpointing frequency . There is no single checkpoint- ing frequency that works across models, hardware, and train- ing environments. The frequency of checkpointing depends on several factors; e.g., model size, storage bandwidth, and training iteration time. Moreover, a job could face interference while writing checkpoints due to reading the dataset from the same storage device, or due to concurr"
+      }
+    ]
+  },
+  {
+    "id": "CheckNRun",
+    "source": "https://www.usenix.org/conference/nsdi22/presentation/eisenman",
+    "passages": [
+      {
+        "pdf_page": 2,
+        "keyword": "differential",
+        "excerpt": " of model size. Check-N-Run uses two primary techniques to address the size and bandwidth challenges. First, it applies differential checkpointing, which tracks and checkpoints the modiﬁed part of the model. Differ- ential checkpointing is particularly valuable in the context of recommendation models where only a fraction of the model (stored as embedding tables) is updated on each iteration. Second, Check-N-Run leverages quantization techniques to signiﬁcantly reduce the checkpoint size, without degrading training accuracy. These techniques allow Check-N-Run to re- duce the required write bandwidth by 6-17 \u0002and the required capacity by 2.5-8\u0002on real-world models at Facebook, and thereby signiﬁcantly improve checkpoint capabilities while reducing the total cost of ownersh"
+      },
+      {
+        "pdf_page": 3,
+        "keyword": "differential",
+        "excerpt": "s can exceed Terabytes, which stress even planetary scale storage systems. Check-N-Run builds on several techniques: (1)Differential checkpointing: Check-N-Run utilizes dif- ferential checkpointing for reducing the checkpoint write bandwidth. This is a technique that is particularly well suited for recommendation models where only a small fraction of the model parameters are updated after each iteration. This is a unique property of recommendation models. In traditional DNNs the entire model is updated after each iteration since gradients are computed for all the model parameters. Recom- mendation models, on the other hand, access and update only a small fraction of the model during each iteration. Differ- ential checkpoints leverage this observation by tracking and stori"
+      }
+    ]
+  },
+  {
+    "id": "Gemini",
+    "source": "https://www.amazon.science/publications/gemini-fast-failure-recovery-in-distributed-training-with-in-memory-checkpoints",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "placement",
+        "excerpt": "d harm training throughput. To address these two challenges, this paper proposes: 1) a provably near-optimal checkpoint placement strategy to maximize the probability of failure recovery from checkpoints in CPU memory; and 2) a check- point traffic scheduling algorithm to minimize, if not elimi- nate, the interference of checkpoint traffic on model training. Our evaluation shows that overall Gemini achieves a faster failure recovery by more than 13×than existing solutions. ∗Work done during Zhuang’s internship at Amazon Web Services. Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "placement",
+        "excerpt": "points are placed among the CPU memory in dif- ferent host machines. Gemini stores redundant checkpoints and proposes a placement strategy that maximizes the prob- ability. We have proved that the strategy is optimal when the number of machines participating in training is divisible by the number of replicas and the strategy remains near-optimal with established bounds in other cases. Second, how to min- imize the interference of checkpoint traffic with modeltraining? Checkpointing model states to remote CPU mem- ory shares the network resource with the regular training. Naïvely checkpointing to CPU memory will easily delay the training traffic which impacts the training throughput. Gemini designs a deliberate communication scheduling algo- rithm for interleaving these"
+      }
+    ]
+  },
+  {
+    "id": "ByteCheckpoint",
+    "source": "https://www.usenix.org/conference/nsdi25/presentation/wan-borui",
+    "passages": [
+      {
+        "pdf_page": 2,
+        "keyword": "reshard",
+        "excerpt": "r transferred across different training stages (e.g., from pre-training to post- training). All these scenarios require resharding distributed checkpoints from one parallelism to another. In production environments, different LFMs are trained with various frame- works and storage backends, depending on model sizes and training scales. A high-performance checkpointing system is needed to enable efficient checkpoint management at scale throughout the lifecycle of LFM development. We introduce ByteCheckpoint, an industrial-grade check- pointing system for large-scale LFM training. ByteCheck- point features: a parallelism-agnostic checkpoint representa- tion that enables efficient load-time checkpoint resharding; a generic checkpoint saving/loading workflow to accommodat"
+      },
+      {
+        "pdf_page": 3,
+        "keyword": "reshard",
+        "excerpt": "ng checkpointing systems [14, 19, 35, 66] assume consistent parallelism, and fail to address the demands for checkpoint resharding. Although some efforts from the open- source community are devoted to developing checkpointing systems capable of resharding, they have several limitations. Some perform resharding in an inefficient offline manner [32], while others only support specific training frameworks and storage backends [52, 58]. Moreover, without customized op- timizations and deployment experience, they suffer from sub- optimal I/O performance and lack the scalability to support large-scale LFM training in real-world production. This paper presents the design, implementation, and de- ployment experience of ByteCheckpoint, a checkpointing sys- tem crafted for LFM"
+      }
+    ]
+  },
+  {
+    "id": "SWIFT",
+    "source": "https://arxiv.org/abs/2302.06173",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "replica",
+        "excerpt": " copy of the model state, S WIFT resolves the inconsistencies of the model state caused by the failure and exploits the replicas of the model state in data parallelism for failure recovery. We propose a logging-based approach when replicas are unavailable, which records intermediate data and replays the computation to recover the lost state upon a failure. The re-computation is distributed across multiple machines to accelerate failure recovery further. We also log intermediate data selectively, exploring the trade-off between recovery time and intermediate data storage overhead. Evaluations show that SWIFT signiﬁcantly reduces the failure recovery time and achieves similar or better training throughput during failure-free execution compared to state-of-the-art metho"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "replica",
+        "excerpt": " to leverage high-speed intra-server interconnects such as NVLink [5], [12] to accelerate gradient synchronization. All replicas would be lost in the event of a machine failure. We then investigate another fundamental approach for fault tolerance in distributed systems - logging, which has been widely explored in data processing systems [13], [14], [15], [16]. We introduce logging-based recovery (§5) for pipeline-parallel training. In pipeline parallelism, workers form a chain topology and pass intermediate activations or gradients to the successor or predecessor worker using point- to-point communication. Figure 1a illustrates One-Forward- One-Backward (1F1B) pipeline schedule [17] (§2.1). With logging, each worker locally records all outgoing data to the adjacent w"
+      }
+    ]
+  },
+  {
+    "id": "Oobleck",
+    "source": "https://arxiv.org/abs/2309.08125",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "template",
+        "excerpt": "Oobleck: Resilient Distributed Training of Large Models Using Pipeline Templates Insu Jang insujang@umich.edu University of MichiganZhenning Yang znyang@umich.edu University of MichiganZhen Zhang zhzhn@amazon.com Amazon Web Services Xin Jin xinjinpku@pku.edu.cn Peking UniversityMosharaf Chowdhury mosharaf@umich.edu University of Michigan Abstract Oobleck enables resilient distributed training of large DNN models with guaranteed fault tolerance. It takes a planning- execution co-design approach, where it first generates a set of heterogeneous pipeline templates and instantiates at least 𝑓+1logically equivalent pipeline replicas to tolerate any 𝑓 simultaneous failures. During execution, it relies on already- replicated mo"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "template",
+        "excerpt": " training through- put, guaranteed fault tolerance, and fast recovery without introducing additional overhead. Pipeline templates are at the core of Oobleck’s design. A pipeline template is a specifica- tion of pipeline execution for a given number of nodes. They are designed during the planning phase by Oobleck’s tem- plate generator and reused during execution by Oobleck’s execution engine. All pipeline templates are logically equiva- lent yet physically heterogeneous; each has a different num- ber of nodes and associated configurations that can be used to instantiate a pipeline for a given model. Oobleck uses one or more pipeline templates to create pipeline replicas to exploit the inherent model states redundancy across the replicas. Pipelines affected by failures"
+      }
+    ]
+  },
+  {
+    "id": "TrainMover",
+    "source": "https://www.usenix.org/conference/osdi26/presentation/lao",
+    "passages": [
+      {
+        "pdf_page": 2,
+        "keyword": "standby",
+        "excerpt": "owntimes and degraded per- formance. We present TrainMover, a resilient LLM training runtime that leverages elastic and standby machines to handle interruptions with minimal downtime and zero memory over- head. To achieve these goals, TrainMover introduces three key techniques: two-phase, delta-based communication group setup; communication-free sandboxed warmup; and general standby design that enables failure recovery from any role. Our evaluation shows that TrainMover consistently achieves around 20 seconds of downtime when handling various in- terruptions at the 1024-GPU scale. TrainMover is projected to reduce wasted GPU hours by 55% compared to the best alternative, saving 1.4 million GPU-hours per week at the 64K-GPU scale. 1Introduction Large Language Models ("
+      },
+      {
+        "pdf_page": 3,
+        "keyword": "standby",
+        "excerpt": " 5) and sandboxed shadow iterations (§ 4) to prepare communication and computation state in the background. The general standby design (§ 6) further enables role-agnostic preparation, allow- ing recovery regardless of which machine fails. Executing shadow iteration on sandbox (§ 4):TrainMover introduces a communication-free sandbox that allows join- ers to trigger framework initialization independently by run- ning shadow training iterations in isolation before entering the main training loop, replacing actual communication with pre-recorded tensors. This decouples joiners from existing machines and signiﬁcantly reduces transitional downtime. Two-phase delta-based communication group setup (§ 5): TrainMover extends a two-phase delta-based communication group setup to"
+      }
+    ]
+  },
+  {
+    "id": "DejaVu",
+    "source": "https://arxiv.org/abs/2403.01876",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "failure",
+        "excerpt": " opportu- nity to allocate GPU memory more efficiently. Third, existing LLM serving systems do not efficiently han- dle failures or preemptions, which often occur in large-scale GPU deployments (Eisenman et al., 2022; Jeon et al., 2019). Upon a failure, the LLM serving system crashes and stalls all in-flight requests. When KV cache state is lost, current systems process requests from scratch. These redundant computations severely increase end-to-end request latency. To address the above challenges for pipeline-parallel dis- tributed inference, we propose D ´ej`aVu, an efficient and fault- tolerant LLM serving system, based on KV cache streaming. First, D ´ej`aVudisaggregates prompt processing from token generation and optimizes the number of machines for each stage t"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "failure",
+        "excerpt": " D ´ej`aVu replicates KV cache state to avoid losing state and employs fast recovery mechanism to minimize lost work on failures. The core component in D ´ej`aVu that enables all these opti- mizations is an efficient and versatile KV cache streaming library, D ´ej`aVuLib. We build D ´ej`aVuLib as a modular set of primitives that enable fast streaming for diverse configura- tions, such as streaming between local or remote machines and for a variety of different KV cache structures. We evaluate D ´ej`aVu under different use cases. In pipeline parallel setups without failures, D ´ej`aVu improves LLM serv- ing throughput by up to 2 ×compared to FasterTransformer. We show that D ´ej`aVu microbatch swapping can improve throughput by up to 1.8 ×by accommodating larger batch"
+      }
+    ]
+  },
+  {
+    "id": "Llumnix",
+    "source": "https://arxiv.org/abs/2406.03243",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "migration",
+        "excerpt": " and differentiate request priorities and SLOs. Llumnix implements the rescheduling with an efficient and scalable live migration mechanism for requests and their in-memory states, and exploits it in a dynamic scheduling policy that unifies the multiple rescheduling scenarios elegantly. Our evaluations show that Llumnix improves tail latencies by an order of magnitude, accelerates high-priority requests by up to 1.5 ×, and delivers up to 36% cost savings while achieving similar tail latencies, compared against state-of-the- art LLM serving systems. Llumnix is publicly available at https://github.com/AlibabaPAI/llumnix . 1 Introduction Large language models (LLMs) such as the GPT series [15, 49] are bringing generative AI to an unprecedented level. Their human-level gen"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "migration",
+        "excerpt": "in- ing out instances during auto-scaling more quickly. Llumnix reschedules requests via an efficient and scalable live migration mechanism of requests along with their GPU (a) Load balancing(b) De-frag(d) Auto-scaling(c) PrioritizationNormal instanceTerminating instanceRunning requestRescheduling destinationHigh-priority requestQueuing requestFigure 1: Example rescheduling scenarios in Llumnix. memory states across instances. Straightforward rescheduling approaches could introduce substantial downtimes to resched- uled requests, especially for long sequences. By contrast, Llumnix introduces near-zero downtime that is constant to sequence lengths, by carefully coordinating the computation and the memory transfer to hide the cost. To exploit such great scheduling flexib"
+      }
+    ]
+  },
+  {
+    "id": "ServerlessLLM",
+    "source": "https://arxiv.org/abs/2401.14351",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "migration",
+        "excerpt": "ti-tier loading system, fully utilizing the bandwidth of complex storage hierarchies on GPU servers; (ii)efficient live migration of LLM inference , which enables newly initiated inferences to capitalize on local checkpoint storage while ensuring minimal user interruption; and (iii) startup-time-optimized model scheduling , which assesses the locality statuses of checkpoints on each server and schedules the model onto servers that minimize the time to start the inference. Comprehensive evaluations, including microbench- marks and real-world scenarios, demonstrate that Serverless- LLM dramatically outperforms state-of-the-art serverless sys- tems, reducing latency by 10 - 200X across various LLM inference workloads. 1 Introduction Large Language Models (LLMs) have recen"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "migration",
+        "excerpt": "-memory data chunk pool, memory-copy efficient data path, and a multi-stage data load- ing pipeline. (2) Efficient live migration of LLM inference. We moti- vate the need for live migration of LLM inference and are the first to implement LLM live migration in serverless infer- ence systems to enhance the performance when supporting locality-driven inference. To achieve high efficiency when migrating LLM inference, we have implemented two strate- gic designs: (i) the source server migrates only the tokens,rather than the large kv-cache, which significantly reduces network traffic during the migration; and (ii) it triggers an efficient re-computation of the kv-cache at the destination server, ensuring migration can complete in a timely manner. (3) Startup-time-optimized "
+      }
+    ]
+  },
+  {
+    "id": "SCORPIO",
+    "source": "https://arxiv.org/abs/2505.23022",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "SLO",
+        "excerpt": "Scorpio: Serving Right Requests at the Right Time for Heterogeneous SLOs in LLM Inference Yinghao Tang1, Tingfeng Lan2, Bo Pan1, Xiuqi Huang1*, Hui Lu3*, and Wei Chen1 1State Key Lab of CAD&CG, Zhejiang University 2Department of Computer Science, University of Virginia 3Department of Computer Science and Engineering, The University of Texas at Arlington *Corresponding authors:huangxiuqi@zju.edu.cn (primary), hui.lu@uta.edu Abstract. Large Language Model (LLM) serving increasingly under- pins online Web services such as conversational agents, Web search, and programming assistants, where requests carry heterogeneous Service Level Objectives (SLOs) such as Time to First Token (TTFT) and Time Per Output Token (TPOT"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "SLO",
+        "excerpt": "gLLMservingsystems[ 9,30,34,17] predominantly prioritize maximum throughput, often neglecting Service Level Objectives (SLOs), such as time-to-first-token (TTFT) and time-per-output-token (TPOT). Typically, these systems greedily admit and serve incoming requests [ 15], without deep visibility into the SLO requirements of requests. Simultaneously, SLO requirements across different applications are inherently heterogeneous [ 19]. For instance, programming assistants often demand low latency for real-time response, whereas chatbots tolerate higher latency provided the generation rate exceeds human reading speed [ 12]. However, existing LLM serving systems treat all requests equally in all scheduling stages. This undifferentiated handling leads to suboptimal SLO att"
+      }
+    ]
+  },
+  {
+    "id": "SLOMetrics",
+    "source": "https://arxiv.org/abs/2410.14257",
+    "passages": [
+      {
+        "pdf_page": 1,
+        "keyword": "goodput",
+        "excerpt": "new SLO that aligns with user experi- ence. Based on the SLO, we propose a comprehensive metric framework called smooth goodput, which integrates SLOs and SLMs to reflect the nature of user experience in LLM serving. Through this unified framework, we reassess the performance of different LLM serving systems under mul- tiple workloads. Evaluation results show that our metric framework provides a more comprehensive view of token delivery and request processing, and effectively captures the optimal point of user experience and system performance with different serving strategies. 1 Introduction Given the outstanding performance of large language models (LLMs) [ 9,10,30,33,37,38] in various tasks, such as chat- bots [ 20,22,42] and virtual assistants [ 6,32], it has bec"
+      },
+      {
+        "pdf_page": 2,
+        "keyword": "goodput",
+        "excerpt": "system, while the goodput measures the number of com- pleted requests that meet the SLOs per second, which can be viewed as the performance of the serving system. We also notice that various systems and optimization strategies have been proposed to improve the system level metrics under the SLOs [1, 5, 23, 24, 43]. However, we observe thatthese metrics (i.e. SLOs and SLMs) fail to capture the nature of user experience. Actually, real-time LLM service is a rapidly interactive activity, just like web browsing [ 28,35]. Users do not perceive them as a sequence of individual tokens (modeled as TBT), but as a continuous stream of information where users need to process th"
+      }
+    ]
+  }
+]

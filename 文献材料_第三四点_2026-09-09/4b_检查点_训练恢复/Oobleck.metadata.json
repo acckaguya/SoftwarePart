@@ -1,0 +1,30 @@
+{
+  "id": "Oobleck",
+  "group": "4b",
+  "reading_note": "基于流水线模板的弹性容错训练。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Oobleck: Resilient Distributed Training of Large Models Using Pipeline Templates",
+  "url": "https://arxiv.org/abs/2309.08125",
+  "arxiv_id": "2309.08125",
+  "snapshot": "4b_检查点_训练恢复/Oobleck.source.html",
+  "authors": [
+    "Jang, Insu",
+    "Yang, Zhenning",
+    "Zhang, Zhen",
+    "Jin, Xin",
+    "Chowdhury, Mosharaf"
+  ],
+  "date": "2023/09/15",
+  "doi": "10.1145/3600006.3613152",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2309.08125",
+  "pdf_status": "downloaded",
+  "pdf_file": "4b_检查点_训练恢复/Oobleck.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2309.08125",
+  "bytes": 1361585,
+  "sha256": "e8f1948019857a15983e3062cb60232c8aa9cafef51641e188aac2eb54ff5159",
+  "pages": 15
+}

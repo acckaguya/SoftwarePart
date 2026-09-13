@@ -1,0 +1,33 @@
+{
+  "id": "TierCheck",
+  "group": "4b",
+  "reading_note": "按故障异质性进行分层差分检查点与恢复。",
+  "priority": "前沿",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "TierCheck: Tiered Checkpointing for Fault Tolerance in Large Language Model Training",
+  "url": "https://arxiv.org/abs/2605.17821",
+  "arxiv_id": "2605.17821",
+  "snapshot": "4b_检查点_训练恢复/TierCheck.source.html",
+  "authors": [
+    "Han, Shujie",
+    "Jiang, Feng",
+    "Lee, Patrick P. C.",
+    "Zhang, Xiao",
+    "Huang, Zhijie",
+    "Zhao, Nannan",
+    "Zhao, Xiaonan",
+    "Pan, Lichen"
+  ],
+  "date": "2026/05/18",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2605.17821",
+  "pdf_status": "downloaded",
+  "pdf_file": "4b_检查点_训练恢复/TierCheck.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2605.17821",
+  "bytes": 1363558,
+  "sha256": "4b1fa645c40b1b494cd13b0a9a37d6460860de99e335d9451741b9221451c5c6",
+  "pages": 14
+}

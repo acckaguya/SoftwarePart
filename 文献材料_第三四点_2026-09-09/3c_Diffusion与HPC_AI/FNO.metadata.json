@@ -1,0 +1,32 @@
+{
+  "id": "FNO",
+  "group": "3c",
+  "reading_note": "傅里叶神经算子作为PDE解映射的代理。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Fourier Neural Operator for Parametric Partial Differential Equations",
+  "url": "https://arxiv.org/abs/2010.08895",
+  "arxiv_id": "2010.08895",
+  "snapshot": "3c_Diffusion与HPC_AI/FNO.source.html",
+  "authors": [
+    "Li, Zongyi",
+    "Kovachki, Nikola",
+    "Azizzadenesheli, Kamyar",
+    "Liu, Burigede",
+    "Bhattacharya, Kaushik",
+    "Stuart, Andrew",
+    "Anandkumar, Anima"
+  ],
+  "date": "2020/10/18",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2010.08895",
+  "pdf_status": "downloaded",
+  "pdf_file": "3c_Diffusion与HPC_AI/FNO.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2010.08895",
+  "bytes": 2436198,
+  "sha256": "6cd2645d4a50d1a61a261529b33747c674d78851bdbe6993b0961f81a17dc6f2",
+  "pages": 16
+}

@@ -1,0 +1,30 @@
+{
+  "id": "KevlarFlow",
+  "group": "4c",
+  "reading_note": "大模型服务韧性与故障处理。",
+  "priority": "前沿",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Towards Resiliency in Large Language Model Serving with KevlarFlow",
+  "url": "https://arxiv.org/abs/2601.22438",
+  "arxiv_id": "2601.22438",
+  "snapshot": "4c_推理高可用_SLO/KevlarFlow.source.html",
+  "authors": [
+    "Qian, Shangshu",
+    "Liu, Kipling",
+    "Sruthi, P. C.",
+    "Tan, Lin",
+    "Zhang, Yongle"
+  ],
+  "date": "2026/01/30",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2601.22438",
+  "pdf_status": "downloaded",
+  "pdf_file": "4c_推理高可用_SLO/KevlarFlow.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2601.22438",
+  "bytes": 729511,
+  "sha256": "62d711f12f4750a21fed93d98c723e4fb488661226edbd98d4bfa04477addb11",
+  "pages": 13
+}

@@ -1,0 +1,28 @@
+{
+  "id": "DeepCache",
+  "group": "3c",
+  "reading_note": "利用相邻去噪步骤的特征冗余进行缓存复用。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "DeepCache: Accelerating Diffusion Models for Free",
+  "url": "https://arxiv.org/abs/2312.00858",
+  "arxiv_id": "2312.00858",
+  "snapshot": "3c_Diffusion与HPC_AI/DeepCache.source.html",
+  "authors": [
+    "Ma, Xinyin",
+    "Fang, Gongfan",
+    "Wang, Xinchao"
+  ],
+  "date": "2023/12/01",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2312.00858",
+  "pdf_status": "downloaded",
+  "pdf_file": "3c_Diffusion与HPC_AI/DeepCache.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2312.00858",
+  "bytes": 41019034,
+  "sha256": "c850ef38fded2ef311c574225056d536a0ca40ea786bea001eca8352424d6224",
+  "pages": 18
+}

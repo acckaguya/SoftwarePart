@@ -1,0 +1,31 @@
+{
+  "id": "FlashAttention3",
+  "group": "3a",
+  "reading_note": "异步执行与低精度注意力内核。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision",
+  "url": "https://arxiv.org/abs/2407.08608",
+  "arxiv_id": "2407.08608",
+  "snapshot": "3a_低精度_算子_编译优化/FlashAttention3.source.html",
+  "authors": [
+    "Shah, Jay",
+    "Bikshandi, Ganesh",
+    "Zhang, Ying",
+    "Thakkar, Vijay",
+    "Ramani, Pradeep",
+    "Dao, Tri"
+  ],
+  "date": "2024/07/11",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2407.08608",
+  "pdf_status": "downloaded",
+  "pdf_file": "3a_低精度_算子_编译优化/FlashAttention3.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2407.08608",
+  "bytes": 1096663,
+  "sha256": "3d05ca102802e6b8ebbae5181efe777b7d258cd75e2fe9cca209efd2f5e6c6cb",
+  "pages": 22
+}

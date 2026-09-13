@@ -1,0 +1,31 @@
+{
+  "id": "SpeculativeSampling",
+  "group": "3b",
+  "reading_note": "保持目标采样分布的推测采样机制。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Accelerating Large Language Model Decoding with Speculative Sampling",
+  "url": "https://arxiv.org/abs/2302.01318",
+  "arxiv_id": "2302.01318",
+  "snapshot": "3b_大模型推理加速/SpeculativeSampling.source.html",
+  "authors": [
+    "Chen, Charlie",
+    "Borgeaud, Sebastian",
+    "Irving, Geoffrey",
+    "Lespiau, Jean-Baptiste",
+    "Sifre, Laurent",
+    "Jumper, John"
+  ],
+  "date": "2023/02/02",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2302.01318",
+  "pdf_status": "downloaded",
+  "pdf_file": "3b_大模型推理加速/SpeculativeSampling.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2302.01318",
+  "bytes": 349916,
+  "sha256": "ffa03c6ae46f3122570bacd7da358cae8659b6421162bbc25088622fd4889c37",
+  "pages": 11
+}

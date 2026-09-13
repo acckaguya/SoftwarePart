@@ -1,0 +1,28 @@
+{
+  "id": "Triton",
+  "group": "3a",
+  "reading_note": "面向分块张量计算的语言与编译器。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Triton: An Intermediate Language and Compiler for Tiled Neural Network Computations",
+  "url": "https://research.ibm.com/publications/triton-an-intermediate-language-and-compiler-for-tiled-neural-network-computations",
+  "arxiv_id": "",
+  "snapshot": "3a_低精度_算子_编译优化/Triton.source.html",
+  "authors": [
+    "Philippe Tillet",
+    "H. T. Kung",
+    "David Cox"
+  ],
+  "date": "2019",
+  "doi": "10.1145/3315508.3329973",
+  "venue": "MAPL 2019",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://www.eecs.harvard.edu/~htk/publication/2019-mapl-tillet-kung-cox.pdf",
+  "pdf_status": "downloaded",
+  "pdf_file": "3a_低精度_算子_编译优化/Triton.pdf",
+  "pdf_final_url": "https://www.eecs.harvard.edu/~htk/publication/2019-mapl-tillet-kung-cox.pdf",
+  "bytes": 1029483,
+  "sha256": "7c4d200693c223c4d4c53c98b22c2693bdcf6adf3c902436b070368be097a7c1",
+  "pages": 10
+}

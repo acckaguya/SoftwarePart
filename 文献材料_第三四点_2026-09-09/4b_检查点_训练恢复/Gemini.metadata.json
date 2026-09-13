@@ -1,0 +1,32 @@
+{
+  "id": "Gemini",
+  "group": "4b",
+  "reading_note": "内存检查点放置与网络调度，加快训练恢复。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Gemini: Fast failure recovery in distributed training with in-memory checkpoints",
+  "url": "https://www.amazon.science/publications/gemini-fast-failure-recovery-in-distributed-training-with-in-memory-checkpoints",
+  "arxiv_id": "",
+  "snapshot": "4b_检查点_训练恢复/Gemini.source.html",
+  "authors": [
+    "Zhuang Wang",
+    "Zhen Jia",
+    "Shuai Zhang",
+    "Zhen Zhang",
+    "Mason Fu",
+    "T. S. Eugene Ng",
+    "Yida Wang"
+  ],
+  "date": "2023",
+  "doi": "",
+  "venue": "SOSP 2023",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://cdn.amazon.science/29/31/6523473f48e4af52252bac56ef51/gemini-fast-failure-recovery-in-distributed-training-with-in-memory-checkpoints.pdf",
+  "pdf_status": "downloaded",
+  "pdf_file": "4b_检查点_训练恢复/Gemini.pdf",
+  "pdf_final_url": "https://cdn.amazon.science/29/31/6523473f48e4af52252bac56ef51/gemini-fast-failure-recovery-in-distributed-training-with-in-memory-checkpoints.pdf",
+  "bytes": 1795751,
+  "sha256": "12e753c299cc5d69b6ea076479a7d8c65cb1f5abc6218933616d5ada566e2fd7",
+  "pages": 18
+}

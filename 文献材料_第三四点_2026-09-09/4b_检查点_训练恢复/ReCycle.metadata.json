@@ -1,0 +1,29 @@
+{
+  "id": "ReCycle",
+  "group": "4b",
+  "reading_note": "通过流水线适配应对资源故障。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "ReCycle: Resilient Training of Large DNNs using Pipeline Adaptation",
+  "url": "https://arxiv.org/abs/2405.14009",
+  "arxiv_id": "2405.14009",
+  "snapshot": "4b_检查点_训练恢复/ReCycle.source.html",
+  "authors": [
+    "Gandhi, Swapnil",
+    "Zhao, Mark",
+    "Skiadopoulos, Athinagoras",
+    "Kozyrakis, Christos"
+  ],
+  "date": "2024/05/22",
+  "doi": "10.1145/3694715.3695960",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2405.14009",
+  "pdf_status": "downloaded",
+  "pdf_file": "4b_检查点_训练恢复/ReCycle.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2405.14009",
+  "bytes": 3697914,
+  "sha256": "25f70a1a1b951f732914f41d2bd9e70b31e3e280cc5582ce04320231cb9c7873",
+  "pages": 18
+}

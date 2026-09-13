@@ -1,0 +1,464 @@
+[
+  {
+    "id": "MixedPrecision",
+    "group": "3a",
+    "source_title": "Mixed Precision Training",
+    "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+  },
+  {
+    "id": "FP8Formats",
+    "group": "3a",
+    "source_title": "FP8 Formats for Deep Learning",
+    "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+  },
+  {
+    "id": "FP8LM",
+    "group": "3a",
+    "source_title": "FP8-LM: Training FP8 Large Language Models",
+    "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+  },
+  {
+    "id": "LLMint8",
+    "group": "3a",
+    "source_title": "LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale",
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "id": "GPTQ",
+    "group": "3a",
+    "source_title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SmoothQuant",
+    "group": "3a",
+    "source_title": "SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "AWQ",
+    "group": "3a",
+    "source_title": "AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "FP8PTQ",
+    "group": "3a",
+    "source_title": "Efficient Post-training Quantization with FP8 Formats",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Microscaling",
+    "group": "3a",
+    "source_title": "Post Training Quantization of Large Language Models with Microscaling Formats",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "FlashAttention",
+    "group": "3a",
+    "source_title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "FlashAttention2",
+    "group": "3a",
+    "source_title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "FlashAttention3",
+    "group": "3a",
+    "source_title": "FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "TVM",
+    "group": "3a",
+    "source_title": "TVM: An Automated End-to-End Optimizing Compiler for Deep Learning",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Ansor",
+    "group": "3a",
+    "source_title": "Ansor: Generating High-Performance Tensor Programs for Deep Learning",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "TensorIR",
+    "group": "3a",
+    "source_title": "TensorIR: An Abstraction for Automatic Tensorized Program Optimization",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "TASO",
+    "group": "3a",
+    "source_title": "TASO: Optimizing Deep Learning Computation with Automatic Generation of Graph Substitutions",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Triton",
+    "group": "3a",
+    "source_title": "Triton: An Intermediate Language and Compiler for Tiled Neural Network Computations",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Orca",
+    "group": "3b",
+    "source_title": "Orca: A Distributed Serving System for Transformer-Based Generative Models",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "PagedAttention",
+    "group": "3b",
+    "source_title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SGLang",
+    "group": "3b",
+    "source_title": "SGLang: Efficient Execution of Structured Language Model Programs",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SarathiServe",
+    "group": "3b",
+    "source_title": "Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DistServe",
+    "group": "3b",
+    "source_title": "DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Splitwise",
+    "group": "3b",
+    "source_title": "Splitwise: Efficient generative LLM inference using phase splitting",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "PDServe",
+    "group": "3b",
+    "source_title": "P/D-Serve: Serving Disaggregated Large Language Model at Scale",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SpeculativeDecoding",
+    "group": "3b",
+    "source_title": "Fast Inference from Transformers via Speculative Decoding",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SpeculativeSampling",
+    "group": "3b",
+    "source_title": "Accelerating Large Language Model Decoding with Speculative Sampling",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Medusa",
+    "group": "3b",
+    "source_title": "Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "EAGLE",
+    "group": "3b",
+    "source_title": "EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SpecInfer",
+    "group": "3b",
+    "source_title": "SpecInfer: Accelerating Generative Large Language Model Serving with Tree-based Speculative Inference and Verification",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "FlashDecoding",
+    "group": "3b",
+    "source_title": "FlashDecoding++: Faster Large Language Model Inference on GPUs",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DDIM",
+    "group": "3c",
+    "source_title": "Denoising Diffusion Implicit Models",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DPMSolver",
+    "group": "3c",
+    "source_title": "DPM-Solver: A Fast ODE Solver for Diffusion Probabilistic Model Sampling in Around 10 Steps",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DPMSolverPlus",
+    "group": "3c",
+    "source_title": "DPM-Solver++: Fast Solver for Guided Sampling of Diffusion Probabilistic Models",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "ProgressiveDistillation",
+    "group": "3c",
+    "source_title": "Progressive Distillation for Fast Sampling of Diffusion Models",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "ConsistencyModels",
+    "group": "3c",
+    "source_title": "Consistency Models",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "LatentConsistency",
+    "group": "3c",
+    "source_title": "Latent Consistency Models: Synthesizing High-Resolution Images with Few-Step Inference",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DeepCache",
+    "group": "3c",
+    "source_title": "DeepCache: Accelerating Diffusion Models for Free",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "TeaCache",
+    "group": "3c",
+    "source_title": "Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DistriFusion",
+    "group": "3c",
+    "source_title": "DistriFusion: Distributed Parallel Inference for High-Resolution Diffusion Models",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "FNO",
+    "group": "3c",
+    "source_title": "Fourier Neural Operator for Parametric Partial Differential Equations",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DeepONet",
+    "group": "3c",
+    "source_title": "DeepONet: Learning nonlinear operators for identifying differential equations based on the universal approximation theorem of operators",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "GraphCast",
+    "group": "3c",
+    "source_title": "GraphCast: Learning skillful medium-range global weather forecasting",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SmartSim",
+    "group": "3c",
+    "source_title": "Using Machine Learning at Scale in HPC Simulations with SmartSim: An Application to Ocean Climate Modeling",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Colmena",
+    "group": "3c",
+    "source_title": "Colmena: Scalable Machine-Learning-Based Steering of Ensemble Simulations for High Performance Computing",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "ColmenaExascale",
+    "group": "3c",
+    "source_title": "Employing Artificial Intelligence to Steer Exascale Workflows with Colmena",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DeepDriveMD",
+    "group": "3c",
+    "source_title": "DeepDriveMD: Deep-Learning Driven Adaptive Molecular Simulations for Protein Folding",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "StreamingAIHPC",
+    "group": "3c",
+    "source_title": "Coupling streaming AI and HPC ensembles to achieve 100-1000x faster biomolecular simulations",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "MegaScale",
+    "group": "4a",
+    "source_title": "MegaScale: Scaling Large Language Model Training to More Than 10,000 GPUs",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SuperBench",
+    "group": "4a",
+    "source_title": "SuperBench: Improving Cloud AI Infrastructure Reliability with Proactive Validation",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Minder",
+    "group": "4a",
+    "source_title": "Minder: Faulty Machine Detection for Large-scale Distributed Model Training",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Holmes",
+    "group": "4a",
+    "source_title": "Holmes: Localizing Irregularities in LLM Training with Mega-scale GPU Clusters",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "TPUResiliency",
+    "group": "4a",
+    "source_title": "Resiliency at Scale: Managing Google’s TPUv4 Machine Learning Supercomputer",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DatacenterCharacterization",
+    "group": "4a",
+    "source_title": "Characterization of Large Language Model Development in the Datacenter",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SDCsInTheWild",
+    "group": "4a",
+    "source_title": "SDCs in the Wild: Characterizing and Diagnosing SDC-Defective GPUs in Production LLM Training (Operational Systems)",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "CheckFreq",
+    "group": "4b",
+    "source_title": "CheckFreq: Frequent, Fine-Grained DNN Checkpointing",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "CheckNRun",
+    "group": "4b",
+    "source_title": "Check-N-Run: a Checkpointing System for Training Deep Learning Recommendation Models",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Gemini",
+    "group": "4b",
+    "source_title": "Gemini: Fast failure recovery in distributed training with in-memory checkpoints",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "ByteCheckpoint",
+    "group": "4b",
+    "source_title": "ByteCheckpoint: A Unified Checkpointing System for Large Foundation Model Development",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SWIFT",
+    "group": "4b",
+    "source_title": "SWIFT: Expedited Failure Recovery for Large-scale DNN Training",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Oobleck",
+    "group": "4b",
+    "source_title": "Oobleck: Resilient Distributed Training of Large Models Using Pipeline Templates",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Bamboo",
+    "group": "4b",
+    "source_title": "Bamboo: Making Preemptible Instances Resilient for Affordable Training of Large DNNs",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "ReCycle",
+    "group": "4b",
+    "source_title": "ReCycle: Resilient Training of Large DNNs using Pipeline Adaptation",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "InMemoryHP",
+    "group": "4b",
+    "source_title": "Fault-Tolerant Hybrid-Parallel Training at Scale with Reliable and Efficient In-memory Checkpointing",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "TrainMover",
+    "group": "4b",
+    "source_title": "TrainMover: An Interruption-Resilient Runtime for ML Training",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "MoEvement",
+    "group": "4b",
+    "source_title": "Sparse Checkpointing for Fast and Reliable MoE Training",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "TierCheck",
+    "group": "4b",
+    "source_title": "TierCheck: Tiered Checkpointing for Fault Tolerance in Large Language Model Training",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "DejaVu",
+    "group": "4c",
+    "source_title": "DéjàVu: KV-cache Streaming for Fast, Fault-tolerant Generative LLM Serving",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Llumnix",
+    "group": "4c",
+    "source_title": "Llumnix: Dynamic Scheduling for Large Language Model Serving",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "ServerlessLLM",
+    "group": "4c",
+    "source_title": "ServerlessLLM: Low-Latency Serverless Inference for Large Language Models",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "KunServe",
+    "group": "4c",
+    "source_title": "KunServe: Parameter-centric Memory Management for Efficient Memory Overloading Handling in LLM Serving",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SLOMetrics",
+    "group": "4c",
+    "source_title": "Revisiting Service Level Objectives and System Level Metrics in Large Language Model Serving",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "SCORPIO",
+    "group": "4c",
+    "source_title": "Scorpio: Serving Right Requests at the Right Time for Heterogeneous SLOs in LLM Inference",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "JITServe",
+    "group": "4c",
+    "source_title": "JITServe: SLO-aware LLM Serving with Imprecise Request Information",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "GhostServe",
+    "group": "4c",
+    "source_title": "GhostServe: A Lightweight Checkpointing System in the Shadow for Fault-Tolerant LLM Serving",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "KevlarFlow",
+    "group": "4c",
+    "source_title": "Towards Resiliency in Large Language Model Serving with KevlarFlow",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "LUMEN",
+    "group": "4c",
+    "source_title": "LUMEN: Coordinated Failure Recovery for Distributed LLM Serving",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  },
+  {
+    "id": "Concordia",
+    "group": "4c",
+    "source_title": "Concordia: JIT-Compiled Persistent-Kernel Checkpointing for Fault-Tolerant LLM Inference",
+    "error": "RemoteDisconnected: Remote end closed connection without response"
+  }
+]

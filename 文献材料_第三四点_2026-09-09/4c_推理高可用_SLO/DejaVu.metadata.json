@@ -1,0 +1,30 @@
+{
+  "id": "DejaVu",
+  "group": "4c",
+  "reading_note": "KV缓存流式保存与容错推理。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "DéjàVu: KV-cache Streaming for Fast, Fault-tolerant Generative LLM Serving",
+  "url": "https://arxiv.org/abs/2403.01876",
+  "arxiv_id": "2403.01876",
+  "snapshot": "4c_推理高可用_SLO/DejaVu.source.html",
+  "authors": [
+    "Strati, Foteini",
+    "Mcallister, Sara",
+    "Phanishayee, Amar",
+    "Tarnawski, Jakub",
+    "Klimovic, Ana"
+  ],
+  "date": "2024/03/04",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2403.01876",
+  "pdf_status": "downloaded",
+  "pdf_file": "4c_推理高可用_SLO/DejaVu.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2403.01876",
+  "bytes": 2454038,
+  "sha256": "4d84c443a26d37c34b21e1a6f53a365610fd28836bb7fca8658dfb952e65f450",
+  "pages": 24
+}

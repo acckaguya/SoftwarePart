@@ -1,0 +1,27 @@
+{
+  "id": "MoEvement",
+  "group": "4b",
+  "reading_note": "MoE稀疏增量检查点与局部恢复。",
+  "priority": "前沿",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Sparse Checkpointing for Fast and Reliable MoE Training",
+  "url": "https://www.usenix.org/conference/nsdi26/presentation/gandhi",
+  "arxiv_id": "",
+  "snapshot": "4b_检查点_训练恢复/MoEvement.source.html",
+  "authors": [
+    "Swapnil Gandhi",
+    "Christos Kozyrakis"
+  ],
+  "date": "2026",
+  "doi": "",
+  "venue": "23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI 26)",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://www.usenix.org/system/files/nsdi26-gandhi.pdf",
+  "pdf_status": "downloaded",
+  "pdf_file": "4b_检查点_训练恢复/MoEvement.pdf",
+  "pdf_final_url": "https://www.usenix.org/system/files/nsdi26-gandhi.pdf",
+  "bytes": 2107171,
+  "sha256": "eb25c8fda8daa0bb2e2927ca3890b7414a20ee7a4674dc383d47bfde2e0b8fd9",
+  "pages": 22
+}

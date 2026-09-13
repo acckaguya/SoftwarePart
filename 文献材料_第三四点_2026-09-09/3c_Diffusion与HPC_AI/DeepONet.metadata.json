@@ -1,0 +1,28 @@
+{
+  "id": "DeepONet",
+  "group": "3c",
+  "reading_note": "学习算子映射的代理模型基础。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "DeepONet: Learning nonlinear operators for identifying differential equations based on the universal approximation theorem of operators",
+  "url": "https://arxiv.org/abs/1910.03193",
+  "arxiv_id": "1910.03193",
+  "snapshot": "3c_Diffusion与HPC_AI/DeepONet.source.html",
+  "authors": [
+    "Lu, Lu",
+    "Jin, Pengzhan",
+    "Karniadakis, George Em"
+  ],
+  "date": "2019/10/08",
+  "doi": "10.1038/s42256-021-00302-5",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/1910.03193",
+  "pdf_status": "downloaded",
+  "pdf_file": "3c_Diffusion与HPC_AI/DeepONet.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/1910.03193",
+  "bytes": 757987,
+  "sha256": "4b0bea3d69cbcb044b4e6b754de87ad3dc6efe7e5f2606cb090bca0e00bbad4a",
+  "pages": 22
+}

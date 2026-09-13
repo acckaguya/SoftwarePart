@@ -1,0 +1,30 @@
+{
+  "id": "FlashAttention",
+  "group": "3a",
+  "reading_note": "通过IO感知分块优化精确注意力。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+  "url": "https://arxiv.org/abs/2205.14135",
+  "arxiv_id": "2205.14135",
+  "snapshot": "3a_低精度_算子_编译优化/FlashAttention.source.html",
+  "authors": [
+    "Dao, Tri",
+    "Fu, Daniel Y.",
+    "Ermon, Stefano",
+    "Rudra, Atri",
+    "Ré, Christopher"
+  ],
+  "date": "2022/05/27",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2205.14135",
+  "pdf_status": "downloaded",
+  "pdf_file": "3a_低精度_算子_编译优化/FlashAttention.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2205.14135",
+  "bytes": 2630825,
+  "sha256": "ca7f9fda10b90fc05dd291a3accc85e9c1a4a860b99b31928dab03ed3fcb14e4",
+  "pages": 34
+}

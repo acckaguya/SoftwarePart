@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Catalyst: TASO</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+              integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+              crossorigin="anonymous">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/group.css">
+        <link rel="shortcut icon" href="/img/logo/icon.svg" type="image/x-icon">
+        <link rel="icon" href="/img/logo/icon.svg" type="image/x-icon">
+    </head>
+    <body>
+        <div class="container">
+            <!-- This is a bit nasty, but it basically says be a column first, and on larger screens be a spaced out row -->
+            <div class="header d-flex
+                        flex-column
+                        flex-md-row justify-content-md-between">
+                <a href="/" class="">
+                  <img src="/img/logo/catalyst.svg" height="70px"
+                       alt="Catalyst" id="logo">
+                </a>
+                <ul id="topbar" class="nav nav-pills justify-content-center">
+
+                    
+                    
+
+                        
+
+                        
+                        
+                        
+
+                        <li class="nav-item">
+                            <a class="nav-link "
+                               href="/">
+                                Home
+                            </a>
+                        </li>
+
+                    
+
+                        
+
+                        
+                        
+                        
+
+                        <li class="nav-item">
+                            <a class="nav-link "
+                               href="/#people">
+                                People
+                            </a>
+                        </li>
+
+                    
+
+                        
+
+                        
+                        
+                        
+
+                        <li class="nav-item">
+                            <a class="nav-link active"
+                               href="/research.html">
+                                Research
+                            </a>
+                        </li>
+
+                    
+
+                        
+
+                        
+                        
+                        
+
+                        <li class="nav-item">
+                            <a class="nav-link "
+                               href="/publications.html">
+                                Publications
+                            </a>
+                        </li>
+
+                    
+
+                </ul>
+            </div>
+
+            
+
+            
+                <h1>TASO</h1>
+            
+
+            <p><a href="https://github.com/jiazhihao/TASO">TASO</a> optimizes the computation graphs of DNN models using automatically generated and verified graph transformations.
+For an arbitrary DNN model, TASO uses the auto-generated graph transformations to build a large search space of potential computation graphs that are equivalent to the original DNN model.
+TASO employs a cost-based search algorithm to explore the space, and automatically discovers highly optimized computation graphs.
+TASO outperforms the graph optimizers in existing deep learning frameworks by <a href="http://theory.stanford.edu/~aiken/publications/papers/sosp19.pdf">up to 3x</a>.</p>
+
+<p style="text-align: center"><img src="/img/taso/inference.png" alt="image" width="80%" /></p>
+
+<p>TASO directly optimizes any pre-trained DNN models in <a href="https://onnx.ai">ONNX</a>, <a href="https://www.tensorflow.org/guide/saved_model">TensorFlow</a>, and <a href="https://pytorch.org/docs/stable/onnx.html">PyTorch</a> graph formats.
+TASO also provides a Python interface for optimizing arbitrary DNN architectures.
+TASO supports exporting the optimized computation graphs to ONNX, which can be directly used as inputs by most existing deep learning frameworks.</p>
+
+<p>For example, the following figures shows how TASO automatically performs a series of non-trivial transformations and improves the inference performance of a ResNet module by 1.3x on a V100 GPU.</p>
+
+<p style="text-align: center"><img src="/img/taso/graph_subst.png" alt="image" width="90%" /></p>
+
+<h2 id="publication">Publication</h2>
+<ul>
+  <li>
+    <p>Zhihao Jia, Oded Padon, James Thomas, Todd Warszawski, Matei Zaharia, and Alex Aiken. <a href="https://cs.stanford.edu/~zhihao/papers/sosp19.pdf">TASO: Optimizing Deep Learning Computation with Automated Generation of Graph Substitutions</a>. In Proceedings of the Symposium on Operating Systems Principles (SOSP), Ontario, Canada, October 2019.</p>
+  </li>
+  <li>
+    <p>Zhihao Jia, James Thomas, Todd Warszawski, Mingyu Gao, Matei Zaharia, and Alex Aiken. <a href="https://theory.stanford.edu/~aiken/publications/papers/sysml19b.pdf">Optimizing DNN Computation with Relaxed Graph Substitutions</a>. In Proceedings of the Conference on Systems and Machine Learning (SysML), Palo Alto, CA, April 2019.</p>
+  </li>
+</ul>
+
+
+
+<!-- skip people for now
+<h2> People </h2>
+<section class="people project-people">
+    
+</section>
+-->
+
+
+            <div class="footer">
+                <p> Copyright 2020-2026 Carnegie Mellon Catalyst Group </p>
+            </div>
+
+        </div> <!-- /container -->
+
+        <!-- Support retina images. -->
+        <script type="text/javascript"
+                src="/js/srcset-polyfill.js"></script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "id": "SmartSim",
+  "group": "3c",
+  "reading_note": "HPC数值模拟与在线深度学习推理耦合。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Using Machine Learning at Scale in HPC Simulations with SmartSim: An Application to Ocean Climate Modeling",
+  "url": "https://arxiv.org/abs/2104.09355",
+  "arxiv_id": "2104.09355",
+  "snapshot": "3c_Diffusion与HPC_AI/SmartSim.source.html",
+  "authors": [
+    "Partee, Sam",
+    "Ellis, Matthew",
+    "Rigazzi, Alessandro",
+    "Bachman, Scott",
+    "Marques, Gustavo",
+    "Shao, Andrew",
+    "Robbins, Benjamin"
+  ],
+  "date": "2021/04/13",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2104.09355",
+  "pdf_status": "downloaded",
+  "pdf_file": "3c_Diffusion与HPC_AI/SmartSim.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2104.09355",
+  "bytes": 1329564,
+  "sha256": "be7a1967796b8f2163af4a4e97fa6fc4bfba4359bdda7e658a0af6f3e585d0fa",
+  "pages": 11
+}

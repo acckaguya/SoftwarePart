@@ -1,0 +1,30 @@
+{
+  "id": "Orca",
+  "group": "3b",
+  "reading_note": "迭代级调度与选择性批处理，连续批处理的基础。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Orca: A Distributed Serving System for Transformer-Based Generative Models",
+  "url": "https://www.usenix.org/conference/osdi22/presentation/yu",
+  "arxiv_id": "",
+  "snapshot": "3b_大模型推理加速/Orca.source.html",
+  "authors": [
+    "Gyeong-In Yu",
+    "Joo Seong Jeong",
+    "Geon-Woo Kim",
+    "Soojeong Kim",
+    "Byung-Gon Chun"
+  ],
+  "date": "2022",
+  "doi": "",
+  "venue": "16th USENIX Symposium on Operating Systems Design and Implementation (OSDI 22)",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://www.usenix.org/system/files/osdi22-yu.pdf",
+  "pdf_status": "downloaded",
+  "pdf_file": "3b_大模型推理加速/Orca.pdf",
+  "pdf_final_url": "https://www.usenix.org/system/files/osdi22-yu.pdf",
+  "bytes": 3906936,
+  "sha256": "b8038438ad8ff99bb131c1a6e16f7df10cf2f962aeb1bf4f1c00cc37e70658ca",
+  "pages": 19
+}

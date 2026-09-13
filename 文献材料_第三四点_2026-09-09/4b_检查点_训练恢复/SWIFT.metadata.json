@@ -1,0 +1,30 @@
+{
+  "id": "SWIFT",
+  "group": "4b",
+  "reading_note": "利用数据并行状态副本加速故障恢复。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "SWIFT: Expedited Failure Recovery for Large-scale DNN Training",
+  "url": "https://arxiv.org/abs/2302.06173",
+  "arxiv_id": "2302.06173",
+  "snapshot": "4b_检查点_训练恢复/SWIFT.source.html",
+  "authors": [
+    "Zhong, Yuchen",
+    "Sheng, Guangming",
+    "Liu, Juncheng",
+    "Yuan, Jinhui",
+    "Wu, Chuan"
+  ],
+  "date": "2023/02/13",
+  "doi": "10.1109/TPDS.2024.3429625",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2302.06173",
+  "pdf_status": "downloaded",
+  "pdf_file": "4b_检查点_训练恢复/SWIFT.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2302.06173",
+  "bytes": 1321158,
+  "sha256": "aa1f84e1164e47c65380fb87d42359fd9c89b0ab6803ad8e1db994fa46b14b59",
+  "pages": 14
+}

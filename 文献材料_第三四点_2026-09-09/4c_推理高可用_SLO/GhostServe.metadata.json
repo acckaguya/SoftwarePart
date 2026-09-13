@@ -1,0 +1,29 @@
+{
+  "id": "GhostServe",
+  "group": "4c",
+  "reading_note": "轻量检查点支持推理故障恢复。",
+  "priority": "前沿",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "GhostServe: A Lightweight Checkpointing System in the Shadow for Fault-Tolerant LLM Serving",
+  "url": "https://arxiv.org/abs/2605.00831",
+  "arxiv_id": "2605.00831",
+  "snapshot": "4c_推理高可用_SLO/GhostServe.source.html",
+  "authors": [
+    "Jayakody, Shakya",
+    "Zhao, Youpeng",
+    "Nehate, Chinmay Dhanraj",
+    "Wang, Jun"
+  ],
+  "date": "2026/03/26",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2605.00831",
+  "pdf_status": "downloaded",
+  "pdf_file": "4c_推理高可用_SLO/GhostServe.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2605.00831",
+  "bytes": 2792860,
+  "sha256": "5b8a16874d267663b3a6a8a10b8c10f6fbf8880ef2a760719276d426afeb6015",
+  "pages": 15
+}

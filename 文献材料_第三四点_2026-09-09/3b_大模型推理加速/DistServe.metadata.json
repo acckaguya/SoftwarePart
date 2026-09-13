@@ -1,0 +1,33 @@
+{
+  "id": "DistServe",
+  "group": "3b",
+  "reading_note": "Prefill与Decode分离并以goodput优化部署。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving",
+  "url": "https://arxiv.org/abs/2401.09670",
+  "arxiv_id": "2401.09670",
+  "snapshot": "3b_大模型推理加速/DistServe.source.html",
+  "authors": [
+    "Zhong, Yinmin",
+    "Liu, Shengyu",
+    "Chen, Junda",
+    "Hu, Jianbo",
+    "Zhu, Yibo",
+    "Liu, Xuanzhe",
+    "Jin, Xin",
+    "Zhang, Hao"
+  ],
+  "date": "2024/01/18",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2401.09670",
+  "pdf_status": "downloaded",
+  "pdf_file": "3b_大模型推理加速/DistServe.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2401.09670",
+  "bytes": 647352,
+  "sha256": "3ef8776301629419e97d7f6dc08b9a46f3577e05e96538a17dd4a526762f42f0",
+  "pages": 18
+}

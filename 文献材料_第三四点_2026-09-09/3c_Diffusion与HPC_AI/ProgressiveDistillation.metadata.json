@@ -1,0 +1,27 @@
+{
+  "id": "ProgressiveDistillation",
+  "group": "3c",
+  "reading_note": "通过渐进蒸馏减少生成步骤。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Progressive Distillation for Fast Sampling of Diffusion Models",
+  "url": "https://arxiv.org/abs/2202.00512",
+  "arxiv_id": "2202.00512",
+  "snapshot": "3c_Diffusion与HPC_AI/ProgressiveDistillation.source.html",
+  "authors": [
+    "Salimans, Tim",
+    "Ho, Jonathan"
+  ],
+  "date": "2022/02/01",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2202.00512",
+  "pdf_status": "downloaded",
+  "pdf_file": "3c_Diffusion与HPC_AI/ProgressiveDistillation.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2202.00512",
+  "bytes": 3488589,
+  "sha256": "cff438be94fd82afe02aaee34b2fb984c92861755128259ffc136a855ef60100",
+  "pages": 21
+}

@@ -1,0 +1,30 @@
+{
+  "id": "LatentConsistency",
+  "group": "3c",
+  "reading_note": "潜空间一致性模型与少步文生图。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Latent Consistency Models: Synthesizing High-Resolution Images with Few-Step Inference",
+  "url": "https://arxiv.org/abs/2310.04378",
+  "arxiv_id": "2310.04378",
+  "snapshot": "3c_Diffusion与HPC_AI/LatentConsistency.source.html",
+  "authors": [
+    "Luo, Simian",
+    "Tan, Yiqin",
+    "Huang, Longbo",
+    "Li, Jian",
+    "Zhao, Hang"
+  ],
+  "date": "2023/10/06",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2310.04378",
+  "pdf_status": "downloaded",
+  "pdf_file": "3c_Diffusion与HPC_AI/LatentConsistency.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2310.04378",
+  "bytes": 15939992,
+  "sha256": "c8a1bdb8eb03ca850dd6fb3457c18e25b5852d6ae2777f738cc12530f0a0ba6b",
+  "pages": 18
+}

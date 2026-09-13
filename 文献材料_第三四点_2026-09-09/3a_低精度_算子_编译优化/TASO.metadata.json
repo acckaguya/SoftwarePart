@@ -1,0 +1,31 @@
+{
+  "id": "TASO",
+  "group": "3a",
+  "reading_note": "自动生成图替换规则的计算图优化。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "TASO: Optimizing Deep Learning Computation with Automatic Generation of Graph Substitutions",
+  "url": "https://catalyst.cs.cmu.edu/projects/taso.html",
+  "arxiv_id": "",
+  "snapshot": "3a_低精度_算子_编译优化/TASO.source.html",
+  "authors": [
+    "Zhihao Jia",
+    "Oded Padon",
+    "James Thomas",
+    "Todd Warszawski",
+    "Matei Zaharia",
+    "Alex Aiken"
+  ],
+  "date": "2019",
+  "doi": "",
+  "venue": "SOSP 2019",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://www.cs.cmu.edu/~zhihaoj2/papers/sosp19.pdf",
+  "pdf_status": "downloaded",
+  "pdf_file": "3a_低精度_算子_编译优化/TASO.pdf",
+  "pdf_final_url": "https://www.cs.cmu.edu/~zhihaoj2/papers/sosp19.pdf",
+  "bytes": 667968,
+  "sha256": "6b57a77b86a0cdef954f65e0c4aa106b6e5bcaa3835aa178910eab2d0300d07e",
+  "pages": 16
+}

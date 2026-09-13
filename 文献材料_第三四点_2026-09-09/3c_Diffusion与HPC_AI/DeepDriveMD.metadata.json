@@ -1,0 +1,31 @@
+{
+  "id": "DeepDriveMD",
+  "group": "3c",
+  "reading_note": "深度学习引导自适应分子模拟。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "DeepDriveMD: Deep-Learning Driven Adaptive Molecular Simulations for Protein Folding",
+  "url": "https://arxiv.org/abs/1909.07817",
+  "arxiv_id": "1909.07817",
+  "snapshot": "3c_Diffusion与HPC_AI/DeepDriveMD.source.html",
+  "authors": [
+    "Lee, Hyungro",
+    "Ma, Heng",
+    "Turilli, Matteo",
+    "Bhowmik, Debsindhu",
+    "Jha, Shantenu",
+    "Ramanathan, Arvind"
+  ],
+  "date": "2019/09/17",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/1909.07817",
+  "pdf_status": "downloaded",
+  "pdf_file": "3c_Diffusion与HPC_AI/DeepDriveMD.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/1909.07817",
+  "bytes": 1109617,
+  "sha256": "87eb2405e77ff78843088d40a3bfc81637b53a35d770cde375cb7e32816bfa60",
+  "pages": 9
+}

@@ -1,0 +1,33 @@
+{
+  "id": "JITServe",
+  "group": "4c",
+  "reading_note": "请求信息不精确时的SLO感知服务。",
+  "priority": "前沿",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "JITServe: SLO-aware LLM Serving with Imprecise Request Information",
+  "url": "https://www.usenix.org/conference/nsdi26/presentation/zhang-wei",
+  "arxiv_id": "",
+  "snapshot": "4c_推理高可用_SLO/JITServe.source.html",
+  "authors": [
+    "Wei Zhang",
+    "Zhiyu Wu",
+    "Yi Mu",
+    "Rui Ning",
+    "Banruo Liu",
+    "Nikhil Sarda",
+    "Myungjin Lee",
+    "Fan Lai"
+  ],
+  "date": "2026",
+  "doi": "",
+  "venue": "23rd USENIX Symposium on Networked Systems Design and Implementation (NSDI 26)",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://www.usenix.org/system/files/nsdi26-zhang-wei.pdf",
+  "pdf_status": "downloaded",
+  "pdf_file": "4c_推理高可用_SLO/JITServe.pdf",
+  "pdf_final_url": "https://www.usenix.org/system/files/nsdi26-zhang-wei.pdf",
+  "bytes": 935312,
+  "sha256": "959b70c2d6b5679169d43225df0d43ea7bae8e2c046e9d442aa41f05b0dee3e2",
+  "pages": 25
+}

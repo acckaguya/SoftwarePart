@@ -1,0 +1,33 @@
+{
+  "id": "Bamboo",
+  "group": "4b",
+  "reading_note": "以冗余计算支持抢占式实例上的容错训练。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Bamboo: Making Preemptible Instances Resilient for Affordable Training of Large DNNs",
+  "url": "https://arxiv.org/abs/2204.12013",
+  "arxiv_id": "2204.12013",
+  "snapshot": "4b_检查点_训练恢复/Bamboo.source.html",
+  "authors": [
+    "Thorpe, John",
+    "Zhao, Pengzhan",
+    "Eyolfson, Jonathan",
+    "Qiao, Yifan",
+    "Jia, Zhihao",
+    "Zhang, Minjia",
+    "Netravali, Ravi",
+    "Xu, Guoqing Harry"
+  ],
+  "date": "2022/04/26",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2204.12013",
+  "pdf_status": "downloaded",
+  "pdf_file": "4b_检查点_训练恢复/Bamboo.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2204.12013",
+  "bytes": 932745,
+  "sha256": "fa17d6302189a33c8869438dfb0764df4eac9fd4b489369e29ab6768adf2f6f4",
+  "pages": 17
+}

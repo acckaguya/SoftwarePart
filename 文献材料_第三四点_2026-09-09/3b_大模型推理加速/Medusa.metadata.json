@@ -1,0 +1,32 @@
+{
+  "id": "Medusa",
+  "group": "3b",
+  "reading_note": "多解码头生成候选token以加速推理。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads",
+  "url": "https://arxiv.org/abs/2401.10774",
+  "arxiv_id": "2401.10774",
+  "snapshot": "3b_大模型推理加速/Medusa.source.html",
+  "authors": [
+    "Cai, Tianle",
+    "Li, Yuhong",
+    "Geng, Zhengyang",
+    "Peng, Hongwu",
+    "Lee, Jason D.",
+    "Chen, Deming",
+    "Dao, Tri"
+  ],
+  "date": "2024/01/19",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2401.10774",
+  "pdf_status": "downloaded",
+  "pdf_file": "3b_大模型推理加速/Medusa.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2401.10774",
+  "bytes": 2121059,
+  "sha256": "93d98f2e858c87ee04be440ee81ab8ad93700652ed759227d25fcf75cfdd5ef0",
+  "pages": 27
+}

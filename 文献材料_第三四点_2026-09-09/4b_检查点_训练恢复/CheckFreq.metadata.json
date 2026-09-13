@@ -1,0 +1,28 @@
+{
+  "id": "CheckFreq",
+  "group": "4b",
+  "reading_note": "细粒度检查点、自适应保存频率与计算IO重叠。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "CheckFreq: Frequent, Fine-Grained DNN Checkpointing",
+  "url": "https://www.usenix.org/conference/fast21/presentation/mohan",
+  "arxiv_id": "",
+  "snapshot": "4b_检查点_训练恢复/CheckFreq.source.html",
+  "authors": [
+    "Jayashree Mohan",
+    "Amar Phanishayee",
+    "Vijay Chidambaram"
+  ],
+  "date": "2021",
+  "doi": "",
+  "venue": "19th USENIX Conference on File and Storage Technologies (FAST 21)",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://www.usenix.org/system/files/fast21-mohan.pdf",
+  "pdf_status": "downloaded",
+  "pdf_file": "4b_检查点_训练恢复/CheckFreq.pdf",
+  "pdf_final_url": "https://www.usenix.org/system/files/fast21-mohan.pdf",
+  "bytes": 1229866,
+  "sha256": "d2d91864fc3fcbc632ed8e15dc563dc64e33b460347a107d80e36b021f53ca3f",
+  "pages": 15
+}

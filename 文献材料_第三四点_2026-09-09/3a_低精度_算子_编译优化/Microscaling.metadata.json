@@ -1,0 +1,31 @@
+{
+  "id": "Microscaling",
+  "group": "3a",
+  "reading_note": "微缩放格式与多种量化方法组合。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Post Training Quantization of Large Language Models with Microscaling Formats",
+  "url": "https://arxiv.org/abs/2405.07135",
+  "arxiv_id": "2405.07135",
+  "snapshot": "3a_低精度_算子_编译优化/Microscaling.source.html",
+  "authors": [
+    "Sharify, Sayeh",
+    "Saxena, Utkarsh",
+    "Xu, Zifei",
+    "Yazar, Wanzin",
+    "Soloveychik, Ilya",
+    "Wang, Xin"
+  ],
+  "date": "2024/05/12",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2405.07135",
+  "pdf_status": "downloaded",
+  "pdf_file": "3a_低精度_算子_编译优化/Microscaling.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2405.07135",
+  "bytes": 470263,
+  "sha256": "0f054bba77fa1ff693fcc4acdc0c99475cf51c6dd8ad02641da17e0189f2eb1f",
+  "pages": 18
+}

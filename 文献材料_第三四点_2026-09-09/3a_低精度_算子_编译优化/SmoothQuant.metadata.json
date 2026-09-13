@@ -1,0 +1,31 @@
+{
+  "id": "SmoothQuant",
+  "group": "3a",
+  "reading_note": "通过平滑激活离群值实现权重与激活量化。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "SmoothQuant: Accurate and Efficient Post-Training Quantization for Large Language Models",
+  "url": "https://arxiv.org/abs/2211.10438",
+  "arxiv_id": "2211.10438",
+  "snapshot": "3a_低精度_算子_编译优化/SmoothQuant.source.html",
+  "authors": [
+    "Xiao, Guangxuan",
+    "Lin, Ji",
+    "Seznec, Mickael",
+    "Wu, Hao",
+    "Demouth, Julien",
+    "Han, Song"
+  ],
+  "date": "2022/11/18",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2211.10438",
+  "pdf_status": "downloaded",
+  "pdf_file": "3a_低精度_算子_编译优化/SmoothQuant.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2211.10438",
+  "bytes": 5378996,
+  "sha256": "d17856490ff664a99f8d08fe76eabd83219ed048cd1bc18ce3d0571e71056ff8",
+  "pages": 13
+}

@@ -1,0 +1,31 @@
+{
+  "id": "FP8PTQ",
+  "group": "3a",
+  "reading_note": "FP8格式的训练后量化。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Efficient Post-training Quantization with FP8 Formats",
+  "url": "https://arxiv.org/abs/2309.14592",
+  "arxiv_id": "2309.14592",
+  "snapshot": "3a_低精度_算子_编译优化/FP8PTQ.source.html",
+  "authors": [
+    "Shen, Haihao",
+    "Mellempudi, Naveen",
+    "He, Xin",
+    "Gao, Qun",
+    "Wang, Chang",
+    "Wang, Mengni"
+  ],
+  "date": "2023/09/26",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2309.14592",
+  "pdf_status": "downloaded",
+  "pdf_file": "3a_低精度_算子_编译优化/FP8PTQ.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2309.14592",
+  "bytes": 4799516,
+  "sha256": "aa93c1dbd46a83b2a75643e109ee4f06104474d83cd2fa012c3a8035a652deac",
+  "pages": 16
+}

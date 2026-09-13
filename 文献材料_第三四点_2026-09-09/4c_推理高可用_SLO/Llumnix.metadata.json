@@ -1,0 +1,32 @@
+{
+  "id": "Llumnix",
+  "group": "4c",
+  "reading_note": "请求与KV状态迁移、动态负载均衡；与崩溃恢复区分。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Llumnix: Dynamic Scheduling for Large Language Model Serving",
+  "url": "https://arxiv.org/abs/2406.03243",
+  "arxiv_id": "2406.03243",
+  "snapshot": "4c_推理高可用_SLO/Llumnix.source.html",
+  "authors": [
+    "Sun, Biao",
+    "Huang, Ziming",
+    "Zhao, Hanyu",
+    "Xiao, Wencong",
+    "Zhang, Xinyi",
+    "Li, Yong",
+    "Lin, Wei"
+  ],
+  "date": "2024/06/05",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2406.03243",
+  "pdf_status": "downloaded",
+  "pdf_file": "4c_推理高可用_SLO/Llumnix.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2406.03243",
+  "bytes": 1770503,
+  "sha256": "c76d726aced3e5d24920b10259938922d37ebcb3b8d80b89d9bb9550e4bdf97a",
+  "pages": 19
+}

@@ -1,0 +1,26 @@
+{
+  "id": "FlashAttention2",
+  "group": "3a",
+  "reading_note": "注意力算子的工作划分与并行优化。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning",
+  "url": "https://arxiv.org/abs/2307.08691",
+  "arxiv_id": "2307.08691",
+  "snapshot": "3a_低精度_算子_编译优化/FlashAttention2.source.html",
+  "authors": [
+    "Dao, Tri"
+  ],
+  "date": "2023/07/17",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2307.08691",
+  "pdf_status": "downloaded",
+  "pdf_file": "3a_低精度_算子_编译优化/FlashAttention2.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2307.08691",
+  "bytes": 1660578,
+  "sha256": "4aa8935dfacaf6ae8c68f772ca92f730154a0dd0e1bceeb59c7bc56c512d5868",
+  "pages": 14
+}

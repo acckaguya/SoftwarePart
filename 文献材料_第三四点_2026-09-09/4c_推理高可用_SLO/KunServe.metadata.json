@@ -1,0 +1,30 @@
+{
+  "id": "KunServe",
+  "group": "4c",
+  "reading_note": "以参数为中心的内存管理，处理推理服务内存过载。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "KunServe: Parameter-centric Memory Management for Efficient Memory Overloading Handling in LLM Serving",
+  "url": "https://arxiv.org/abs/2412.18169",
+  "arxiv_id": "2412.18169",
+  "snapshot": "4c_推理高可用_SLO/KunServe.source.html",
+  "authors": [
+    "Cheng, Rongxin",
+    "Lai, Yuxin",
+    "Wei, Xingda",
+    "Chen, Rong",
+    "Chen, Haibo"
+  ],
+  "date": "2024/12/24",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2412.18169",
+  "pdf_status": "downloaded",
+  "pdf_file": "4c_推理高可用_SLO/KunServe.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2412.18169",
+  "bytes": 1905568,
+  "sha256": "49f766c0e90c92fb449ba1b6623236f9682204645ee25d611213e1e613ea87a9",
+  "pages": 17
+}

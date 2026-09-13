@@ -1,0 +1,29 @@
+{
+  "id": "ConsistencyModels",
+  "group": "3c",
+  "reading_note": "一致性模型与少步生成。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Consistency Models",
+  "url": "https://arxiv.org/abs/2303.01469",
+  "arxiv_id": "2303.01469",
+  "snapshot": "3c_Diffusion与HPC_AI/ConsistencyModels.source.html",
+  "authors": [
+    "Song, Yang",
+    "Dhariwal, Prafulla",
+    "Chen, Mark",
+    "Sutskever, Ilya"
+  ],
+  "date": "2023/03/02",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2303.01469",
+  "pdf_status": "downloaded",
+  "pdf_file": "3c_Diffusion与HPC_AI/ConsistencyModels.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2303.01469",
+  "bytes": 31529980,
+  "sha256": "b36df36eb96abcad5ad67173952258c34f2ba0624c15acaaf38bebf855074043",
+  "pages": 42
+}

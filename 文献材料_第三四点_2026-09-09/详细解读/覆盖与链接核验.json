@@ -1,0 +1,185 @@
+{
+  "knowledge_points": 35,
+  "chapters": 6,
+  "distinct_local_paper_references": 70,
+  "local_and_web_citation_links": 109,
+  "broken_local_links": [],
+  "chinese_characters": 18017,
+  "units": [
+    {
+      "id": "3a.1",
+      "title": "FP16、BF16与FP8混合精度训练",
+      "chapter": "01_3a_低精度算子与编译优化.md"
+    },
+    {
+      "id": "3a.2",
+      "title": "INT8、INT4与FP8推理量化",
+      "chapter": "01_3a_低精度算子与编译优化.md"
+    },
+    {
+      "id": "3a.3",
+      "title": "算子融合",
+      "chapter": "01_3a_低精度算子与编译优化.md"
+    },
+    {
+      "id": "3a.4",
+      "title": "注意力算子优化",
+      "chapter": "01_3a_低精度算子与编译优化.md"
+    },
+    {
+      "id": "3a.5",
+      "title": "计算图编译",
+      "chapter": "01_3a_低精度算子与编译优化.md"
+    },
+    {
+      "id": "3a.6",
+      "title": "自动调优",
+      "chapter": "01_3a_低精度算子与编译优化.md"
+    },
+    {
+      "id": "3b.1",
+      "title": "请求进入、Prefill、KV Cache、Decode与输出",
+      "chapter": "02_3b_大模型推理加速.md"
+    },
+    {
+      "id": "3b.2",
+      "title": "Continuous batching：连续批处理",
+      "chapter": "02_3b_大模型推理加速.md"
+    },
+    {
+      "id": "3b.3",
+      "title": "Paged KV Cache：分页KV缓存",
+      "chapter": "02_3b_大模型推理加速.md"
+    },
+    {
+      "id": "3b.4",
+      "title": "Prefix caching：前缀缓存",
+      "chapter": "02_3b_大模型推理加速.md"
+    },
+    {
+      "id": "3b.5",
+      "title": "PD disaggregation：Prefill与Decode分离",
+      "chapter": "02_3b_大模型推理加速.md"
+    },
+    {
+      "id": "3b.6",
+      "title": "Speculative decoding：推测解码",
+      "chapter": "02_3b_大模型推理加速.md"
+    },
+    {
+      "id": "3c.1",
+      "title": "Diffusion多步采样与步数压缩",
+      "chapter": "03_3c_Diffusion与HPC_AI优化.md"
+    },
+    {
+      "id": "3c.2",
+      "title": "蒸馏与一致性模型",
+      "chapter": "03_3c_Diffusion与HPC_AI优化.md"
+    },
+    {
+      "id": "3c.3",
+      "title": "跨步特征复用与缓存",
+      "chapter": "03_3c_Diffusion与HPC_AI优化.md"
+    },
+    {
+      "id": "3c.4",
+      "title": "AI代理模型加速或替代数值求解",
+      "chapter": "03_3c_Diffusion与HPC_AI优化.md"
+    },
+    {
+      "id": "3c.5",
+      "title": "仿真—训练—推理混合工作流编排",
+      "chapter": "03_3c_Diffusion与HPC_AI优化.md"
+    },
+    {
+      "id": "4a.1",
+      "title": "性能剖析工具与多层可观测性",
+      "chapter": "04_4a_集群监控与故障诊断.md"
+    },
+    {
+      "id": "4a.2",
+      "title": "慢卡：设备仍工作但性能下降",
+      "chapter": "04_4a_集群监控与故障诊断.md"
+    },
+    {
+      "id": "4a.3",
+      "title": "慢链路：通信瓶颈与根因定位",
+      "chapter": "04_4a_集群监控与故障诊断.md"
+    },
+    {
+      "id": "4a.4",
+      "title": "落后者定位：从症状找到关键路径",
+      "chapter": "04_4a_集群监控与故障诊断.md"
+    },
+    {
+      "id": "4a.5",
+      "title": "主动隔离与健康状态闭环",
+      "chapter": "04_4a_集群监控与故障诊断.md"
+    },
+    {
+      "id": "4b.1",
+      "title": "分布式检查点",
+      "chapter": "05_4b_检查点与训练恢复.md"
+    },
+    {
+      "id": "4b.2",
+      "title": "异步检查点",
+      "chapter": "05_4b_检查点与训练恢复.md"
+    },
+    {
+      "id": "4b.3",
+      "title": "增量检查点与保存频率",
+      "chapter": "05_4b_检查点与训练恢复.md"
+    },
+    {
+      "id": "4b.4",
+      "title": "原地重启与局部恢复",
+      "chapter": "05_4b_检查点与训练恢复.md"
+    },
+    {
+      "id": "4b.5",
+      "title": "热备节点替换",
+      "chapter": "05_4b_检查点与训练恢复.md"
+    },
+    {
+      "id": "4b.6",
+      "title": "变规模训练与弹性恢复",
+      "chapter": "05_4b_检查点与训练恢复.md"
+    },
+    {
+      "id": "4c.1",
+      "title": "高可用、SLO与有效吞吐",
+      "chapter": "06_4c_在线推理高可用与SLO.md"
+    },
+    {
+      "id": "4c.2",
+      "title": "实例故障转移",
+      "chapter": "06_4c_在线推理高可用与SLO.md"
+    },
+    {
+      "id": "4c.3",
+      "title": "KV状态迁移",
+      "chapter": "06_4c_在线推理高可用与SLO.md"
+    },
+    {
+      "id": "4c.4",
+      "title": "KV状态重建与复制恢复",
+      "chapter": "06_4c_在线推理高可用与SLO.md"
+    },
+    {
+      "id": "4c.5",
+      "title": "请求重调度",
+      "chapter": "06_4c_在线推理高可用与SLO.md"
+    },
+    {
+      "id": "4c.6",
+      "title": "过载保护",
+      "chapter": "06_4c_在线推理高可用与SLO.md"
+    },
+    {
+      "id": "4c.7",
+      "title": "服务降级",
+      "chapter": "06_4c_在线推理高可用与SLO.md"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "EAGLE",
+  "group": "3b",
+  "reading_note": "基于特征预测的推测解码。",
+  "priority": "扩展",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty",
+  "url": "https://arxiv.org/abs/2401.15077",
+  "arxiv_id": "2401.15077",
+  "snapshot": "3b_大模型推理加速/EAGLE.source.html",
+  "authors": [
+    "Li, Yuhui",
+    "Wei, Fangyun",
+    "Zhang, Chao",
+    "Zhang, Hongyang"
+  ],
+  "date": "2024/01/26",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2401.15077",
+  "pdf_status": "downloaded",
+  "pdf_file": "3b_大模型推理加速/EAGLE.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2401.15077",
+  "bytes": 1865998,
+  "sha256": "3484aad4d255ac8ff3ebbb0df9f3b2fdb222145923f59ad25727812f4748a0f4",
+  "pages": 13
+}

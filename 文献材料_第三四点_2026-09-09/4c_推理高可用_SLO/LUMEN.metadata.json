@@ -1,0 +1,31 @@
+{
+  "id": "LUMEN",
+  "group": "4c",
+  "reading_note": "协调检查点放置、受影响请求分配与服务容量恢复。",
+  "priority": "前沿",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "LUMEN: Coordinated Failure Recovery for Distributed LLM Serving",
+  "url": "https://arxiv.org/abs/2606.17787",
+  "arxiv_id": "2606.17787",
+  "snapshot": "4c_推理高可用_SLO/LUMEN.source.html",
+  "authors": [
+    "Cao, Zhang",
+    "Han, Shujie",
+    "Zhang, Juncheng",
+    "Ren, Yuanming",
+    "Li, Yongkun",
+    "Lee, Patrick P. C."
+  ],
+  "date": "2026/06/16",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2606.17787",
+  "pdf_status": "downloaded",
+  "pdf_file": "4c_推理高可用_SLO/LUMEN.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2606.17787",
+  "bytes": 968894,
+  "sha256": "9258028411f57d8cf1ecff9f8f06564695138ddda188f66cfabfe8dfabbfe97d",
+  "pages": 15
+}

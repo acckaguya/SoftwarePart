@@ -1,0 +1,33 @@
+{
+  "id": "SarathiServe",
+  "group": "3b",
+  "reading_note": "分块Prefill与减小解码停顿的批调度。",
+  "priority": "必读",
+  "accessed": "2026-09-09",
+  "kind": "paper",
+  "title": "Taming Throughput-Latency Tradeoff in LLM Inference with Sarathi-Serve",
+  "url": "https://arxiv.org/abs/2403.02310",
+  "arxiv_id": "2403.02310",
+  "snapshot": "3b_大模型推理加速/SarathiServe.source.html",
+  "authors": [
+    "Agrawal, Amey",
+    "Kedia, Nitin",
+    "Panwar, Ashish",
+    "Mohan, Jayashree",
+    "Kwatra, Nipun",
+    "Gulavani, Bhargav S.",
+    "Tumanov, Alexey",
+    "Ramjee, Ramachandran"
+  ],
+  "date": "2024/03/04",
+  "doi": "",
+  "venue": "arXiv（下载版本；会议发表信息另查原始页）",
+  "metadata_status": "source_page_verified",
+  "pdf_url": "https://arxiv.org/pdf/2403.02310",
+  "pdf_status": "downloaded",
+  "pdf_file": "3b_大模型推理加速/SarathiServe.pdf",
+  "pdf_final_url": "https://arxiv.org/pdf/2403.02310",
+  "bytes": 1945812,
+  "sha256": "45f59f4474de29baf4d315c785b850625548b69a9bc7be2e036d6fc59f54b54a",
+  "pages": 18
+}
